@@ -35,6 +35,7 @@ class Fastmail
             $this->mailer->Password = $this->config['mail_password'] ?? '';
             $this->mailer->SMTPSecure = $this->config['mail_encryption'] ?? 'tls';
             $this->mailer->Port = $this->config['mail_port'] ?? 587;
+            $this->mailer->CharSet  = $this->config['mail_charset'] ?? 'UTF-8';
 
             // Cấu hình địa chỉ gửi mặc định
             if (!empty($this->config['mail_from_address'])) {
@@ -109,6 +110,6 @@ class Fastmail
     protected function render($template, $data = [])
     {
         // Sử dụng Render để lấy nội dung từ template
-        return Render::component('backend/common/email/'.$template, $data);
+        return Render::component('common/email/'.$template, $data);
     }
 }

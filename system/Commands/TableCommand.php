@@ -55,8 +55,11 @@ class TableCommand {
         foreach ($schema as $column => $attributes) {
             $columns[] = $this->buildColumnTable($column, $attributes);
         }
+        $configdb = config('db');
+        $charset = $configdb['db_charset'] ?? 'utf8mb4';
+        $collate = $configdb['db_collate'] ?? 'utf8mb4_unicode_ci';
 
-        $query = "CREATE TABLE {$table} (" . implode(', ', $columns) . ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+        $query = "CREATE TABLE {$table} (" . implode(', ', $columns) . ") ENGINE=InnoDB DEFAULT CHARSET={$charset} COLLATE={$collate};";
         echo $query;
         $stmt = $this->db->prepare($query);
         $stmt->execute();

@@ -118,14 +118,20 @@ class Router {
     private function getControllerAction($controllerString, $params) {
         list($controller, $action) = explode('::', $controllerString);
         $ic = 1;
-        // Nếu action chứa $1, $2... thì thay thế nó bằng giá trị trong $params
+        // Nếu Controllers chứa $1 thì thay thế nó bằng giá trị trong $params
         if (strpos($controller, '$') !== false && isset($params[0])) {
-            $params[0] = str_replace('.', '', $params[0]);
-            $controller = str_replace('$'.$ic, ucfirst($params[0]), $controller);
+            if (strpos($params[0], '/') !== false) {
+                list($controllerValue, $remaining) = explode('/', $params[0], 2);
+                $controllerValue = str_replace('.', '', $controllerValue);
+                $controller = str_replace('$'.$ic, ucfirst($controllerValue), $controller);
+                $params[0] = $remaining;
+            }else{
+                $params[0] = str_replace('.', '', $params[0]);
+                $controller = str_replace('$'.$ic, ucfirst($params[0]), $controller);
+                array_shift($params); // Loại bỏ giá trị đã được sử dụng cho action khỏi $params
+            }
             $ic++;
-            array_shift($params); // Loại bỏ giá trị đã được sử dụng cho action khỏi $params
         }
-
         // Nếu action chứa $1, $2... thì thay thế nó bằng giá trị trong $params
         if (strpos($action, '$') !== false) {
             $actionParts = explode(':', $action);
@@ -133,8 +139,16 @@ class Router {
 
             // Nếu $1 xuất hiện trong actionName, nó đại diện cho tên action
             if (strpos($actionName, '$'.$ic) !== false && isset($params[0])) {
-                $actionName = str_replace('$'.$ic, $params[0], $actionName);
-                array_shift($params); // Loại bỏ giá trị đã được sử dụng cho action khỏi $params
+                // Kiểm tra nếu $params[0] có chứa dấu "/"
+                if (strpos($params[0], '/') !== false) {
+                    list($actionValue, $remaining) = explode('/', $params[0], 2);
+                    $actionName = str_replace('$'.$ic, $actionValue, $actionName);
+                    // Đặt phần còn lại trở lại $params[0]
+                    $params[0] = $remaining;
+                }else{
+                    $actionName = str_replace('$'.$ic, $params[0], $actionName);
+                    array_shift($params); // Loại bỏ giá trị đã được sử dụng cho action khỏi $params
+                }
                 $ic++;
             }
             // Thay thế các $2, $3,... bằng giá trị tương ứng trong $params còn lại

@@ -3,7 +3,7 @@
 return [
     // Cấu hình ứng dụng
     'app' => [
-        'debug' => true,
+        'debug' => false,
         'environment' => 'development',
         'app_url' => 'https://phpfast.net/',
         'app_name' => 'phpfast',
@@ -21,17 +21,20 @@ return [
         'db_username' => 'root',
         'db_password' => '',
         'db_database' => 'phpfast.net',
-        'db_charset'  => 'utf8mb4'
+        'db_charset'  => 'utf8mb4',
+        'db_collate'  => 'utf8mb4_unicode_ci',
+
     ],
     'email' => [
         'mail_mailer' => 'smtp',
-        'mail_host' => 'smtp.mailtrap.io',
-        'mail_port' => 2525,
-        'mail_username' => '',
-        'mail_password' => '',
+        'mail_host' => 'smtp.gmail.com',
+        'mail_port' => 587,
+        'mail_username' => 'baonamhd1@gmail.com',
+        'mail_password' => 'kgafazfrsrbslbiw',
         'mail_encryption' => 'tls',
-        'mail_from_address' => '',
-        'mail_from_name' => 'phpfast',
+        'mail_charset'  =>  'UTF-8',
+        'mail_from_address' => 'baonamhd1@gmail.com',
+        'mail_from_name' => 'PHPFast.net',
     ],
     'cache' => [
         'cache_driver' => 'redis',

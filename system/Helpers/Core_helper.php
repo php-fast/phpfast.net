@@ -39,6 +39,10 @@ function load_helpers(array $helpers = []) {
     }
 }
 
+function DateTime() {
+    return date('Y-m-d H:i:s');
+}
+
 /**
  * Hàm version_php
  * Lấy ra phiên bản PHP hiện tại
@@ -127,13 +131,16 @@ function json_response($data, $status_code = 200) {
  * @param mixed $default Giá trị mặc định nếu không tìm thấy cấu hình
  * @return mixed Giá trị của cấu hình hoặc giá trị mặc định
  */
-function config($key) {
+function config($key = '', $file = 'Config') {
     static $config;
-
+    $file = ucfirst($file);
     if (!$config) {
-        $config = require ROOT_PATH . '/application/Config/Config.php';
+        $config = array();
     }
-    return $config[$key] ?? null;
+    if (!isset($config[$file])) {
+        $config[$file] = require ROOT_PATH . '/application/Config/'.ucfirst($file).'.php';
+    }
+    return $config[$file][$key] ?? null;
 }
 
 /**

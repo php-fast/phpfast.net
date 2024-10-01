@@ -60,9 +60,13 @@ abstract class BaseModel {
      * @return array Dữ liệu đã lọc
      */
     protected function fill($data) {
-        return array_filter($data, function ($key) {
-            return in_array($key, $this->fillable) && !in_array($key, $this->guarded);
-        }, ARRAY_FILTER_USE_KEY);
+        try{
+            return array_filter($data, function ($key) {
+                return in_array($key, $this->fillable) && !in_array($key, $this->guarded);
+            }, ARRAY_FILTER_USE_KEY);
+        } catch (\Throwable $e) {
+            throw new AppException("Fill Data Error: ".$e->getMessage()."<br /><b>".json_encode($data)."</b>", 500);
+        }
     }
 
     /**
@@ -110,7 +114,10 @@ abstract class BaseModel {
      * @return bool Thành công hoặc thất bại
      */
     public function add($table, $data) {
-        return $this->db->insert($table, $data);
+        if ($this->db->insert($table, $data)){
+            return $this->lastInsertId();
+        }
+        return null;
     }
 
     /**

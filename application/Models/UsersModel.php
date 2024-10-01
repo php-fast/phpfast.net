@@ -7,7 +7,7 @@ class UsersModel extends BaseModel {
     protected $table = 'fast_users';
 
     // Các cột được phép thêm hoặc sửa
-    protected $fillable = ['username', 'email', 'password', 'fullname', 'avatar', 'role', 'permissions', 'status'];
+    protected $fillable = ['username', 'email', 'password', 'fullname', 'avatar', 'role', 'permissions', 'optional', 'status'];
 
     // Các cột không được phép sửa
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -26,7 +26,7 @@ class UsersModel extends BaseModel {
                 'null' => false
             ],
             'username' => [
-                'type' => 'varchar(100)',
+                'type' => 'varchar(40)',
                 'key' => 'unique',
                 'null' => false
             ],
@@ -45,7 +45,7 @@ class UsersModel extends BaseModel {
                 'default' => ''
             ],
             'avatar' => [
-                'type' => 'varchar(150)',
+                'type' => 'varchar(255)',
                 'null' => true,
                 'default' => ''
             ],
@@ -54,6 +54,10 @@ class UsersModel extends BaseModel {
                 'null' => false
             ],
             'permissions' => [
+                'type' => 'json',
+                'null' => true
+            ],
+            'optional' => [
                 'type' => 'json',
                 'null' => true
             ],
@@ -148,5 +152,15 @@ class UsersModel extends BaseModel {
      */
     public function deleteUser($id) {
         return $this->del($this->table, 'id = ?', [$id]);
+    }
+
+    // Kiểm tra trùng lặp username
+    public function isUsernameExists($username) {
+        return $this->row($this->table, 'username = ?', [$username]) !== false;
+    }
+
+    // Kiểm tra trùng lặp email
+    public function isEmailExists($email) {
+        return $this->row($this->table, 'email = ?', [$email]) !== false;
     }
 }

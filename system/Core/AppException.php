@@ -70,8 +70,8 @@ class AppException extends Exception {
             echo "<p>Trace: <pre>{$this->getTraceAsString()}</pre></p>";
         } else {
             // Hiển thị thông báo chung nếu chế độ debug tắt
-            echo "<h1>Oops! Something went wrong.</h1>";
-            echo "<p>We're experiencing technical difficulties. Please try again later.</p>";
+            echo "<h1>Error {$this->statusCode}! Something went wrong.</h1>";
+            echo "<p>{$this->getMessage()}</p>";
         }
         exit(); // Ngừng thực thi tiếp
     }

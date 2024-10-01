@@ -27,7 +27,7 @@ class FilesCache extends Cache {
     public function get($key) {
         $cacheFile = $this->cacheDir . md5($key);
         if (file_exists($cacheFile)) {
-            $data = json_decode(file_get_contents($cacheFile), true);
+            $data = @json_decode(file_get_contents($cacheFile), true);
             if ($data['expiry'] > time()) {
                 return unserialize($data['value']);
             }
@@ -38,7 +38,7 @@ class FilesCache extends Cache {
 
     public function delete($key) {
         $cacheFile = $this->cacheDir . md5($key);
-        return file_exists($cacheFile) ? unlink($cacheFile) : false;
+        return file_exists($cacheFile) ? @unlink($cacheFile) : false;
     }
 
     public function has($key) {
@@ -49,7 +49,7 @@ class FilesCache extends Cache {
     public function clear() {
         $files = glob($this->cacheDir . '*');
         foreach ($files as $file) {
-            unlink($file);
+            @unlink($file);
         }
         return true;
     }

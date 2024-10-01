@@ -24,9 +24,14 @@ $routes->delete('product/delete/(:num)', 'ProductController::delete/$1');
 //     \App\Middleware\AuthMiddleware::class,
 //     \App\Middleware\PermissionMiddleware::class
 // ]);
+$routes->get('admin/auth/logout', 'Backend\AuthController::logout',[\App\Middleware\AuthMiddleware::class]);
+$routes->get('admin/auth/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
+$routes->post('admin/auth/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
+$routes->get('admin/auth/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
+$routes->post('admin/auth/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 
 
-$routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2');
-$routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2');
-$routes->get('admin/(:any)', 'Backend\$1Controller::index');
-$routes->get('admin', 'Backend\AuthController::index');
+$routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->get('admin/(:any)', 'Backend\$1Controller::index',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->get('admin', 'Backend\AuthController::index',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);

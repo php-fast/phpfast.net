@@ -70,6 +70,11 @@ class Session {
         return isset($_SESSION[$key]);
     }
 
+    public static function has_flash($key) {
+        self::start();
+        return isset($_SESSION['flash']) && isset($_SESSION['flash'][$key]);
+    }
+
     /**
      * Tạo một thông báo tạm thời (flash data). Neu khong truyen value thi no se la get flash data
      * Dữ liệu này sẽ chỉ tồn tại trong request tiếp theo và bị xóa sau đó
@@ -86,9 +91,15 @@ class Session {
                 $value = $_SESSION['flash'][$key];
                 if ($value['expires'] > time()){
                     unset($_SESSION['flash'][$key]);
+                    if (empty($_SESSION['flash'])){
+                        unset($_SESSION['flash']);
+                    }
                     return $value['data'];
                 }
                 unset($_SESSION['flash'][$key]);
+                if (empty($_SESSION['flash'])){
+                    unset($_SESSION['flash']);
+                }
             }
             return null;
         }
@@ -131,7 +142,7 @@ class Session {
             $_SESSION['csrf_tokens'][$csrfId]['expires'] = time() + $expired;
             return $csrfId . '::' . $_SESSION['csrf_tokens'][$csrfId]['token'];
         }else{
-            $csrfToken = bin2hex(random_bytes(32)); // Tạo token ngẫu nhiên
+            $csrfToken = random_string(32); // Tạo token ngẫu nhiên
             // Lưu token vào session với thời gian hết hạn (30 minutes default expired)
             $_SESSION['csrf_tokens'][$csrfId] = [
                 'token' => $csrfToken,
@@ -164,6 +175,9 @@ class Session {
         if ($storedTokenData['token'] === $csrfToken && $storedTokenData['expires'] >= time()) {
             // Xóa token sau khi xác thực thành công để tránh dùng lại
             unset($_SESSION['csrf_tokens'][$csrfId]);
+            if (empty($_SESSION['csrf_tokens'])){
+                unset($_SESSION['csrf_tokens']);
+            }
             return true;
         }
         return false;
@@ -183,6 +197,9 @@ class Session {
             if ($tokenData['expires'] < time()) {
                 unset($_SESSION['csrf_tokens'][$csrfId]);
             }
+        }
+        if (empty($_SESSION['csrf_tokens'])){
+            unset($_SESSION['csrf_tokens']);
         }
     }
 }
