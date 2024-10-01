@@ -1,21 +1,19 @@
 <?php
 return [
     'admin' => [
-        'dashboard' => ['view', 'edit', 'delete'],
-        'users' => ['view', 'edit', 'create', 'delete'],
-        'posts' => ['view', 'edit', 'create', 'delete'],
-        'settings' => ['view', 'edit'],
+        'Backend\Dashboard' => ["index", 'edit', 'delete'],
+        'Backend\Users' => ["index", 'edit', 'create', 'delete'],
+        'Backend\Posts' => ["index", 'edit', 'create', 'delete'],
+        'Backend\Options' => ["index", 'edit'],
     ],
     'moderator' => [
-        'dashboard' => ['view'],
-        'users' => ['view', 'edit'],
-        'posts' => ['view', 'edit', 'create'],
+        'Backend\Dashboarddashboard' => ["index",],
+        'Backend\Users' => ["index", 'edit'],
+        'Backend\Posts' => ["index",'edit', 'create'],
     ],
     'author' => [
-        'posts' => ['view', 'create', 'edit'],
+        'Backend\Posts' => ["index",'create', 'edit'],
     ],
-    'member' => [
-        'posts' => ['view'],
-    ],
+    'member' => [],
     // Thêm các roles khác tùy theo yêu cầu
 ];

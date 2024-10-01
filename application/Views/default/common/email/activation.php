@@ -6,6 +6,8 @@
     <p style="text-align: center;">
         <a href="<?php echo $activation_link; ?>" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">Activate Account</a>
     </p>
+    <p>Or enter activation code for verify account:</p>
+    <p><center><h3><?php echo $activation_no; ?></h3></center></p>
     <p>If you did not sign up for this account, please ignore this email.</p>
 </div>
 <?php include '_footer.php'; ?>

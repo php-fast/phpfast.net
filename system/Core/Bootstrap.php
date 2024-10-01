@@ -20,6 +20,15 @@ class Bootstrap {
         if (!empty($appConfig['app_timezone'])) {
             date_default_timezone_set($appConfig['app_timezone']);
         }
+        if (!empty($appConfig['debug']) && $appConfig['debug']) {
+            ini_set('display_startup_errors', 1);
+            ini_set('display_errors', 1);
+            error_reporting(-1);
+        }else{
+            ini_set('display_startup_errors', 0);
+            ini_set('display_errors',0);
+            error_reporting(E_ALL & ~E_NOTICE);
+        }
         $this->routes = new Router(); // Tạo instance cho Router
         $this->loadRoutes();          // Load các route
     }
@@ -37,7 +46,7 @@ class Bootstrap {
             $this->dispatch($uri, $method);
         } catch (AppException $e) {
             $e->handle();
-        } catch (Exception $e) {
+        } catch (\Throwable $e) { // Bắt tất cả các ngoại lệ và lỗi
             Logger::error($e->getMessage(), $e->getFile(), $e->getLine());
             http_response_code(500);
             if (!empty(config('app')['debug'])) {
@@ -86,7 +95,9 @@ class Bootstrap {
         }
 
         // Thực thi middleware trước khi gọi controller
-        $middleware->handle($uri, function () use ($route) {
+        unset($route['middleware']);//co the bo qua ham nay neu can dung middleware ben duoi
+        $route['uri'] = $uri;
+        $middleware->handle($route, function () use ($route) {
             // Lấy thông tin controller và phương thức từ route đã khớp
             $controllerClass = $route['controller'];
             $action = $route['action'];

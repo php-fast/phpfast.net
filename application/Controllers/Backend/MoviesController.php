@@ -1,4 +1,5 @@
 <?php
+//Controller tạo nháp đừng quan tâm đến nó, bỏ qua
 namespace App\Controllers\Backend;
 
 use System\Core\BaseController;
