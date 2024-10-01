@@ -17,7 +17,6 @@ class AuthController extends BaseController
     protected $usersModel;
     protected $assets;
     protected $mailer;
-    protected $t;
 
     public function __construct()
     {
