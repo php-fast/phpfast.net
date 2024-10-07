@@ -19,12 +19,8 @@ class MysqlDriver extends Database {
             $dsn = 'mysql:host=' . $config['db_host'] . ';dbname=' . $config['db_database'] . ';charset=' . $config['db_charset'];
             $this->pdo = new PDO($dsn, $config['db_username'], $config['db_password']);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (AppException $e) {
-            $e->handle();
         } catch (PDOException $e) {
-            Logger::error('Connect MysqlDriver failed: ' . $e->getMessage(), $e->getFile(), $e->getLine());
-            http_response_code(500);
-            echo 'Connect MysqlDriver failed: ' . $e->getMessage() . ' - '. $e->getFile() . ' at Line: '. $e->getLine();
+            throw new \System\Core\AppException("Connect MysqlDriver failed: " . $e->getMessage(), 500);
         }
     }
 
@@ -33,14 +29,10 @@ class MysqlDriver extends Database {
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
-            return $stmt;
-        } catch (AppException $e) {
-            $e->handle();
         } catch (PDOException $e) {
-            Logger::error('Connect MysqlDriver failed: ' . $e->getMessage(), $e->getFile(), $e->getLine());
-            http_response_code(500);
-            echo '->query: ' . $e->getMessage(), $e->getFile(), $e->getLine();
+            throw new \System\Core\AppException("MysqlDriver->query(): " . $e->getMessage(), 500);
         }
+        return $stmt;
     }
 
     // Lấy ID của bản ghi vừa chèn
@@ -54,8 +46,12 @@ class MysqlDriver extends Database {
         if ($where) {
             $query .= " WHERE {$where}";
         }
-        $stmt = $this->query($query, $params);
-        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->query($query, $params);
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->count(): " . $e->getMessage(), 500);
+        }
         return $result['count'] ?? 0;
     }
 
@@ -107,8 +103,13 @@ class MysqlDriver extends Database {
                 $sql .= " OFFSET {$offset}";
             }
         }
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($params);
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->fetchAll(): " . $e->getMessage(), 500);
+        }
+        
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -188,13 +189,17 @@ class MysqlDriver extends Database {
      * Thực thi truy vấn UPDATE
      */
     public function update($table, $data, $where = '', $params = []) {
-        $set = implode(' = ?, ', array_keys($data)) . ' = ?';
-        $sql = "UPDATE {$table} SET {$set}";
-        if ($where) {
-            $sql .= " WHERE {$where}";
+        try {
+            $set = implode(' = ?, ', array_keys($data)) . ' = ?';
+            $sql = "UPDATE {$table} SET {$set}";
+            if ($where) {
+                $sql .= " WHERE {$where}";
+            }
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute(array_merge(array_values($data), $params));
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->update(): " . $e->getMessage(), 500);
         }
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(array_merge(array_values($data), $params));
     }
 
     /**
