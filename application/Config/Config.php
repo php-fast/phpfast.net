@@ -3,7 +3,7 @@
 return [
     // Cấu hình ứng dụng
     'app' => [
-        'debug' => false,
+        'debug' => true,
         'environment' => 'development',
         'app_url' => 'https://phpfast.net/',
         'app_name' => 'phpfast',
