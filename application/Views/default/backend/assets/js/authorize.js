@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-//$(document).ready(function () {
+$(document).ready(function () {
   // Function to show/hide password
   const showHidePass = function () {
     $("#togglePassword").on("click", function () {
@@ -27,19 +26,14 @@ document.addEventListener('DOMContentLoaded', function () {
     $("#openModal").on("click", function (e) {
       e.preventDefault();
       const button = $(this);
-      if (button.hasClass('loading')){
-        return;
-      }
-      //button.addClass("loading");
+      button.addClass("loading");
 
-      $(this).submit();
-
-      /* //hien 2fa
       setTimeout(function () {
         $("#modal").removeClass("hidden");
+
+        // Use the stored reference
         button.removeClass("loading");
       }, 3000);
-      */
     });
   };
 

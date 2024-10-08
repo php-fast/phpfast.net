@@ -1,3 +1,14 @@
+<?php
+use System\Libraries\Session;
+use App\Libraries\Fastlang as Flang;
+if (Session::has_flash('success')){
+    $success = Session::flash('success');
+}
+if (Session::has_flash('error')){
+    $error = Session::flash('error');
+}
+?>
+
 <div class="page-wrapper">
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/3">
@@ -112,7 +123,7 @@
             <div class="font-semibold text-2xl leading-8 text-white mb-3">
               Ready to Boost Your Campaigns?
             </div>
-            <div class="leading-6 text-white mb-10">
+            <div class="greating leading-6 text-white mb-10">
               Log in to access your dashboard, track performance, and optimize
               your ads for maximum impact.
             </div>
@@ -270,7 +281,7 @@
           </div>
         </div>
         <div class="w-full p-3 md:w-2/3 md:p-12">
-          <div class="w-full h-full bg-white flex items-center justify-center">
+          <div class="authorize-form w-full h-full bg-white flex items-center justify-center">
             <div class="w-full max-w-[470px] p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="font-semibold text-2xl leading-8 text-gray-900">
                 Forgot password?
@@ -278,7 +289,7 @@
               <form
                 name="forgotPasssForm"
                 class="space-y-4 md:space-y-6"
-                action="#"
+                action="<?= admin_url('auth/forgot') ?>"
               >
                 <div class="fieldset">
                   <label
@@ -297,6 +308,7 @@
                     />
                   </div>
                 </div>
+                <!-- check validate email exsit reset success redirect qua page reset passsword <?= admin_url('auth/reset_password') ?> -->
                 <button type="submit" class="btn btn-primary w-full" disabled>
                   Send recover link
                 </button>
