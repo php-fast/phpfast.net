@@ -2,12 +2,12 @@
 return [
     //common
     'csrf_failed'   =>  'Request CSRF timeout or not valid by double URL request!',
-    'username'  =>  'Tài khoản',
-    'password'  =>  'Mật khẩu',
+    'username'  =>  'Username',
+    'password'  =>  'Password',
 
     //auth
-    'login'    =>  'Đăng nhập',
-    'register' =>  'Đăng ký',
+    'login'    =>  'Login',
+    'register' =>  'Register',
     'forgot_pass'   =>  'Forgot Password',
 
     //login
@@ -27,7 +27,7 @@ return [
     'email_double'  =>  '%1%: Username already exists in the system.',
     'email_invalid'  =>  'Email must be format email@domainemail.etc ',
     'email_empty'    =>  'Email must be enter, can not empty.',
-    'password_length'   =>  'Password length required minimum is %1% characters.',
+    'password_length'   =>  'Password length required is %1% to %2% characters.',
     'password_verify_invalid'   =>  'Password Verify %1% not math with password.',
     'fullname_length'   =>  'Fullname length required is %1% to %2% characters.',
 ];

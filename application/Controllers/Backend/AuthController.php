@@ -83,18 +83,19 @@ class AuthController extends BaseController
 
 
         // Thêm các tệp CS dạng file và inline vao head
-        $this->assets->add('css', 'movies.css', 'head');
+        $this->assets->add('css', 'css/style.css', 'head');
         $this->assets->inline('css', '.highlight { color: red; }', 'head');
         // Thêm các tệp JS dạng file và inline vào head
         $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
-        $this->assets->inline('js', <<<'EOD'
-            console.log("Inline JS at Auth/Login");
-            //alert('Login'); 
-        EOD, 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
+        // $this->assets->inline('js', <<<'EOD'
+        //     console.log("Inline JS at Auth/Login");
+        //     //alert('Login'); 
+        // EOD, 'footer');
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
-        $this->data('footer', 'Trang nay khong can footer');
+        // $this->data('footer', 'Trang nay khong can footer');
         // Gọi layout chính và truyền dữ liệu cùng với các phần render
         $this->render('backend', 'backend/auth/login');
     }
@@ -240,6 +241,12 @@ class AuthController extends BaseController
         $this->data('title', Flang::_e('register_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
 
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->inline('css', '.highlight { color: red; }', 'head');
+        // Thêm các tệp JS dạng file và inline vào head
+        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
+
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
@@ -380,8 +387,32 @@ class AuthController extends BaseController
     }
 
     //Forgot Password
-    public function forgot(){
-        echo 1;
+    public function forgot_password(){
+
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->inline('css', '.highlight { color: red; }', 'head');
+        // Thêm các tệp JS dạng file và inline vào head
+        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
+
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+
+        $this->render('backend', 'backend/auth/forgot_password');
+    }
+
+    public function reset_password() {
+        
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->inline('css', '.highlight { color: red; }', 'head');
+        // Thêm các tệp JS dạng file và inline vào head
+        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
+
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+
+        $this->render('backend', 'backend/auth/reset_password');
     }
 
     // Kiểm tra quyền truy cập (middleware)

@@ -1,0 +1,53 @@
+[2024-10-08 14:41:29] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:41:31] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:41:31] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:41:31] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:41:48] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:41:48] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'http://local.web/' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:17] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:22] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:43] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:44] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:44] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:42:48] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-08 14:43:09] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 14:43:44] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for http failed: nodename nor servname provided, or not known in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-08 15:05:44] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:07:45] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:08:20] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:09:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:14:18] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:23:23] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:23:27] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:23:27] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:23:28] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:40] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:42] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:47] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:47] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:47] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:47] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:24:48] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:25:35] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:26:22] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:26:23] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:29:25] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:29:41] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:30:19] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:30:21] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:30:23] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:32:01] ERROR: Class "Flang" not found in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/auth/login.php on line 276
+[2024-10-08 15:32:01] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:32:15] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:34:22] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:34:35] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:34:47] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 15:50:02] ERROR: Action forgot_password not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 16:17:52] ERROR: Action reset_password%20 not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 16:18:07] ERROR: Action reset_password%20 not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-08 16:18:46] ERROR: Action reset_password%20 not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115

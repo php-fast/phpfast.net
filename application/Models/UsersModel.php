@@ -15,7 +15,7 @@ class UsersModel extends BaseModel {
     /**
      * Định nghĩa cấu trúc bảng với schema builder
      * 
-     * @return array Cấu trúc bảng
+     * @return array Cấu trúc bảngP
      */
     public function _schema() {
         return [
@@ -49,6 +49,11 @@ class UsersModel extends BaseModel {
                 'null' => true,
                 'default' => ''
             ],
+            'phone' => [
+                'type' => 'varchar(10)',
+                'null' => false,
+                'default' => ''
+            ],
             'role' => [
                 'type' => 'enum(\'admin\', \'moderator\', \'author\', \'member\')',
                 'null' => false
@@ -60,6 +65,21 @@ class UsersModel extends BaseModel {
             'optional' => [
                 'type' => 'json',
                 'null' => true
+            ],
+            'telegram' => [
+                'type' => 'varchar(100)',
+                'null' => true,
+                'default' => ''
+            ],
+            'whatsapp' => [
+                'type' => 'varchar(10)',
+                'null' => true,
+                'default' => ''
+            ],
+            'skype' => [
+                'type' => 'varchar(100)',
+                'null' => true,
+                'default' => ''
             ],
             'status' => [
                 'type' => 'enum(\'active\', \'inactive\', \'banned\')',
