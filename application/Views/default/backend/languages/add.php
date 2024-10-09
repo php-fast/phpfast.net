@@ -7,7 +7,7 @@ use System\Libraries\Session;
             <?= Session::flash('error'); ?>
         </div>
     <?php endif; ?>
-    <form method="post" class="space-y-4">
+    <form method="post" action="<?= admin_url('languages/add')?>"class="space-y-4">
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700">Tên ngôn ngữ:</label>
             <input type="text" name="name" id="name" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">

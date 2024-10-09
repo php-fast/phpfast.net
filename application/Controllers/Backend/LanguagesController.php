@@ -35,7 +35,6 @@ class LanguagesController extends BaseController {
             $code = S_POST('code') ?? '';
             $status = S_POST('status') ?? 'inactive';
             $isDefault = isset($_POST['is_default']) ? 1 : 0;
-
             if ($name && $code) {
                 if ($isDefault) {
                     $this->languagesModel->unsetDefaultLanguage(); // Bỏ mặc định cho tất cả ngôn ngữ khác
@@ -47,7 +46,6 @@ class LanguagesController extends BaseController {
                     'status' => $status,
                     'is_default' => $isDefault
                 ]);
-
                 Session::flash('success', 'Ngôn ngữ mới đã được thêm thành công.');
                 redirect(admin_url('languages/index'));
             } else {

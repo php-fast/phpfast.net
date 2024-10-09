@@ -25,6 +25,8 @@ class AuthController extends BaseController
         $this->assets = new Assets();
         Flang::load('auth', LANG);
 
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->add('js', 'jfast.1.1.2.js', 'footer');
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
         $this->data('header', $header);
@@ -54,8 +56,8 @@ class AuthController extends BaseController
                 redirect(admin_url('auth/login'));
             }
             $input = [
-                'username'  =>  S_POST('username') ?? '',
-                'password'  =>  S_POST('password') ?? ''
+                'username'  =>  $_POST['username'] ?? '',
+                'password'  =>  $_POST['password'] ?? ''
             ];
             $rules = [
                 'username' => [
@@ -81,32 +83,24 @@ class AuthController extends BaseController
         $this->data('title', Flang::_e('login_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
 
-
-        // Thêm các tệp CS dạng file và inline vao head
-        $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->inline('css', '.highlight { color: red; }', 'head');
-        // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
-        // $this->assets->inline('js', <<<'EOD'
-        //     console.log("Inline JS at Auth/Login");
-        //     //alert('Login'); 
-        // EOD, 'footer');
+     
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
-
         // $this->data('footer', 'Trang nay khong can footer');
         // Gọi layout chính và truyền dữ liệu cùng với các phần render
         $this->render('backend', 'backend/auth/login');
     }
-
+    
     // Xử lý đăng nhập
     public function _login($input)
     {
         //$2y$10$jJzcVXtMuqC3LKSjtX2I0ulknNZCZmJuP8lIlKBq0vaTWAJYFZamu la admin
         $user = $this->usersModel->getUserByUsername($input['username']);
-        //echo Security::hashPassword($input['password']);die;
+        
+        // echo Security::hashPassword($input['password']);die;
         if ($user && Security::verifyPassword($input['password'], $user['password'])) {
+            die('nguyen');
             if ($user['status'] !== 'active') {
                 Session::flash('error', Flang::_e('users_noactive', $input['username']));
                 redirect(admin_url('auth/login'));
@@ -241,10 +235,7 @@ class AuthController extends BaseController
         $this->data('title', Flang::_e('register_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
 
-        $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->inline('css', '.highlight { color: red; }', 'head');
-        // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
+        // Thêm các tệp JS dạng file và inline vào head 
         $this->assets->add('js', 'js/authorize.js', 'footer');
 
         $this->data('assets_header', $this->assets->header('backend'));
@@ -389,10 +380,7 @@ class AuthController extends BaseController
     //Forgot Password
     public function forgot_password(){
 
-        $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->inline('css', '.highlight { color: red; }', 'head');
         // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
 
         $this->data('assets_header', $this->assets->header('backend'));
@@ -403,10 +391,7 @@ class AuthController extends BaseController
 
     public function reset_password() {
         
-        $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->inline('css', '.highlight { color: red; }', 'head');
         // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'jfast.1.1.0.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
 
         $this->data('assets_header', $this->assets->header('backend'));

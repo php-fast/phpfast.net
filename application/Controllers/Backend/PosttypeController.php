@@ -32,6 +32,7 @@ class PosttypeController extends BaseController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            die(');
             $this->store();
         } else {
             $this->data('csrf_token', Session::csrf_token(600));
@@ -42,12 +43,12 @@ class PosttypeController extends BaseController
     // Lưu Post Type mới vào database
     public function store()
     {
+        
         $data = [
             'name' => $_POST['name'] ?? '',
             'slug' => $_POST['slug'] ?? '',
             'fields' => $_POST['fields'] ?? ''
         ];
-
         $rules = [
             'name' => [
                 'rules' => [Validate::notEmpty(), Validate::length(3, 150)],
