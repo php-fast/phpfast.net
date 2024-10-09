@@ -430,8 +430,8 @@ if (Session::has_flash('error')){
                   >
                   <div class="field password">
                     <input
-                      type="password"
-                      name="password"
+                      type="password" 
+                      name="password_verify"
                       id="password_verify"
                       placeholder="Enter your password verify"
                       class="password_verify"
@@ -526,6 +526,13 @@ if (Session::has_flash('error')){
                           </clipPath>
                         </defs>
                       </svg>
+                      <?php if (!empty($errors['telegram'])): ?>
+                    <div class="text-red-500 mt-2 text-sm">
+                        <?php foreach ($errors['telegram'] as $error): ?>
+                            <p><?= $error; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
                     </div>
                     <div class="field relative">
                       <input
@@ -565,6 +572,13 @@ if (Session::has_flash('error')){
                           </clipPath>
                         </defs>
                       </svg>
+                      <?php if (!empty($errors['skype'])): ?>
+                    <div class="text-red-500 mt-2 text-sm">
+                        <?php foreach ($errors['skype'] as $error): ?>
+                            <p><?= $error; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
                     </div>
                     <div class="field relative">
                       <input
