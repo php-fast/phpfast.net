@@ -197,7 +197,6 @@ if (Session::has_flash('error')){
                       <defs>
                         <linearGradient
                           id="paint0_linear_57_1228"
-                          x1="16"
                           y1="32"
                           x2="16"
                           y2="0"
