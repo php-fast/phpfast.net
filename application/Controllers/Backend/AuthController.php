@@ -144,11 +144,14 @@ class AuthController extends BaseController
                 redirect(admin_url('auth/register'));
             }
             $input = [
-                'username' => S_POST('username'),
-                'email' => S_POST('email'),
-                'password' => S_POST('password'),
-                'password_verify' => S_POST('password_verify'),
-                'fullname' => S_POST('fullname')
+                'username' => $_POST['username'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'password_verify' => $_POST['password_verify'],
+                'phone' => $_POST['phone'],
+                'telegram' => $_POST['telegram'] ?? '',
+                'skype' => $_POST['skype'] ?? '',
+                'whatsapp' => $_POST['whatsapp'] ?? '',
             ];
             $rules = [
                 'username' => [
@@ -171,6 +174,16 @@ class AuthController extends BaseController
                         Flang::_e('email_length', 6, 150)
                     ]
                 ],
+                'phone' => [
+                    'rules' => [
+                        Validate::phone(),
+                        Validate::length(10)
+                    ],
+                    'messages' => [
+                        Flang::_e('phone_invalid'),
+                        Flang::_e('phone_length', 6, 150)
+                    ]
+                ],
                 'password' => [
                     'rules' => [
                         Validate::length(6, 60),
@@ -187,20 +200,37 @@ class AuthController extends BaseController
                         Flang::_e('password_verify_invalid', $input['password_verify'])
                     ]
                 ],
-                'fullname' => [
+                'telegram' => [
                     'rules' => [
                         Validate::length(6, 100)
                     ],
                     'messages' => [
-                        Flang::_e('fullname_length', 6, 100)
+                        Flang::_e('telegram', 6, 100)
+                    ]
+                ],
+                'skype' => [
+                    'rules' => [
+                        Validate::length(6, 100)
+                    ],
+                    'messages' => [
+                        Flang::_e('skype', 6, 100)
+                    ]
+                ],
+                'whatsapp' => [
+                    'rules' => [
+                        Validate::length(6, 100)
+                    ],
+                    'messages' => [
+                        Flang::_e('whatsapp_length', 6, 100)
                     ]
                 ]
             ];
-
+            
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
+                
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
@@ -225,24 +255,23 @@ class AuthController extends BaseController
                     $input['status'] = 'inactive';
                     $input['created_at'] = DateTime();
                     $input['updated_at'] = DateTime();
-
                     return $this->_register($input);
                 }else{
                     $this->data('errors', $errors);
                 }
             }
         }
-
+        
         // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
         $this->data('title', Flang::_e('register_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
-
+        
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
-
+        
         $this->render('backend', 'backend/auth/register');
     }
-
+    
     // Xử lý đăng ký tài khoản
     private function _register($input)
     {
