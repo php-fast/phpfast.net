@@ -62,7 +62,7 @@ class AuthController extends BaseController
             ];
             $rules = [
                 'username' => [
-                    'rules' => [Validate::alnum(), Validate::length(5, 150)],
+                    'rules' => [Validate::alnum("@."), Validate::length(5, 150)],
                     'messages' => [Flang::_e('username_invalid'), Flang::_e('username_length', 5, 30)]
                 ],
                 'password' => [
