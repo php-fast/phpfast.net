@@ -27,6 +27,7 @@ class AuthController extends BaseController
 
         $this->assets->add('css', 'css/style.css', 'head');
         $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
         //$header = Render::component('backend/component/header');
         //$footer = Render::component('backend/component/footer');
         $this->data('header', '');
@@ -82,8 +83,6 @@ class AuthController extends BaseController
         // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
         $this->data('title', Flang::_e('login_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
-
-        $this->assets->add('js', 'js/authorize.js', 'footer');
      
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
