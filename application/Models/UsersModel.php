@@ -140,6 +140,10 @@ class UsersModel extends BaseModel {
     {
         return $this->row($this->table, 'username = ?', [$username]);
     }
+    public function getUserByEmail($email)
+    {
+        return $this->row($this->table, 'email = ?', [$email]);
+    }
 
     /**
      * Thêm người dùng mới
