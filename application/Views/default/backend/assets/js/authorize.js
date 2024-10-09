@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const openModal = function () {
     $("#openModal").on("click", function (e) {
-      e.preventDefault();
-      const button = $(this);
-      button.addClass("loading");
+      // e.preventDefault();
+      // const button = $(this);
+      // button.addClass("loading");
 
-      setTimeout(function () {
-        $("#modal").removeClass("hidden");
+      // setTimeout(function () {
+      //   $("#modal").removeClass("hidden");
 
-        // Use the stored reference
-        button.removeClass("loading");
-      }, 3000);
+      //   // Use the stored reference
+      //   button.removeClass("loading");
+      // }, 3000);
     });
   };
 

@@ -307,7 +307,7 @@ if (Session::has_flash('error')){
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
                     ><?= Flang::_e('username') ?></label
                   >
-                  <div class="field username">
+                  <div class="field email">
                     <input
                       type="text"
                       name="username"  
