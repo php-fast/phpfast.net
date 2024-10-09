@@ -305,15 +305,15 @@ if (Session::has_flash('error')){
                   <label
                     for="username"
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
-                    ><?= Flang::_e('username') ?></label
+                    >User name or email</label
                   >
-                  <div class="field email">
+                  <div class="field">
                     <input
                       type="text"
                       name="username"  
                       id="username"
                       class=""
-                      placeholder="Enter your username"
+                      placeholder="Enter your username or email"
                       required=""
                     />
                   </div>
