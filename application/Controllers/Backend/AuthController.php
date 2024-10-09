@@ -234,9 +234,6 @@ class AuthController extends BaseController
         $this->data('title', Flang::_e('register_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
 
-        // Thêm các tệp JS dạng file và inline vào head 
-        $this->assets->add('js', 'js/authorize.js', 'footer');
-
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
@@ -378,10 +375,6 @@ class AuthController extends BaseController
 
     //Forgot Password
     public function forgot_password(){
-
-        // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'js/authorize.js', 'footer');
-
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
@@ -389,10 +382,6 @@ class AuthController extends BaseController
     }
 
     public function reset_password() {
-        
-        // Thêm các tệp JS dạng file và inline vào head
-        $this->assets->add('js', 'js/authorize.js', 'footer');
-
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
