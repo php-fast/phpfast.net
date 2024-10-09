@@ -74,7 +74,7 @@ class AuthController extends BaseController
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-                $this->data('errors', $errors);
+                $this->data('errors', $errors);     
             }else{
                 return $this->_login($input);
             }
@@ -156,7 +156,7 @@ class AuthController extends BaseController
             $rules = [
                 'username' => [
                     'rules' => [
-                        Validate::alnum(), 
+                        Validate::alnum('@.-+_'), 
                         Validate::length(6, 30)
                     ],
                     'messages' => [
@@ -181,7 +181,7 @@ class AuthController extends BaseController
                     ],
                     'messages' => [
                         Flang::_e('phone_invalid'),
-                        Flang::_e('phone_length', 6, 150)
+                        Flang::_e('phone_length', 10)
                     ]
                 ],
                 'password' => [
@@ -202,26 +202,29 @@ class AuthController extends BaseController
                 ],
                 'telegram' => [
                     'rules' => [
+                        Validate::alnum('@.-+_'),
                         Validate::length(6, 100)
                     ],
                     'messages' => [
-                        Flang::_e('telegram', 6, 100)
+                        Flang::_e('telegram_length', 6, 100)
                     ]
                 ],
                 'skype' => [
                     'rules' => [
+                        Validate::alnum('@.-+_'),
                         Validate::length(6, 100)
                     ],
                     'messages' => [
-                        Flang::_e('skype', 6, 100)
+                        Flang::_e('skype_length', 6, 100)
                     ]
                 ],
                 'whatsapp' => [
                     'rules' => [
-                        Validate::length(6, 100)
+                        Validate::phone(),
+                        Validate::length(10)
                     ],
                     'messages' => [
-                        Flang::_e('whatsapp_length', 6, 100)
+                        Flang::_e('whatsapp_length', 10)
                     ]
                 ]
             ];
@@ -361,6 +364,56 @@ class AuthController extends BaseController
             $this->_activation_form($user_id);
         }
     }
+        //Forgot Password
+    public function forgot_password(){
+
+        if(isset($_POST['email'])) {
+            $input = [ 
+                'email' => $_POST['email']
+            ];
+            $rules = [
+                'email' => [
+                    'rules' => [
+                        Validate::email(),
+                        Validate::length(6, 150)
+                    ],
+                    'messages' => [
+                        Flang::_e('email_invalid'),
+                        Flang::_e('email_length', 6, 150)
+                    ]
+                ],
+            ];
+            $validator = new Validate();
+            if (!$validator->check($input, $rules)) {
+                $errors = $validator->getErrors();
+                $this->data('errors', $errors);     
+            }else{
+                if (!$this->usersModel->isEmailExists($input['email'])) {
+                    $errors['email'] = array(
+                        Flang::_e('email_exist', $input['email'])
+                    );
+                    $this->data('errors', $errors);     
+                }
+                else {
+                    $user = $this->usersModel->getUserByEmail($input['email']);
+                    $user_optional = @json_decode($user['optional'], true);
+                    $this->_activation_resend($user['id'], $user_optional, $user);
+                }
+            }
+        }
+        
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+        
+        $this->render('backend', 'backend/auth/forgot_password');
+    }
+
+    public function reset_password() {
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+
+        $this->render('backend', 'backend/auth/reset_password');
+    }
 
     private function _activation_resend($user_id, $user_optional, $user)
     {
@@ -370,7 +423,7 @@ class AuthController extends BaseController
         $activationCode = strtolower(random_string(20)); // Tạo mã gồm 20 ký tự
         if (empty($user_optional)){
             $user_optional = [];
-        }
+        }/*  */
         $user_optional['activation_no'] = $activationNo;
         $user_optional['activation_code'] = $activationCode;
         $user_optional['activation_expires'] = time()+86400;
@@ -383,7 +436,7 @@ class AuthController extends BaseController
 
         Session::flash('success', 'Mã kích hoạt mới đã được gửi tới email của bạn.');
         redirect(admin_url('auth/activation/' . $user_id));
-    }
+    }   
 
     /**
      * Hiển thị form nhập mã kích hoạt
@@ -403,21 +456,6 @@ class AuthController extends BaseController
     
         Session::flash('success', 'Tài khoản của bạn đã được kích hoạt thành công.');
         redirect(admin_url('auth/login'));
-    }
-
-    //Forgot Password
-    public function forgot_password(){
-        $this->data('assets_header', $this->assets->header('backend'));
-        $this->data('assets_footer', $this->assets->footer('backend'));
-
-        $this->render('backend', 'backend/auth/forgot_password');
-    }
-
-    public function reset_password() {
-        $this->data('assets_header', $this->assets->header('backend'));
-        $this->data('assets_footer', $this->assets->footer('backend'));
-
-        $this->render('backend', 'backend/auth/reset_password');
     }
 
     // Kiểm tra quyền truy cập (middleware)

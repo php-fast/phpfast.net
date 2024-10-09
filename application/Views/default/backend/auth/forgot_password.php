@@ -286,11 +286,24 @@ if (Session::has_flash('error')){
               <h1 class="font-semibold text-2xl leading-8 text-gray-900">
                 Forgot password?
               </h1>
+
+              <?php if (!empty($success)): ?>
+                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                    <?= $success; ?>
+                </div>
+                <?php elseif (!empty($error)): ?>
+                    <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                        <?= $error; ?>
+                    </div>
+              <?php endif; ?>
+
               <form
                 name="forgotPasssForm"
+                method="post"
                 class="space-y-4 md:space-y-6"
-                action="<?= admin_url('auth/forgot') ?>"
+                action="<?= admin_url('auth/forgot_password') ?>"
               >
+
                 <div class="fieldset">
                   <label
                     for="email"
@@ -307,6 +320,15 @@ if (Session::has_flash('error')){
                       required=""
                     />
                   </div>
+
+                  <?php if (!empty($errors['email'])): ?>
+                    <div class="text-red-500 mt-2 text-sm">
+                        <?php foreach ($errors['email'] as $error): ?>
+                            <p><?= $error; ?></p>
+                        <?php endforeach; ?>
+                     </div>
+                  <?php endif; ?>
+
                 </div>
                 <!-- check validate email exsit reset success redirect qua page reset passsword <?= admin_url('auth/reset_password') ?> -->
                 <button type="submit" class="btn btn-primary w-full" disabled>

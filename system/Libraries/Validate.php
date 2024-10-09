@@ -37,7 +37,7 @@ class Validate
     }
     // Alnum validator với các ký tự bổ sung
     public static function alnum(...$additionalChars)
-    {
+    {   
         return RespectValidator::alnum(...$additionalChars);
     }
     // Length validator với độ dài tối thiểu và tối đa

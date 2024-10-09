@@ -287,13 +287,13 @@ if (Session::has_flash('error')){
               </h1>
 
                  <?php if (!empty($success)): ?>
-                <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
-                    <?= $success; ?>
-                </div>
-                <?php elseif (!empty($error)): ?>
-                    <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
-                        <?= $error; ?>
-                    </div>
+                  <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                      <?= $success; ?>
+                  </div>
+                  <?php elseif (!empty($error)): ?>
+                      <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                          <?= $error; ?>
+                      </div>
                 <?php endif; ?>
 
               <form name="loginForm" class="space-y-4 md:space-y-6" action="<?= admin_url('auth/login') ?>" method="post">

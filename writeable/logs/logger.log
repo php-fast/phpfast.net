@@ -142,3 +142,48 @@
 [2024-10-09 15:16:52] ERROR: Undefined constant "App\Controllers\Backend\S_POST" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 147
 [2024-10-09 15:20:56] ERROR: Object of class System\Libraries\Validate could not be converted to string in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 214
 [2024-10-09 15:28:36] ERROR: syntax error, unexpected single-quoted string "skype", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 211
+[2024-10-09 15:52:13] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 227
+[2024-10-09 15:52:58] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 227
+[2024-10-09 15:52:59] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 227
+[2024-10-09 15:53:00] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 227
+[2024-10-09 16:09:06] ERROR: syntax error, unexpected identifier "Plo", expecting "function" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 16
+[2024-10-09 16:09:18] ERROR: syntax error, unexpected identifier "Validate", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 206
+[2024-10-09 16:09:27] ERROR: syntax error, unexpected identifier "Validate", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 206
+[2024-10-09 16:10:49] ERROR: syntax error, unexpected identifier "Validate", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 215
+[2024-10-09 16:12:07] ERROR: syntax error, unexpected identifier "Validate", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 215
+[2024-10-09 16:16:23] ERROR: syntax error, unexpected identifier "P0", expecting ")" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 218
+[2024-10-09 16:16:26] ERROR: syntax error, unexpected identifier "P0", expecting ")" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 218
+[2024-10-09 16:16:38] ERROR: syntax error, unexpected identifier "P0", expecting ")" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 218
+[2024-10-09 16:36:52] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:38:44] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:38:58] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:39:19] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:40:23] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:40:24] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:40:52] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:41:25] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:41:25] ERROR: syntax error, unexpected variable "$rules" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 379
+[2024-10-09 16:41:41] ERROR: syntax error, unexpected single-quoted string "optional", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 448
+[2024-10-09 16:42:04] ERROR: syntax error, unexpected single-quoted string "optional", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 448
+[2024-10-09 16:45:11] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:45:20] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:45:52] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:00] ERROR: syntax error, unexpected variable "$validate" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:09] ERROR: Call to undefined function App\Controllers\Backend\dd() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 387
+[2024-10-09 16:46:14] ERROR: Call to undefined function App\Controllers\Backend\dd() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 387
+[2024-10-09 16:46:49] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:49] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:50] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:50] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:50] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:46:50] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:47:01] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:47:29] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:48:17] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:51:45] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:54:12] ERROR: Call to a member function toArray() on array in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 375
+[2024-10-09 16:54:58] ERROR: Call to a member function toArray() on array in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 375
+[2024-10-09 16:56:46] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 16:56:53] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 17:01:15] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
+[2024-10-09 17:22:32] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 402
