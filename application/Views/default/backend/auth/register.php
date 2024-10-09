@@ -306,7 +306,7 @@ if (Session::has_flash('error')){
                   <label
                     for="username"
                     class="block mb-2 text-sm font-medium leading-5 text-gray-900"
-                    >User name</label
+                    ><?= Flang::_e('username') ?></label
                   >
                   <div class="field username">
                     <input
@@ -330,7 +330,7 @@ if (Session::has_flash('error')){
                   <label
                     for="email"
                     class="block mb-2 text-sm font-medium leading-5 text-gray-900"
-                    >Email</label
+                    ><?= Flang::_e('email') ?></label
                   >
                   <div class="field email">
                     <input

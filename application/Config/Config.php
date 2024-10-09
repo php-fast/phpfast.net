@@ -5,7 +5,7 @@ return [
     'app' => [
         'debug' => true,
         'environment' => 'development',
-        'app_url' => 'https://phpfast.net/',
+        'app_url' => 'https://domainweb.com/',
         'app_name' => 'phpfast',
         'app_timezone' => 'Asia/Ho_Chi_Minh'
     ],
@@ -20,7 +20,7 @@ return [
         'db_port' => 3306,
         'db_username' => 'root',
         'db_password' => '',
-        'db_database' => 'phpfast.net',
+        'db_database' => 'domainweb.com',
         'db_charset'  => 'utf8mb4',
         'db_collate'  => 'utf8mb4_unicode_ci',
 
