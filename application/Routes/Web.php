@@ -35,6 +35,3 @@ $routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\
 $routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->get('admin/(:any)', 'Backend\$1Controller::index',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->get('admin', 'Backend\AuthController::index',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
-
-// $routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2');
-// $routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2');
