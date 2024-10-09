@@ -26,7 +26,7 @@ return [
     'username_length'   =>  'Username length required is %1% to %2% characters.',
     'email_double'  =>  '%1%: Username already exists in the system.',
     'email_invalid'  =>  'Email must be format email@domainemail.etc ',
-    'email_empty'    =>  'Email must be enter, can not empty.',
+    'email_length'    =>  'Email length required is %1% to %2% characters.',
     'password_length'   =>  'Password length required is %1% to %2% characters.',
     'password_verify_invalid'   =>  'Password Verify %1% not math with password.',
     'fullname_length'   =>  'Fullname length required is %1% to %2% characters.',

@@ -62,7 +62,7 @@ class AuthController extends BaseController
             ];
             $rules = [
                 'username' => [
-                    'rules' => [Validate::alnum(), Validate::length(5, 30)],
+                    'rules' => [Validate::alnum(), Validate::length(5, 150)],
                     'messages' => [Flang::_e('username_invalid'), Flang::_e('username_length', 5, 30)]
                 ],
                 'password' => [
@@ -95,7 +95,11 @@ class AuthController extends BaseController
     public function _login($input)
     {
         //$2y$10$jJzcVXtMuqC3LKSjtX2I0ulknNZCZmJuP8lIlKBq0vaTWAJYFZamu la admin
-        $user = $this->usersModel->getUserByUsername($input['username']);
+        if (!filter_var($input['username'], FILTER_VALIDATE_EMAIL)) {
+            $user = $this->usersModel->getUserByUsername($input['username']);
+        }else{
+            $user = $this->usersModel->getUserByEmail($input['username']);
+        }
         
         // echo Security::hashPassword($input['password']);die;
         if ($user && Security::verifyPassword($input['password'], $user['password'])) {
@@ -160,11 +164,11 @@ class AuthController extends BaseController
                 'email' => [
                     'rules' => [
                         Validate::email(),
-                        Validate::notEmpty()
+                        Validate::length(6, 150)
                     ],
                     'messages' => [
                         Flang::_e('email_invalid'),
-                        Flang::_e('email_empty'),
+                        Flang::_e('email_length', 6, 150)
                     ]
                 ],
                 'password' => [
