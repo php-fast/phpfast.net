@@ -30,4 +30,6 @@ return [
     'password_length'   =>  'Password length required is %1% to %2% characters.',
     'password_verify_invalid'   =>  'Password Verify %1% not math with password.',
     'fullname_length'   =>  'Fullname length required is %1% to %2% characters.',
+    'phone_invalid'  =>  'Phone must be format 0123456789',
+    'phone_length'  =>  'Phone length required is %1% to %2% characters.',
 ];
