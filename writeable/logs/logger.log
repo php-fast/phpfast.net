@@ -111,3 +111,11 @@
 [2024-10-09 10:51:33] ERROR: Action languages not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-09 10:51:36] ERROR: Action languages not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-09 10:51:44] ERROR: Action languages not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-09 12:20:46] ERROR: 404 - Router: /admin (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:20:47] ERROR: 404 - Router: /admin (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:20:48] ERROR: 404 - Router: /admin (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:20:57] ERROR: 404 - Router: /admin/auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:20:58] ERROR: 404 - Router: /admin/auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:20:58] ERROR: 404 - Router: /admin/auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:21:00] ERROR: 404 - Router: /admin (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-09 12:21:01] ERROR: 404 - Router: /admin (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
