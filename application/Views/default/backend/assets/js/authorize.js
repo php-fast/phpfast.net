@@ -1,6 +1,4 @@
-
-
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show/hide password
   const showHidePass = function () {
     $("#togglePassword").on("click", function () {
