@@ -2,7 +2,7 @@
 <html>
 <head>
     <title><?php echo $title; ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <?= !empty($assets_header) ? $assets_header : ''; ?>
 </head>
 <body>

@@ -22,7 +22,7 @@ if (Session::has_flash('error')){
                 <?= $error; ?>
             </div>
         <?php endif; ?>
-
+            
         <form action="<?= admin_url('auth/login') ?>" method="post">
             <!-- CSRF Token -->
             <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">

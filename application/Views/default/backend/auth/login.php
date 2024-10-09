@@ -303,17 +303,17 @@ if (Session::has_flash('error')){
               
               <div class="fieldset">
                   <label
-                    for="email"
+                    for="username"
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
-                    >Email</label
+                    ><?= Flang::_e('username') ?></label
                   >
-                  <div class="field email">
+                  <div class="field username">
                     <input
-                      type="email"
-                      name="email"
-                      id="email"
+                      type="text"
+                      name="username"  
+                      id="username"
                       class=""
-                      placeholder="Enter your email"
+                      placeholder="Enter your username"
                       required=""
                     />
                   </div>
@@ -406,14 +406,14 @@ if (Session::has_flash('error')){
                   class="btn btn-primary w-full"
                   disabled
                 >
-                  Log in
+                  <?= Flang::_e('login') ?>
                 </button>
                 <p class="text-sm font-light text-gray-500 ">
                   Don’t have an account yet?
                   <a
                     href="<?= admin_url('auth/register') ?>"
                     class="font-medium text-primary-600 hover:underline "
-                    >Sign up</a
+                    ><?= Flang::_e('register') ?></a
                   >
                 </p>
                 <div class="my-4 flex items-center gap-4">

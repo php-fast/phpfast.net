@@ -316,7 +316,7 @@ use System\Libraries\Session;
             },
             submitForm() {
                 // Xử lý gửi dữ liệu đến server
-                fetch('/save_posttype.php', {
+                fetch('/admin/posttype/add', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -329,7 +329,7 @@ use System\Libraries\Session;
                     alert('Posttype đã được lưu thành công!');
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    console.error('Error:', error.message);
                 });
             },
         },
