@@ -118,7 +118,8 @@ class Assets {
 
         // Nếu file đã tồn tại, trả về đường dẫn
         if (file_exists($publicFilePath)) {
-            return "/assets/{$type}/{$assetType}/{$hashedName}";
+            @unlink($publicFilePath);
+            //return "/assets/{$type}/{$assetType}/{$hashedName}";
         }
 
         // Gộp và minify nội dung
@@ -136,8 +137,8 @@ class Assets {
         foreach ($files as $file) {
             $filePath = "{$this->path_views}{$type}/assets/{$file}";
             if (file_exists($filePath)) {
-                $content = file_get_contents($filePath);
-                $combinedContent .= '//'.$file."\n". $content . "\n";
+                $content = @file_get_contents($filePath);
+                $combinedContent .= $content . "\n";
             }
         }
         return $this->minify($combinedContent, $assetType);
@@ -172,6 +173,6 @@ class Assets {
         if (strpos(realpath($dir), realpath($this->path_public)) !== 0) {
             throw new \System\Core\AppException('Invalid path for asset file saving.');
         }
-        file_put_contents($filePath, $content);
+        @file_put_contents($filePath, $content);
     }
 }
