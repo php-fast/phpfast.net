@@ -383,7 +383,6 @@ if (Session::has_flash('error')){
                         aria-describedby="remember"
                         type="checkbox"
                         class="w-4 h-4 border-gray-400 border-solid rounded focus:ring-3 focus:ring-primary-300 "
-                        required=""
                       />
                     </div>
                     <div class="ml-3 text-sm">

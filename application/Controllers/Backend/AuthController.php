@@ -99,7 +99,6 @@ class AuthController extends BaseController
         
         // echo Security::hashPassword($input['password']);die;
         if ($user && Security::verifyPassword($input['password'], $user['password'])) {
-            die('nguyen');
             if ($user['status'] !== 'active') {
                 Session::flash('error', Flang::_e('users_noactive', $input['username']));
                 redirect(admin_url('auth/login'));
