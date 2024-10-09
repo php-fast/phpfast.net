@@ -26,11 +26,11 @@ class AuthController extends BaseController
         Flang::load('auth', LANG);
 
         $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->add('js', 'jfast.1.1.2.js', 'footer');
-        $header = Render::component('backend/component/header');
-        $footer = Render::component('backend/component/footer');
-        $this->data('header', $header);
-        $this->data('footer', $footer);
+        $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
+        //$header = Render::component('backend/component/header');
+        //$footer = Render::component('backend/component/footer');
+        $this->data('header', '');
+        $this->data('footer', '');
     }
 
     // Kiểm tra trạng thái đăng nhập
