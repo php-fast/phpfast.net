@@ -290,22 +290,21 @@ if (Session::has_flash('error')){
               <form
                 name="resetPassForm"
                 class="space-y-4 md:space-y-6"
-                action="<?= admin_url('auth/update_pass') ?>"
+                action=""
                 method="post"
               > 
-              <input type="hidden" name="token" value="<?= $_GET['token']; ?>">  
                 <div class="fieldset">
                   <label
                     for="password"
                     class="block mb-2 text-sm font-medium text-gray-900 "
-                    >New Password</label
+                    ><?= Flang::_e('new password') ?></label
                   >
                   <div class="field password relative">
                     <input
                       type="password"
                       name="password"
                       id="password"
-                      placeholder="••••••••"
+                      placeholder="<?= Flang::_e('new password') ?>"
                       class=""
                       required=""
                     />
@@ -334,7 +333,7 @@ if (Session::has_flash('error')){
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-full" disabled>
-                  Reset Password
+                <?= Flang::_e('Change Password') ?>
                 </button>
                 <div
                   class="bg-success-light border border-success-dark font-normal text-sm leading-5 text-success py-5 rounded relative pl-12 pr-4"
