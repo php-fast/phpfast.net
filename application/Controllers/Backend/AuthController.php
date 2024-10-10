@@ -10,6 +10,8 @@ use System\Libraries\Assets;
 use App\Libraries\Fastmail;
 use App\Libraries\Fastlang as Flang;
 use System\Libraries\Validate;
+use Google_Client;
+use Google_Service_Oauth2;
 
 
 class AuthController extends BaseController
@@ -492,7 +494,75 @@ class AuthController extends BaseController
 
     }   
 
+    public function login_google(){
+        
+        $app_url = config('google');
+        $client_id = $app_url['GOOGLE_CLIENT_ID'];
+        $client_secret = $app_url['GOOGLE_CLIENT_SECRET'];
+        $client_url = $app_url['GOOGLE_REDIRECT_URL'];
 
+        $client = new Google_Client();
+        $client->setClientId($client_id); 
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($client_url);
+
+        // Thêm các phạm vi truy cập
+        $client->addScope('email');
+        $client->addScope('profile');
+      
+        //     $authUrl = $client->createAuthUrl();
+
+        //     redirect($authUrl);
+        // }
+
+        // public function callback_google()
+        // {
+        // $app_url = config('google');
+        // $client_id = $app_url['GOOGLE_CLIENT_ID'];
+        // $client_secret = $app_url['GOOGLE_CLIENT_SECRET'];
+        // $client_url = $app_url['GOOGLE_REDIRECT_URL'];
+    
+        // $client = new Google_Client();
+        // $client->setClientId($client_id);
+        // $client->setClientSecret($client_secret);
+        // $client->setRedirectUri($client_url);
+    
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    
+            if (isset($token['error'])) {
+                return redirect()->route('login')->with('error', 'Đã xảy ra lỗi khi lấy access token.');
+            }
+    
+            $client->setAccessToken($token['access_token']);
+    
+            // Lấy thông tin người dùng
+            $oauth2 = new Google_Service_Oauth2($client);
+            $google_user = $oauth2->userinfo->get();
+            die('svsvvdf');
+    
+            // // Lưu hoặc cập nhật thông tin người dùng
+            // $user = User::updateOrCreate(
+            //     ['email' => $google_user->email],
+            //     [
+            //         'name' => $google_user->name,
+            //         'google_id' => $google_user->id,
+            //         'avatar' => $google_user->picture,
+            //         'password' => bcrypt(Str::random(16)), // Tạo mật khẩu ngẫu nhiên
+            //     ]
+            // );
+    
+            // // Đăng nhập người dùng
+            // Auth::login($user);
+    
+            // // Chuyển hướng đến trang chủ
+            // return redirect()->route('home');
+        } else {
+            // Không có mã xác thực
+            // return redirect()->route('login')->with('error', 'Không nhận được mã xác thực từ Google.');
+        }
+    }
+    
 
     private function _activation_resend($user_id, $user_optional, $user)
     {

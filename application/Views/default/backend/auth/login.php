@@ -306,7 +306,7 @@ if (Session::has_flash('error')){
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
                     >User name or email</label
                   >
-                  <div class="field">
+                  <div class="field email">
                     <input
                       type="text"
                       name="username"  
@@ -420,8 +420,8 @@ if (Session::has_flash('error')){
                   <hr class="w-full border-gray-300" />
                 </div>
 
-                <button
-                  type="button"
+                <a
+                   href="<?= admin_url('auth/login_google') ?>"
                   class="w-full flex items-center justify-center gap-4 py-3 px-6 text-sm tracking-wide text-gray-800 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 focus:outline-none"
                 >
                   <svg
@@ -462,7 +462,7 @@ if (Session::has_flash('error')){
                     />
                   </svg>
                   Sign in with google
-                </button>
+                </a>
               </form>
             </div>
           </div>
