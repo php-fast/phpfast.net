@@ -278,7 +278,7 @@ if (Session::has_flash('error')){
             <div class="image-intro">
               <img class="w-full" src="./image/bg-intro.png" alt="" />
             </div>
-          </div>
+        </div>
         </div>
         <div class="w-full p-3 md:w-2/3 md:p-12">
           <div class="authorize-form w-full h-full bg-white flex items-center justify-center">

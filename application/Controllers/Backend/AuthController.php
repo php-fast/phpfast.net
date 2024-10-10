@@ -397,7 +397,7 @@ class AuthController extends BaseController
                 else {
                     $user = $this->usersModel->getUserByEmail($input['email']);
                     $user_optional = @json_decode($user['optional'], true);
-                    $this->_activation_resend($user['id'], $user_optional, $user);
+                    $this->_forgot_send($user_optional, $user);
                 }
             }
         }
@@ -409,11 +409,90 @@ class AuthController extends BaseController
     }
 
     public function reset_password() {
+        if (isset($_GET['token'])) {
+            $token = $_GET['token'];
+            $this->check_token($token);
+        }
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
 
         $this->render('backend', 'backend/auth/reset_password');
     }
+
+    public function update_pass() {
+        if(isset($_POST['password'])) {
+            $token = $_POST['token'];
+            $user_id = $this->check_token($token);
+            $input = [
+                'password' => $_POST['password'],
+            ];
+            $rules = [
+            'password' => [
+                    'rules' => [
+                        Validate::length(6, 60),
+                    ],
+                    'messages' => [
+                        Flang::_e('password_length', 6, 60),
+                    ]
+                ]
+            ];
+            $validator = new Validate();
+            if (!$validator->check($input, $rules)) {
+                $errors = $validator->getErrors();
+                
+                $this->data('errors', $errors);
+            }
+            else {
+                $input['password'] = Security::hashPassword($input['password']);
+                $this->usersModel->updateUser($user_id, $input);
+                
+                $success = 'Reset password success';
+                $this->data('success', $success);
+                $this->data('csrf_token', Session::csrf_token(600));
+                $this->data('assets_header', $this->assets->header('backend'));
+                $this->data('assets_footer', $this->assets->footer('backend'));
+            
+            $this->render('backend', 'backend/auth/login');
+          }
+
+        }
+    }
+
+    private function check_token($token) {
+
+            $parts = explode('abec', $token);
+            $user_id = $parts[0];
+            $token = $parts[1];
+            $user = $this->usersModel->getUserById($user_id);
+            if($user) {
+                $optional = isset($user['optional']) ? $user['optional'] : null;
+                $optional_data = json_decode($optional, true);
+
+                $token_db = $optional_data['token_reset_password'];
+                $token_expires = $optional_data['token_reset_password_expires'];
+              
+                if($token !== $token_db) {
+                    $error = 'Đường dẫn sai, vui lòng nhập lại email dế reset password';
+                    $this->data('error', $error);
+                    $this->data('assets_footer', $this->assets->footer('backend'));
+                    $this->data('assets_header', $this->assets->header('backend'));
+                    $this->render('backend', 'backend/auth/forgot_password');
+                    die();
+                }
+                if($token_expires <= date('U')){
+                    $error = 'Đường dẫn hết hạn, vui lòng nhập lại email dế reset password';
+                    $this->data('error', $error);
+                    $this->data('assets_footer', $this->assets->footer('backend'));
+                    $this->data('assets_header', $this->assets->header('backend'));
+                    $this->render('backend', 'backend/auth/forgot_password');
+                    die();
+                }
+         }
+         return $user_id;
+
+    }   
+
+
 
     private function _activation_resend($user_id, $user_optional, $user)
     {
@@ -436,6 +515,28 @@ class AuthController extends BaseController
 
         Session::flash('success', 'Mã kích hoạt mới đã được gửi tới email của bạn.');
         redirect(admin_url('auth/activation/' . $user_id));
+    }   
+    // send email forgot password
+    private function _forgot_send($user_optional, $user)
+    {
+        $user_id = $user['id'];
+        // tạo token forgot password
+        $token = bin2hex(random_bytes(32));
+        // Tạo mã kích hoạt 6 ký tự cho người dùng nhập vào
+
+        $user_optional['token_reset_password'] = $token;
+        $user_optional['token_reset_password_expires'] = time()+86400;
+        $this->usersModel->updateUser($user_id, ['optional'=>json_encode($user_optional)]);
+
+        // Construct reset link 
+        $reset_link = 'https://domainweb.com/admin/auth/reset_password/?token=' . $user_id . 'abec' . $token;
+        
+        // Gửi email link reset password
+        $this->mailer = new Fastmail();
+        $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
+
+        Session::flash('success', 'Link reset password đã được gửi đến email của bạn.');
+        // redirect(admin_url('auth/activation/' . $user_id));
     }   
 
     /**

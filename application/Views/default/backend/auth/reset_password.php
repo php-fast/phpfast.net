@@ -290,8 +290,10 @@ if (Session::has_flash('error')){
               <form
                 name="resetPassForm"
                 class="space-y-4 md:space-y-6"
-                action="#"
-              >
+                action="<?= admin_url('auth/update_pass') ?>"
+                method="post"
+              > 
+              <input type="hidden" name="token" value="<?= $_GET['token']; ?>">  
                 <div class="fieldset">
                   <label
                     for="password"
@@ -355,7 +357,7 @@ if (Session::has_flash('error')){
                     </svg>
                   </span>
                   <span class="block sm:inline">Reset Password successful</span>
-                  <a href="#" class="md:ml-3"
+                  <a href="<?= admin_url('auth/login') ?>" class="md:ml-3"
                     ><strong class="font-semibold">Login now</strong></a
                   >
                   <span

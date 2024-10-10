@@ -32,7 +32,6 @@ class PosttypeController extends BaseController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            die(');
             $this->store();
         } else {
             $this->data('csrf_token', Session::csrf_token(600));

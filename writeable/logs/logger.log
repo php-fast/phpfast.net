@@ -187,3 +187,31 @@
 [2024-10-09 16:56:53] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
 [2024-10-09 17:01:15] ERROR: Call to a member function check() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 388
 [2024-10-09 17:22:32] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 402
+[2024-10-10 09:20:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 09:20:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 09:41:42] ERROR: Action fotgot_password not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-10 10:18:26] ERROR: syntax error, unexpected variable "$this", expecting "function" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 425
+[2024-10-10 10:33:54] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 421
+[2024-10-10 10:34:04] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 421
+[2024-10-10 10:34:52] ERROR: Call to undefined function App\Controllers\Backend\data() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 432
+[2024-10-10 10:38:28] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:38:54] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:44:55] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:50:58] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:53:57] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:54:03] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 10:54:13] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 437
+[2024-10-10 11:23:00] ERROR: syntax error, unexpected token "," in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 442
+[2024-10-10 11:23:31] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:23:49] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:24:11] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:25:12] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:25:17] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:25:43] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:25:49] ERROR: call_user_func_array(): Argument #1 ($callback) must be a valid callback, cannot access private method App\Controllers\Backend\AuthController::update_pass() in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 119
+[2024-10-10 11:44:21] ERROR: syntax error, unexpected token "=", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 427
+[2024-10-10 11:44:33] ERROR: syntax error, unexpected token "=", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 427
+[2024-10-10 11:44:44] ERROR: syntax error, unexpected token "private" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 458
+[2024-10-10 11:51:18] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 11:55:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-10 11:56:29] ERROR: Action forgot_pass not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
