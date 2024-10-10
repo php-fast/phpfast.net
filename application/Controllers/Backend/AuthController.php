@@ -494,6 +494,40 @@ class AuthController extends BaseController
 
     }   
 
+    public function login_google(){
+        
+        $app_url = config('google');
+        $client_id = $app_url['GOOGLE_CLIENT_ID'];
+        $client_secret = $app_url['GOOGLE_CLIENT_SECRET'];
+        $client_url = $app_url['GOOGLE_REDIRECT_URL'];
+
+        $client = new Google_Client();
+        $client->setClientId($client_id); 
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($client_url);
+
+        // Thêm các phạm vi truy cập
+        $client->addScope('email');
+        $client->addScope('profile');
+    
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    
+            if (isset($token['error'])) {
+                return redirect()->route('login')->with('error', 'Đã xảy ra lỗi khi lấy access token.');
+            }
+    
+            $client->setAccessToken($token['access_token']);
+    
+            // Lấy thông tin người dùng
+            $oauth2 = new Google_Service_Oauth2($client);
+            $google_user = $oauth2->userinfo->get();
+            die('svsvvdf');
+    // return redirect()->route('login')->with('error', 'Không nhận được mã xác thực từ Google.');
+        }
+    }
+    
+
     private function _activation_resend($user_id, $user_optional, $user)
     {
         // Tạo mã kích hoạt 6 ký tự cho người dùng nhập vào
