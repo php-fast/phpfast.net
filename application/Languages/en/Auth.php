@@ -62,6 +62,10 @@ return [
     'reset_password_success' => 'Reset Password successful',
     'login_now' => 'Login now',
 
+    // update profile
+    'profile_updated' => 'Update profile success',
+    'profile_welcome' => 'Profile Welcome',
+
     //users translate
     'users_noactive'  =>  '%1%: Your account no active! Please check Inbox or Spam Mail for active this account!',
 

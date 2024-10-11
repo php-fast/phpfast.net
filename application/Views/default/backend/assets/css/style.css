@@ -1731,7 +1731,7 @@ input[type="text"]{
   height: 2.5rem;
 }
 
-input[type="email"]{
+input[type="email"], .email input[type="text"]{
   background-repeat: no-repeat;
   padding-left: 2.5rem;
 }

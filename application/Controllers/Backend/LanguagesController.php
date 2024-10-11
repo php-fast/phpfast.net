@@ -20,7 +20,7 @@ class LanguagesController extends BaseController {
         $this->assets = new Assets();
 
         $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
+        $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
 
         $header = Render::component('backend/component/header');

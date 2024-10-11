@@ -2,3 +2,6 @@
 /composer.lock/
 /application/Config/Config.php
 /writeable
+writeable
+/writeable/
+/writeable/logs/
