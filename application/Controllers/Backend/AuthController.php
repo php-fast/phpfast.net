@@ -159,7 +159,7 @@ class AuthController extends BaseController
             $rules = [
                 'username' => [
                     'rules' => [
-                        Validate::alnum('@.-+_'), 
+                        Validate::alnum('@.'),
                         Validate::length(6, 30)
                     ],
                     'messages' => [
@@ -169,11 +169,9 @@ class AuthController extends BaseController
                 ],
                 'fullname' => [
                     'rules' => [
-                        Validate::alnum('@.-+_'), 
                         Validate::length(6, 30)
                     ],
                     'messages' => [
-                        Flang::_e('fullname_invalid'),
                         Flang::_e('fullname_length', 6, 30)
                     ]
                 ],
