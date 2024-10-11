@@ -30,3 +30,6 @@
 [2024-10-11 14:34:53] ERROR: Action profile not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
 [2024-10-11 14:45:50] ERROR: Component 'backend/component/auth_sidebar' không tồn tại tại đường dẫn 'C:\laragon\www\phpfast.net/application/Views/default/backend/component/auth_sidebar.php'. in C:\laragon\www\phpfast.net\system\Libraries\Render.php on line 128
 [2024-10-11 14:45:51] ERROR: Component 'backend/component/auth_sidebar' không tồn tại tại đường dẫn 'C:\laragon\www\phpfast.net/application/Views/default/backend/component/auth_sidebar.php'. in C:\laragon\www\phpfast.net\system\Libraries\Render.php on line 128
+[2024-10-11 15:21:32] ERROR: Object of class App\Controllers\Backend\AuthController could not be converted to string in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 417
+[2024-10-11 15:21:36] ERROR: Object of class App\Controllers\Backend\AuthController could not be converted to string in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 417
+[2024-10-11 15:23:04] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108

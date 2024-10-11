@@ -29,7 +29,7 @@ $routes->get('account/logout', 'Backend\AuthController::logout',[\App\Middleware
 $routes->get('account/profile', 'Backend\AuthController::profile',[\App\Middleware\AuthMiddleware::class]);
 $routes->get('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
-$routes->get('account/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
+$routes->get('account/(:any)/', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('account/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 $routes->get('account', 'Backend\AuthController::index',[\App\Middleware\AuthMiddleware::class]);
 
