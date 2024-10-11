@@ -152,9 +152,9 @@ class AuthController extends BaseController
                 'password' => S_POST('password'),
                 'password_verify' => S_POST('password_verify'),
                 'phone' => S_POST('phone'),
-                'telegram' => S_POST('telegram') ?? '',
-                'skype' => S_POST('skype') ?? '',
-                'whatsapp' => S_POST('whatsapp') ?? '',
+                // 'telegram' => S_POST('telegram') ?? '',
+                // 'skype' => S_POST('skype') ?? '',
+                // 'whatsapp' => S_POST('whatsapp') ?? '',
             ];
             $rules = [
                 'username' => [
@@ -213,39 +213,39 @@ class AuthController extends BaseController
                         Flang::_e('password_verify_invalid', $input['password_verify'])
                     ]
                 ],
-                'telegram' => [
-                    'rules' => [
-                        Validate::alnum('@.-+_'),
-                        Validate::length(null, 100)
-                    ],
-                    'messages' => [
-                        Flang::_e('telegram_length', 0, 100)
-                    ]
-                ],
-                'skype' => [
-                    'rules' => [
-                        Validate::alnum('@.-+_'),
-                        Validate::length(null, 100)
-                    ],
-                    'messages' => [
-                        Flang::_e('skype_length', 0, 100)
-                    ]
-                ],
-                'whatsapp' => [
-                    'rules' => [
-                        Validate::phone(),
-                        Validate::length(null, 30)
-                    ],
-                    'messages' => [
-                        Flang::_e('whatsapp_length', 0, 30)
-                    ]
-                ]
+                // 'telegram' => [
+                //     'rules' => [
+                //         Validate::alnum('@.-+_'),
+                //         Validate::length(null, 100)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('telegram_length', 0, 100)
+                //     ]
+                // ],
+                // 'skype' => [
+                //     'rules' => [
+                //         Validate::alnum('@.-+'),
+                //         Validate::length(null, 100)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('skype_length', 0, 100)
+                //     ]
+                // ],
+                // 'whatsapp' => [
+                //     'rules' => [
+                //         Validate::phone(),
+                //         Validate::length(null, 30)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('whatsapp_length', 0, 30)
+                //     ]
+                // ]
             ];
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-                
+                print_r($errors);
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
@@ -527,15 +527,13 @@ class AuthController extends BaseController
             $code = $_GET['code'];
             // Trao đổi mã lấy token truy cập
             $token = $client->fetchAccessTokenWithAuthCode($code);
-            // Lưu token vào session hoặc cookie nếu cần
-            Session::set('access_token', $token);
             // Đặt token truy cập cho client
             $client->setAccessToken($token);
             // Lấy thông tin người dùng từ Google
             $oauth2 = new Google_Service_Oauth2($client);
             $userInfo = $oauth2->userinfo->get();
-            $email_user = $userInfo->email;
-            $fullname = $userInfo->name;
+            $email_user = $userInfo->email ?? '';
+            $fullname = $userInfo->name ?? ''; 
             $user = $this->usersModel->getUserByEmail($email_user);
 
             if ($user) {

@@ -22,3 +22,5 @@
 [2024-10-11 12:32:40] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-11 12:35:24] ERROR: syntax error, unexpected identifier "Session" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 554
 [2024-10-11 13:08:07] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 13:35:58] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-11 13:36:32] ERROR: Class "ession" not found in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/auth/register.php on line 13
