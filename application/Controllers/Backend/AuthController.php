@@ -349,7 +349,7 @@ class AuthController extends BaseController
         // Trường hợp người dùng truy cập qua URL
         if ($activationCode) {
             $user_active_code = $user_optional['activation_code'] ?? '';
-            if (!empty($user_active_code) && strtolower($user_Pactive_code) === strtolower($activationCode)) {
+            if (!empty($user_active_code) && strtolower($user_active_code) === strtolower($activationCode)) {
                 // Kích hoạt tài khoản
                 return $this->_activation($user_id);
             } else {
