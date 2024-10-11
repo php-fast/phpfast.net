@@ -59,6 +59,8 @@ return [
     'reset_password_title' => 'Đặt lại mật khẩu',
     'new_password' => 'Mật khẩu mới',
     'change_password' => 'Thay đổi mật khẩu',
+    'reset_password_success' => 'Đổi mật khẩu thành công',
+    'login_now' => 'Đăng nhập ngay',
     
     //users translate
     'users_noactive'  =>  '%1%: Tài khoản của bạn chưa được kích hoạt! Vui lòng kiểm tra Hộp thư đến hoặc Spam để kích hoạt tài khoản này!',
@@ -82,3 +84,4 @@ return [
     'skype_length'  =>  'Độ dài Skype yêu cầu từ %1% đến %2% ký tự.',
     'whatsapp_length'  =>  'Độ dài WhatsApp yêu cầu là %1% ký tự.',
 ];
+∆

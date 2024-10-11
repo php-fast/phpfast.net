@@ -355,9 +355,9 @@ if (Session::has_flash('error')){
                       />
                     </svg>
                   </span>
-                  <span class="block sm:inline">Reset Password successful</span>
+                  <span class="block sm:inline"><?= Flang::_e('reset_password_success') ?></span>
                   <a href="<?= admin_url('auth/login') ?>" class="md:ml-3"
-                    ><strong class="font-semibold">Login now</strong></a
+                    ><strong class="font-semibold"><?= Flang::_e('login_now') ?></strong></a
                   >
                   <span
                     class="close absolute inset-y-0 right-5 flex items-center cursor-pointer"

@@ -244,7 +244,6 @@ class AuthController extends BaseController
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
-                die('svsdvdsvs');
                 $errors = $validator->getErrors();
                 
                 $this->data('errors', $errors);
@@ -352,7 +351,7 @@ class AuthController extends BaseController
         // Trường hợp người dùng truy cập qua URL
         if ($activationCode) {
             $user_active_code = $user_optional['activation_code'] ?? '';
-            if (!empty($user_active_code) && strtolower($user_active_code) === strtolower($activationCode)) {
+            if (!empty($user_active_code) && strtolower($user_Pactive_code) === strtolower($activationCode)) {
                 // Kích hoạt tài khoản
                 return $this->_activation($user_id);
             } else {
@@ -486,7 +485,7 @@ class AuthController extends BaseController
                     $this->usersModel->updateUser($user_id, $input);
                     
                     
-                    $success = 'Reset password success';
+                    $success = Flang::_e('reset_password_success');
                     $this->data('success', $success);
                     $this->data('csrf_token', Session::csrf_token(600));
                     $this->data('title', Flang::_e('login_welcome'));
@@ -529,14 +528,14 @@ class AuthController extends BaseController
             // Trao đổi mã lấy token truy cập
             $token = $client->fetchAccessTokenWithAuthCode($code);
             // Lưu token vào session hoặc cookie nếu cần
-            $_SESSION['access_token'] = $token;
+            Session::set('access_token', $token);
             // Đặt token truy cập cho client
             $client->setAccessToken($token);
             // Lấy thông tin người dùng từ Google
             $oauth2 = new Google_Service_Oauth2($client);
             $userInfo = $oauth2->userinfo->get();
             $email_user = $userInfo->email;
-            $fullName = $userInfo->name;
+            $fullname = $userInfo->name;
             $user = $this->usersModel->getUserByEmail($email_user);
 
             if ($user) {
@@ -549,11 +548,9 @@ class AuthController extends BaseController
 
                 redirect(admin_url('dashboard'));
             } else {
-                // Nếu người dùng chưa có, chuyển hướng đến trang đăng ký
-                $_SESSION['google_user_info'] = [
-                    'fullname' => $fullName,
-                    'email' => $email_user,
-                ];
+
+                Session::set('fullname', $fullname);
+                Session::set('email', $email_user);
                 // Chuyển hướng đến trang đăng ký để nhập các trường còn lại
                 redirect(admin_url('auth/register'));
             }

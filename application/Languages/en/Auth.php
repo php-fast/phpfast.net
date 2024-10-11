@@ -59,6 +59,8 @@ return [
     'reset_password_title' => 'Reset password',
     'new_password' => 'New Password',
     'change_password' => 'Change Password',
+    'reset_password_success' => 'Reset Password successful',
+    'login_now' => 'Login now',
 
 
     //users translate

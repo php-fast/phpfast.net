@@ -17,3 +17,8 @@
 [2024-10-11 11:16:20] ERROR: Call to a member function getUserByEmail() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 529
 [2024-10-11 11:16:42] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
 [2024-10-11 11:59:03] ERROR: Call to a member function toArray() on array in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 159
+[2024-10-11 12:11:30] ERROR: 404 - Router: /assets/backend/js/e69bfc9d54ab686a1e32cea87150009b.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 12:32:32] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 12:32:40] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 12:35:24] ERROR: syntax error, unexpected identifier "Session" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 554
+[2024-10-11 13:08:07] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572

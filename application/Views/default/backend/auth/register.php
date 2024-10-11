@@ -9,10 +9,8 @@ if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
 
-$googleUserInfo = isset($_SESSION['google_user_info']) ? $_SESSION['google_user_info'] : null;
-
-$email = $googleUserInfo ? $googleUserInfo['email'] : '';
-$fullname = $googleUserInfo ? $googleUserInfo['fullname'] : '';
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+$fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
 
 ?>
 
