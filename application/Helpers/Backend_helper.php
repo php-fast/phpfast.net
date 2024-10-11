@@ -59,38 +59,3 @@ if (!function_exists('admin_url_posttype')){
     }
 }
 
-
-
-// helper function name to url utf8 bỏ dấu nếu tiếng việt
-if (!function_exists('to_url')) {
-    function to_url($str) {
-        // Chuyển đổi sang chữ thường
-        $str = mb_strtolower($str, 'UTF-8');
-        
-        // Chuyển đổi ký tự có dấu sang không dấu
-        $unwantedArray = [
-            'a' => ['á', 'à', 'ả', 'ã', 'ạ', 'ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ', 'â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ'],
-            'd' => ['đ'],
-            'e' => ['é', 'è', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ế', 'ề', 'ể', 'ễ', 'ệ'],
-            'i' => ['í', 'ì', 'ỉ', 'ĩ', 'ị'],
-            'o' => ['ó', 'ò', 'ỏ', 'õ', 'ọ', 'ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ', 'ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ'],
-            'u' => ['ú', 'ù', 'ủ', 'ũ', 'ụ', 'ư', 'ừ', 'ử', 'ữ', 'ự'],
-            'y' => ['ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ']
-        ];
-
-        foreach ($unwantedArray as $nonAccent => $accents) {
-            $str = str_replace($accents, $nonAccent, $str);
-        }
-
-        // Thay thế các ký tự không hợp lệ sang dấu gạch ngang
-        $str = preg_replace('/[^a-z0-9-]+/', '-', $str);
-        
-        // Xóa các dấu gạch ngang liên tiếp
-        $str = preg_replace('/-+/', '-', $str);
-
-        // Xóa dấu gạch ngang ở đầu và cuối chuỗi
-        $str = trim($str, '-');
-
-        return $str;
-    }
-}
