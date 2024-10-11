@@ -65,10 +65,7 @@ class LanguagesController extends BaseController {
                 ]);
 
                 Session::flash('success', 'Ngôn ngữ mới đã được thêm thành công.');
-                redirect(admin_url('languages/index'));
-            } else {
-                Session::flash('error', 'Vui lòng nhập đầy đủ thông tin.');
-                redirect(admin_url('languages/add'));
+                redirect(admin_url('languages'));
             }
         }
     }
@@ -80,7 +77,7 @@ class LanguagesController extends BaseController {
 
         if (!$language) {
             Session::flash('error', 'Ngôn ngữ không tồn tại.');
-            redirect(admin_url('languages/index'));
+            redirect(admin_url('languages'));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -103,11 +100,14 @@ class LanguagesController extends BaseController {
             //Them buoc thay doi ten cac bang Posts lien quan den ngon ngu nua
 
             Session::flash('success', 'Chỉnh sửa ngôn ngữ thành công.');
-            redirect(admin_url('languages/index'));
+            redirect(admin_url('languages'));
         }
 
         $this->data('language', $language);
-        $this->render('backend', 'backend/languages/edit');
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+        $this->data('title', 'Chỉnh sửa ngôn ngữ');
+        $this->render('dashbroad', 'backend/languages/edit');
     }
 
     // Xóa ngôn ngữ
@@ -117,18 +117,18 @@ class LanguagesController extends BaseController {
 
         if (!$language) {
             Session::flash('error', 'Ngôn ngữ không tồn tại.');
-            redirect(admin_url('languages/index'));
+            redirect(admin_url('languages'));
         }
 
         // Không cho phép xóa ngôn ngữ mặc định
         if ($language['is_default'] == 1) {
             Session::flash('error', 'Không thể xóa ngôn ngữ mặc định.');
-            redirect(admin_url('languages/index'));
+            redirect(admin_url('languages'));
         }
 
         $this->languagesModel->del($this->languagesModel->_table(), 'id = ?', [$id]);
         Session::flash('success', 'Xóa ngôn ngữ thành công.');
-        redirect(admin_url('languages/index'));
+        redirect(admin_url('languages'));
     }
 
     // get language active

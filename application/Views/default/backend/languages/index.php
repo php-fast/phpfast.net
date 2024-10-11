@@ -2,7 +2,6 @@
 use System\Libraries\Session;
 ?>
 <div class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Quản lý ngôn ngữ</h1>
     <?php if (Session::has_flash('success')): ?>
         <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4">
             <?= Session::flash('success'); ?>

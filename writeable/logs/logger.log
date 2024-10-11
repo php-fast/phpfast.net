@@ -194,3 +194,13 @@
 [2024-10-11 16:24:57] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
 [2024-10-11 16:25:48] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
 [2024-10-11 16:25:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:27:18] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:27:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:33:23] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:33:25] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:34:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:34:58] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:36:43] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:38:00] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:38:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:38:10] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
