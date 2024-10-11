@@ -1,0 +1,19 @@
+[2024-10-11 09:02:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 09:38:00] ERROR: 404 - Router: /assets/backend/js/e69bfc9d54ab686a1e32cea87150009b.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 09:42:54] ERROR: syntax error, unexpected single-quoted string "password", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Languages/en/Auth.php on line 7
+[2024-10-11 09:58:54] ERROR: syntax error, unexpected single-quoted string "users_noactive", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Languages/en/Auth.php on line 44
+[2024-10-11 10:01:07] ERROR: 404 - Router: /assets/backend/js/e69bfc9d54ab686a1e32cea87150009b.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 10:06:08] ERROR: syntax error, unexpected single-quoted string "register_error", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Languages/en/Auth.php on line 31
+[2024-10-11 10:19:41] ERROR: syntax error, unexpected single-quoted string "users_noactive", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Languages/en/Auth.php on line 54
+[2024-10-11 10:39:11] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 10:49:22] ERROR: 404 - Router: /assets/backend/js/e69bfc9d54ab686a1e32cea87150009b.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 10:54:23] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 10:54:30] ERROR: Object of class Google\Service\Oauth2\Userinfo could not be converted to string in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 528
+[2024-10-11 10:54:41] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 10:55:23] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 10:55:29] ERROR: Call to undefined method Google\Service\Oauth2\Userinfo::toArray() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 528
+[2024-10-11 10:58:46] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 11:02:26] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 11:16:20] ERROR: Call to a member function getUserByEmail() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 529
+[2024-10-11 11:16:42] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-11 11:59:03] ERROR: Call to a member function toArray() on array in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 159

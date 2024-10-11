@@ -285,7 +285,7 @@ if (Session::has_flash('error')){
           <div class="authorize-form w-full h-full bg-white flex items-center justify-center">
             <div class="w-full max-w-[470px] p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="font-semibold text-2xl leading-8 text-gray-900">
-                Reset password
+                <?= FLang::_e('reset_password_title') ?>
               </h1>
               <form
                 name="resetPassForm"
@@ -304,7 +304,7 @@ if (Session::has_flash('error')){
                       type="password"
                       name="password"
                       id="password"
-                      placeholder="<?= Flang::_e('new password') ?>"
+                      placeholder="<?= Flang::_e('new_password') ?>"
                       class=""
                       required=""
                     />
@@ -333,7 +333,7 @@ if (Session::has_flash('error')){
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-full" disabled>
-                <?= Flang::_e('Change Password') ?>
+                <?= Flang::_e('change_password') ?>
                 </button>
                 <div
                   class="bg-success-light border border-success-dark font-normal text-sm leading-5 text-success py-5 rounded relative pl-12 pr-4"

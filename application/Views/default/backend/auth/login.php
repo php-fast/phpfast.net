@@ -304,7 +304,7 @@ if (Session::has_flash('error')){
                   <label
                     for="username"
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
-                    >User name or email</label
+                    ><?= Flang::_e('login_title') ?></label
                   >
                   <div class="field email">
                     <input
@@ -312,7 +312,7 @@ if (Session::has_flash('error')){
                       name="username"  
                       id="username"
                       class=""
-                      placeholder="Enter your username or email"
+                      placeholder="<?= Flang::_e('placeholder_login') ?>"
                       required=""
                     />
                   </div>
@@ -337,7 +337,7 @@ if (Session::has_flash('error')){
                       type="password"
                       name="password"
                       id="password"
-                      placeholder="Enter your password"
+                      placeholder="<?= Flang::_e('placeholder_password') ?>"
                       class=""
                       required=""
                     />
@@ -388,14 +388,14 @@ if (Session::has_flash('error')){
                       <label
                         for="remember"
                         class="text-gray-500 "
-                        >Remember me</label
+                        ><?= Flang::_e('remember_me') ?></label
                       >
                     </div>
                   </div>
                   <a
                     href="<?= admin_url('auth/forgot_password') ?>"
                     class="text-sm font-medium text-primary-600 hover:underline "
-                    >Forgot password?</a
+                    ><?= Flang::_e('forgot_password') ?></a
                   >
                 </div>
                 <button
@@ -407,7 +407,7 @@ if (Session::has_flash('error')){
                   <?= Flang::_e('login') ?>
                 </button>
                 <p class="text-sm font-light text-gray-500 ">
-                  Don’t have an account yet?
+                  <?= Flang::_e('dont_have_account') ?>
                   <a
                     href="<?= admin_url('auth/register') ?>"
                     class="font-medium text-primary-600 hover:underline "
@@ -461,9 +461,9 @@ if (Session::has_flash('error')){
                       data-original="#eb4132"
                     />
                   </svg>
-                  Sign in with google
+                  <?= Flang::_e('login_google') ?>
                 </a>
-              </form>
+              </form> 
             </div>
           </div>
         </div>

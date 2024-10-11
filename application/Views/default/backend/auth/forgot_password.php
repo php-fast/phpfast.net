@@ -284,7 +284,7 @@ if (Session::has_flash('error')){
           <div class="authorize-form w-full h-full bg-white flex items-center justify-center">
             <div class="w-full max-w-[470px] p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="font-semibold text-2xl leading-8 text-gray-900">
-                Forgot password?
+                <?= Flang::_e('forgot_password_title') ?>
               </h1>
 
               <?php if (!empty($success)): ?>
@@ -308,7 +308,7 @@ if (Session::has_flash('error')){
                   <label
                     for="email"
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
-                    >Email</label
+                    ><?= Flang::_e('email') ?></label
                   >
                   <div class="field email">
                     <input
@@ -316,7 +316,7 @@ if (Session::has_flash('error')){
                       name="email"
                       id="email"
                       class=""
-                      placeholder="Enter your email"
+                      placeholder="<?= Flang::_e('placeholder_email') ?>"
                       required=""
                     />
                   </div>
@@ -332,7 +332,7 @@ if (Session::has_flash('error')){
                 </div>
                 <!-- check validate email exsit reset success redirect qua page reset passsword <?= admin_url('auth/reset_password') ?> -->
                 <button type="submit" class="btn btn-primary w-full" disabled>
-                  Send recover link
+                  <?= Flang::_e('submit_link') ?>
                 </button>
               </form>
             </div>

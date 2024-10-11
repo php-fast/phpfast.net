@@ -8,6 +8,12 @@ if (Session::has_flash('success')){
 if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
+
+$googleUserInfo = isset($_SESSION['google_user_info']) ? $_SESSION['google_user_info'] : null;
+
+$email = $googleUserInfo ? $googleUserInfo['email'] : '';
+$fullname = $googleUserInfo ? $googleUserInfo['fullname'] : '';
+
 ?>
 
 <div class="page-wrapper">
@@ -314,13 +320,39 @@ if (Session::has_flash('error')){
                       name="username"
                       id="username"
                       class=""
-                      placeholder="Enter your username"
+                      placeholder="<?= Flang::_e('placeholder_username') ?>"
                       required=""
                     />
                   </div>
                   <?php if (!empty($errors['username'])): ?>
                     <div class="text-red-500 mt-2 text-sm">
                         <?php foreach ($errors['username'] as $error): ?>
+                            <p><?= $error; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                </div>
+                <div class="fieldset">
+                  <label
+                    for="fullname"
+                    class="block mb-2 text-sm font-medium leading-5 text-gray-900"
+                    ><?= Flang::_e('fullname') ?></label
+                  >
+                  <div class="field fullname">
+                    <input
+                      type="text"
+                      name="fullname"
+                      id="fullname"
+                      value="<?php echo htmlspecialchars($fullname); ?>"
+                      class=""
+                      placeholder="<?= Flang::_e('placeholder_fullname') ?>"
+                      required=""
+                      <?php echo empty($fullname) ? '' : 'readonly'; ?>
+                    />
+                  </div>
+                  <?php if (!empty($errors['fullname'])): ?>
+                    <div class="text-red-500 mt-2 text-sm">
+                        <?php foreach ($errors['fullname'] as $error): ?>
                             <p><?= $error; ?></p>
                         <?php endforeach; ?>
                     </div>
@@ -336,10 +368,12 @@ if (Session::has_flash('error')){
                     <input
                       type="email"
                       name="email"
+                      value="<?php echo htmlspecialchars($email); ?>"
                       id="email"
                       class=""
-                      placeholder="Enter your email"
+                      placeholder="<?= Flang::_e('placeholder_email') ?>"
                       required=""
+                      <?php echo empty($email) ? '' : 'readonly'; ?>
                     />
                   </div>
                   <?php if (!empty($errors['email'])): ?>
@@ -354,7 +388,7 @@ if (Session::has_flash('error')){
                   <label
                     for="phone"
                     class="block mb-2 text-sm font-medium leading-5 text-gray-900"
-                    >Phone</label
+                    ><?= Flang::_e('phone') ?></label
                   >
                   <div class="field phone">
                     <input
@@ -362,7 +396,7 @@ if (Session::has_flash('error')){
                       name="phone"
                       id="phone"
                       class=""
-                      placeholder="Enter your phone"
+                      placeholder="<?= Flang::_e('placeholder_phone') ?>"
                       required=""
                     />
                   </div>
@@ -380,14 +414,14 @@ if (Session::has_flash('error')){
                   <label
                     for="password"
                     class="block mb-2 text-sm font-medium text-gray-900 "
-                    >Password</label
+                    ><?= Flang::_e('password') ?></label
                   >
                   <div class="field password">
                     <input
                       type="password"
                       name="password"
                       id="password"
-                      placeholder="Enter your password"
+                      placeholder="<?= Flang::_e('placeholder_password') ?>"
                       class=""
                       required=""
                     />
@@ -426,14 +460,14 @@ if (Session::has_flash('error')){
                   <label
                     for="password_verify"
                     class="block mb-2 text-sm font-medium text-gray-900"
-                    >Enter Password</label
+                    ><?= Flang::_e('password') ?></label
                   >
                   <div class="field password">
                     <input
                       type="password" 
                       name="password_verify"
                       id="password_verify"
-                      placeholder="Enter your password verify"
+                      placeholder="<?= Flang::_e('placeholder_password_repeat') ?>"
                       class="password_verify"
                       required=""
                     />
@@ -472,7 +506,7 @@ if (Session::has_flash('error')){
                   <div
                     class="block mb-2 text-sm font-medium text-gray-900 "
                   >
-                    Your social media contact for support
+                    <?= Flang::_e('social_media') ?>
                   </div>
                   <div class="fieldset space-y-4 md:space-y-6">
                     <div class="field relative">
@@ -480,9 +514,8 @@ if (Session::has_flash('error')){
                         type="text"
                         name="telegram"
                         id="telegram"
-                        placeholder="Enter your username..."
+                        placeholder="<?= Flang::_e('placeholder_telegram') ?>"
                         class="!pl-10"
-                        required=""
                       />
                       <svg
                         class="absolute top-[10px] left-[10px]"
@@ -539,9 +572,8 @@ if (Session::has_flash('error')){
                         type="text"
                         name="skype"
                         id="skype"
-                        placeholder="Enter your username..."
+                        placeholder="<?= Flang::_e('placeholder_skype') ?>"
                         class="!pl-10"
-                        required=""
                       />
                       <svg
                         class="absolute top-[10px] left-[10px]"
@@ -585,9 +617,8 @@ if (Session::has_flash('error')){
                         type="text"
                         name="whatsapp"
                         id="whatsapp"
-                        placeholder="Enter your whats app number..."
+                        placeholder="<?= Flang::_e('placeholder_whatsapp') ?>"
                         class="!pl-10"
-                        required=""
                       />
                       <svg
                         class="absolute top-[10px] left-[10px]"
@@ -628,14 +659,14 @@ if (Session::has_flash('error')){
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-full" disabled>
-                  Sign in
+                  <?= Flang::_e('sign_up') ?>
                 </button>
                 <p class="text-sm font-light text-gray-500 ">
-                  Don’t have an account yet?
+                  <?= Flang::_e('have_account') ?>
                   <a
                     href="<?= admin_url('auth/login') ?>" 
                     class="font-medium text-primary-600 hover:underline "
-                    >Sign up</a
+                    ><?= Flang::_e('login') ?></a
                   >
                 </p>
                 <div class="my-4 flex items-center gap-4">
@@ -643,9 +674,8 @@ if (Session::has_flash('error')){
                   <p class="text-sm text-gray-800 text-center">or</p>
                   <hr class="w-full border-gray-300" />
                 </div>
-
-                <button
-                  type="button"
+                <a
+                   href="<?= admin_url('auth/login_google') ?>"
                   class="w-full flex items-center justify-center gap-4 py-3 px-6 text-sm tracking-wide text-gray-800 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 focus:outline-none"
                 >
                   <svg
@@ -685,8 +715,8 @@ if (Session::has_flash('error')){
                       data-original="#eb4132"
                     />
                   </svg>
-                  Sign in with google
-                </button>
+                    <?= Flang::_e('login_google') ?>
+                  </a>
               </form>
             </div>
           </div>

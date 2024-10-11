@@ -147,6 +147,7 @@ class AuthController extends BaseController
             }
             $input = [
                 'username' => S_POST('username'),
+                'fullname' => S_POST('fullname'),
                 'email' => S_POST('email'),
                 'password' => S_POST('password'),
                 'password_verify' => S_POST('password_verify'),
@@ -164,6 +165,16 @@ class AuthController extends BaseController
                     'messages' => [
                         Flang::_e('username_invalid'),
                         Flang::_e('username_length', 6, 30)
+                    ]
+                ],
+                'fullname' => [
+                    'rules' => [
+                        Validate::alnum('@.-+_'), 
+                        Validate::length(6, 30)
+                    ],
+                    'messages' => [
+                        Flang::_e('fullname_invalid'),
+                        Flang::_e('fullname_length', 6, 30)
                     ]
                 ],
                 'email' => [
@@ -230,10 +241,10 @@ class AuthController extends BaseController
                     ]
                 ]
             ];
-            
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
+                die('svsdvdsvs');
                 $errors = $validator->getErrors();
                 
                 $this->data('errors', $errors);
@@ -301,10 +312,10 @@ class AuthController extends BaseController
             $this->mailer = new Fastmail();
             $this->mailer->send($input['email'], 'Kích hoạt tài khoản', 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
 
-            Session::flash('success', 'Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.');
+            Session::flash('success', Flang::_e('regsiter_success'));
             redirect(admin_url("auth/activation/{$user_id}/"));
         } else {
-            Session::flash('error', 'Đăng ký không thành công. Vui lòng thử lại.');
+            Session::flash('error', Flang::_e('register_error'));
             redirect(admin_url('auth/register'));
         }
     }
@@ -314,12 +325,12 @@ class AuthController extends BaseController
         // Lấy thông tin người dùng từ ID
         $user = $this->usersModel->getUserById($user_id);
         if (!$user) {
-            Session::flash('error', 'Tài khoản không tồn tại.');
+            Session::flash('error', Flang::_e('acccount_does_exist'));
             redirect(admin_url('auth/login'));
             return;
         }
         if ($user['status'] != 'inactive'){
-            Session::flash('success', 'Tài khoản đã được kích hoạt.');
+            Session::flash('success', Flang::_e('account_active'));
             redirect(admin_url('auth/login'));
             return;
         }
@@ -334,7 +345,7 @@ class AuthController extends BaseController
         }
 
         if ($user_active_expires < time()){
-            $this->data('error', 'Mã kích hoạt đã bị hết hạn.');
+            $this->data('error', Flang::_e('token_out_time'));
             return $this->_activation_form($user_id);
         }
 
@@ -345,7 +356,7 @@ class AuthController extends BaseController
                 // Kích hoạt tài khoản
                 return $this->_activation($user_id);
             } else {
-                $this->data('error', 'Mã kích hoạt không hợp lệ.');
+                $this->data('error', Flang::_e('token_invalid'));
                 return $this->_activation_form($user_id);
             }
         }
@@ -358,7 +369,7 @@ class AuthController extends BaseController
                 // Kích hoạt tài khoản
                 $this->_activation($user_id);
             } else {
-                $this->data('error', 'Mã kích hoạt không hợp lệ.');
+                $this->data('error', Flang::_e('token_invalid'));
                 $this->_activation_form($user_id);
             }
         } else {
@@ -402,6 +413,7 @@ class AuthController extends BaseController
                     }
                 }
             }
+             $this->data('title', Flang::_e('forgotpassw_welcome'));
             
             $this->data('assets_header', $this->assets->header('backend'));
             $this->data('assets_footer', $this->assets->footer('backend'));
@@ -414,6 +426,7 @@ class AuthController extends BaseController
                     Flang::_e('user_exist')
                 );
                 $this->data('errors', $errors);
+                $this->data('title', Flang::_e('forgotpassw_welcome'));
                 $this->data('assets_header', $this->assets->header('backend'));
                 $this->data('assets_footer', $this->assets->footer('backend'));
                 $this->render('backend', 'backend/auth/forgot_password');
@@ -431,13 +444,14 @@ class AuthController extends BaseController
         $token_expires = $user_optional['token_reset_password_expires'] ?? 0;
         
         if($token !== $token_db) {
-            $error = 'Ma kich hoat sai, vui lòng nhập lại email dế reset password';
+            $error = Flang::_e('token_fotgot_invalid');
         }
         if($token_expires <= time()){
-            $error = 'Đường dẫn hết hạn, vui lòng nhập lại email dế reset password';
+            $error = Flang::_e('token_fotgot_out_time');
         }
         if (!empty($error)){
             $this->data('error', $error);
+            $this->data('title', Flang::_e('forgotpassw_welcome'));
             $this->data('assets_footer', $this->assets->footer('backend'));
             $this->data('assets_header', $this->assets->header('backend'));
             $this->render('backend', 'backend/auth/forgot_password');
@@ -471,15 +485,18 @@ class AuthController extends BaseController
                     $input['optional'] = json_encode($user_optional); //remove ma reset sau khi set passs.
                     $this->usersModel->updateUser($user_id, $input);
                     
+                    
                     $success = 'Reset password success';
                     $this->data('success', $success);
                     $this->data('csrf_token', Session::csrf_token(600));
+                    $this->data('title', Flang::_e('login_welcome'));
                     $this->data('assets_header', $this->assets->header('backend'));
                     $this->data('assets_footer', $this->assets->footer('backend'));
-                
+                    
                     $this->render('backend', 'backend/auth/login');
                 }
             }
+            $this->data('title', Flang::_e('update_password_welcome'));
             $this->data('assets_footer', $this->assets->footer('backend'));
             $this->data('assets_header', $this->assets->header('backend'));
             $this->render('backend', 'backend/auth/forgot_setpassword');
@@ -518,13 +535,31 @@ class AuthController extends BaseController
             // Lấy thông tin người dùng từ Google
             $oauth2 = new Google_Service_Oauth2($client);
             $userInfo = $oauth2->userinfo->get();
-            // Hiển thị thông tin người dùng
-            echo 'Tên: ' . $userInfo->name . '<br>';
-            echo 'Email: ' . $userInfo->email . '<br>';
-            echo 'Ảnh đại diện: <img src="' . $userInfo->picture . '"><br>';
+            $email_user = $userInfo->email;
+            $fullName = $userInfo->name;
+            $user = $this->usersModel->getUserByEmail($email_user);
+
+            if ($user) {
+                   // Set thông tin đăng nhập vào session
+                Session::set('user_id', $user['id']);
+                Session::set('role', $user['role']);
+                Session::set('permissions', json_decode($user['permissions'], true));
+                // Tái tạo session ID để tránh session fixation
+                Session::regenerate();
+
+                redirect(admin_url('dashboard'));
+            } else {
+                // Nếu người dùng chưa có, chuyển hướng đến trang đăng ký
+                $_SESSION['google_user_info'] = [
+                    'fullname' => $fullName,
+                    'email' => $email_user,
+                ];
+                // Chuyển hướng đến trang đăng ký để nhập các trường còn lại
+                redirect(admin_url('auth/register'));
+            }
+        
         }
     }
-    
 
     private function _activation_resend($user_id, $user_optional, $user)
     {
@@ -545,7 +580,7 @@ class AuthController extends BaseController
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
 
-        Session::flash('success', 'Mã kích hoạt mới đã được gửi tới email của bạn.');
+        Session::flash('success', Flang::_e('active_send_email'));
         redirect(admin_url('auth/activation/' . $user_id));
     }   
     // send email forgot password
@@ -570,7 +605,7 @@ class AuthController extends BaseController
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
-        Session::flash('success', 'Link reset password đã được gửi đến email của bạn.');
+        Session::flash('success', Flang::_e('link_reset_password'));
         // redirect(admin_url('auth/activation/' . $user_id));
     }   
 
@@ -590,7 +625,7 @@ class AuthController extends BaseController
             'optional' => null
         ]);
     
-        Session::flash('success', 'Tài khoản của bạn đã được kích hoạt thành công.');
+        Session::flash('success', Flang::_e('active_email_success'));
         redirect(admin_url('auth/login'));
     }
 
