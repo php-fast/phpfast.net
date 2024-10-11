@@ -5,14 +5,24 @@ use System\Core\BaseController;
 use App\Models\LanguagesModel;
 use System\Libraries\Session;
 use System\Libraries\Render;
+use System\Libraries\Assets;
+
 
 class LanguagesController extends BaseController {
     protected $languagesModel;
+    protected $assets;
+
 
     public function __construct()
     {
         load_helpers(['backend']);
         $this->languagesModel = new LanguagesModel();
+        $this->assets = new Assets();
+
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
+
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
         $this->data('header', $header);
@@ -25,7 +35,9 @@ class LanguagesController extends BaseController {
         $languages = $this->languagesModel->getLanguages();
         $this->data('languages', $languages);
         $this->data('title', 'Quản lý ngôn ngữ');
-        $this->render('backend', 'backend/languages/index');
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+        $this->render('dashbroad', 'backend/languages/index');
     }
 
     // Thêm ngôn ngữ mới

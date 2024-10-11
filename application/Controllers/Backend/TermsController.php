@@ -32,7 +32,7 @@ class TermsController extends BaseController {
         $this->data('posttype', $posttype);
         $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
         $this->data('tree', $tree);
-        $this->render('backend', 'backend/term/index');
+        $this->render('backend', 'backend/terms/index');
         
     }
     private function treeTerm($term) {
@@ -110,7 +110,7 @@ class TermsController extends BaseController {
         $this->data('data', $data);
         $this->data('tree', $tree);
         $this->data('title', 'Chỉnh sửa term');
-        $this->render('backend', 'backend/term/edit');
+        $this->render('backend', 'backend/terms/edit');
     }
 
 
