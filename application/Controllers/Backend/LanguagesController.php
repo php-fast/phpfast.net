@@ -24,6 +24,7 @@ class LanguagesController extends BaseController {
     {
         $languages = $this->languagesModel->getLanguages();
         $this->data('languages', $languages);
+        $this->data('title', 'Quản lý ngôn ngữ');
         $this->render('backend', 'backend/languages/index');
     }
 
@@ -34,7 +35,10 @@ class LanguagesController extends BaseController {
             $name = S_POST('name') ?? '';
             $code = S_POST('code') ?? '';
             $status = S_POST('status') ?? 'inactive';
+            $flat = S_POST('flat') ?? '';
             $isDefault = isset($_POST['is_default']) ? 1 : 0;
+
+
             if ($name && $code) {
                 if ($isDefault) {
                     $this->languagesModel->unsetDefaultLanguage(); // Bỏ mặc định cho tất cả ngôn ngữ khác
@@ -44,16 +48,16 @@ class LanguagesController extends BaseController {
                     'name' => $name,
                     'code' => $code,
                     'status' => $status,
-                    'is_default' => $isDefault
+                    'is_default' => $isDefault,
+                    'flat' => $flat
                 ]);
+
                 Session::flash('success', 'Ngôn ngữ mới đã được thêm thành công.');
                 redirect(admin_url('languages/index'));
             } else {
                 Session::flash('error', 'Vui lòng nhập đầy đủ thông tin.');
                 redirect(admin_url('languages/add'));
             }
-        } else {
-            $this->render('backend', 'backend/languages/add');
         }
     }
 
@@ -113,5 +117,12 @@ class LanguagesController extends BaseController {
         $this->languagesModel->del($this->languagesModel->_table(), 'id = ?', [$id]);
         Session::flash('success', 'Xóa ngôn ngữ thành công.');
         redirect(admin_url('languages/index'));
+    }
+
+    // get language active
+    public function getActiveLanguages()
+    {
+        $languages = $this->languagesModel->getActiveLanguages();
+        return $languages;
     }
 }

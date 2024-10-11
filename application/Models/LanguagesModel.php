@@ -8,7 +8,7 @@ class LanguagesModel extends BaseModel
     protected $table = 'fast_languages';
 
     // Các cột được phép thêm hoặc sửa
-    protected $fillable = [ 'name', 'code', 'is_default', 'status'];
+    protected $fillable = [ 'name', 'code', 'is_default', 'status', 'flat'];
 
     // Các cột không được phép sửa
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -36,6 +36,10 @@ class LanguagesModel extends BaseModel
                 'type' => 'varchar(100)',
                 'null' => false
             ],
+            'flat' => [
+                'type' => 'varchar(100)',
+                'null' => true
+            ], 
             'is_default' => [
                 'type' => 'tinyint(1)',
                 'null' => false,
@@ -67,7 +71,22 @@ class LanguagesModel extends BaseModel
     {
         return $this->list($this->table);
     }
-
+    /**
+     * Lấy danh sách ngôn ngữ active (not inactive)
+     */
+    public function getActiveLanguages()
+    {
+        return $this->list($this->table, 'status = ?', ['active']);
+    }
+    
+    /**
+     * Lấy ngon ngu mac dinh
+     */
+    public function getDefaultLanguage()
+    {
+        return $this->row($this->table, 'is_default = ?', [1]);
+    }
+    
     /**
      * Lấy ngôn ngữ theo ID
      */

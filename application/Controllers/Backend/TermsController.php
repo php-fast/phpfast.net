@@ -8,7 +8,7 @@ use System\Libraries\Render;
 use System\Core\BaseController;
 use App\Helpers\Backend_helper;
 
-class TermController extends BaseController {
+class TermsController extends BaseController {
     protected  $termModel;
     protected  $LanguagesModel;
     public function __construct()
