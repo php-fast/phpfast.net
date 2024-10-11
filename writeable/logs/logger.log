@@ -218,3 +218,7 @@
 >>>>>>> 75c90769b16da62bf8fc615029127fcb5aa4fa29
 [2024-10-11 16:40:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
 [2024-10-11 16:40:56] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:46:26] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:46:29] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-11 16:46:32] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-11 16:47:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
