@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-/application/Config/Config.php
-/vendor/
-/composer.lock
-=======
 /vendor/
 /composer.lock/
 /application/Config/Config.php
 /writeable
 application/Config/Config.php
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327

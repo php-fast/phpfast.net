@@ -13,8 +13,6 @@ if (!function_exists('base_url')){
         return rtrim($base_url, '/') . '/' . trim($path, '/').'/';
     }
 }
-<<<<<<< HEAD
-=======
 if (!function_exists('auth_url')){
     function auth_url($path = '') {
         global $base_url;
@@ -26,7 +24,6 @@ if (!function_exists('auth_url')){
         return rtrim($base_url, '/') . '/account/' . trim($path, '/').'/';
     }
 }
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 if (!function_exists('admin_url')){
     function admin_url($path = '') {
         global $base_url;
@@ -37,8 +34,6 @@ if (!function_exists('admin_url')){
         }
         return rtrim($base_url, '/') . '/admin/' . trim($path, '/').'/';
     }
-<<<<<<< HEAD
-=======
 }
 if (!function_exists('admin_url_lang')){
     function admin_url_lang($path = '') {
@@ -62,5 +57,4 @@ if (!function_exists('admin_url_posttype')){
         }
         return rtrim($base_url, '/') . '/admin/posttype/' . trim($path, '/').'/';
     }
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 }

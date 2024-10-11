@@ -10,11 +10,8 @@ use System\Libraries\Assets;
 use App\Libraries\Fastmail;
 use App\Libraries\Fastlang as Flang;
 use System\Libraries\Validate;
-<<<<<<< HEAD
-=======
 use Google_Client;
 use Google_Service_Oauth2;
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 
 
 class AuthController extends BaseController
@@ -35,11 +32,8 @@ class AuthController extends BaseController
         $this->assets->add('js', 'js/authorize.js', 'footer');
         //$header = Render::component('backend/component/header');
         //$footer = Render::component('backend/component/footer');
-<<<<<<< HEAD
-=======
         $sidebar = Render::component('backend/component/auth_sidebar');
         $this->data('sidebar', $sidebar);
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         $this->data('header', '');
         $this->data('footer', '');
     }
@@ -52,11 +46,7 @@ class AuthController extends BaseController
             redirect(admin_url('dashboard'));
         } else {
             // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-<<<<<<< HEAD
-            redirect(admin_url('auth/login'));
-=======
             redirect(auth_url('login'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         }
     }
 
@@ -68,19 +58,11 @@ class AuthController extends BaseController
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
-<<<<<<< HEAD
-                redirect(admin_url('auth/login'));
-            }
-            $input = [
-                'username'  =>  $_POST['username'] ?? '',
-                'password'  =>  $_POST['password'] ?? ''
-=======
                 redirect(auth_url('login'));
             }
             $input = [
                 'username'  =>  S_POST('username') ?? '',
                 'password'  =>  S_POST('password') ?? ''
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             ];
             $rules = [
                 'username' => [
@@ -96,11 +78,7 @@ class AuthController extends BaseController
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-<<<<<<< HEAD
-                $this->data('errors', $errors);
-=======
                 $this->data('errors', $errors);     
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             }else{
                 return $this->_login($input);
             }
@@ -131,11 +109,7 @@ class AuthController extends BaseController
         if ($user && Security::verifyPassword($input['password'], $user['password'])) {
             if ($user['status'] !== 'active') {
                 Session::flash('error', Flang::_e('users_noactive', $input['username']));
-<<<<<<< HEAD
-                redirect(admin_url('auth/login'));
-=======
                 redirect(auth_url('login'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                 exit();
             }
 
@@ -149,11 +123,7 @@ class AuthController extends BaseController
             redirect(admin_url('dashboard'));
         } else {
             Session::flash('error', Flang::_e('login_failed', $input['username']) );
-<<<<<<< HEAD
-            redirect(admin_url('auth/login'));
-=======
             redirect(auth_url('login'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         }
     }
 
@@ -163,11 +133,7 @@ class AuthController extends BaseController
         Session::del('user_id');
         Session::del('role');
         Session::del('permissions');
-<<<<<<< HEAD
-        redirect(admin_url('auth/login'));
-=======
         redirect(auth_url('login'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         exit();
     }
 
@@ -179,19 +145,6 @@ class AuthController extends BaseController
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
-<<<<<<< HEAD
-                redirect(admin_url('auth/register'));
-            }
-            $input = [
-                'username' => $_POST['username'],
-                'email' => $_POST['email'],
-                'password' => $_POST['password'],
-                'password_verify' => $_POST['password_verify'],
-                'phone' => $_POST['phone'],
-                'telegram' => $_POST['telegram'] ?? '',
-                'skype' => $_POST['skype'] ?? '',
-                'whatsapp' => $_POST['whatsapp'] ?? '',
-=======
                 redirect(auth_url('register'));
             }
             $input = [
@@ -204,16 +157,11 @@ class AuthController extends BaseController
                 // 'telegram' => S_POST('telegram') ?? '',
                 // 'skype' => S_POST('skype') ?? '',
                 // 'whatsapp' => S_POST('whatsapp') ?? '',
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             ];
             $rules = [
                 'username' => [
                     'rules' => [
-<<<<<<< HEAD
-                        Validate::alnum(), 
-=======
                         Validate::alnum('@.'),
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                         Validate::length(6, 30)
                     ],
                     'messages' => [
@@ -221,8 +169,6 @@ class AuthController extends BaseController
                         Flang::_e('username_length', 6, 30)
                     ]
                 ],
-<<<<<<< HEAD
-=======
                 'fullname' => [
                     'rules' => [
                         Validate::length(6, 30)
@@ -231,7 +177,6 @@ class AuthController extends BaseController
                         Flang::_e('fullname_length', 6, 30)
                     ]
                 ],
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                 'email' => [
                     'rules' => [
                         Validate::email(),
@@ -245,19 +190,11 @@ class AuthController extends BaseController
                 'phone' => [
                     'rules' => [
                         Validate::phone(),
-<<<<<<< HEAD
-                        Validate::length(10)
-                    ],
-                    'messages' => [
-                        Flang::_e('phone_invalid'),
-                        Flang::_e('phone_length', 6, 150)
-=======
                         Validate::length(6, 30)
                     ],
                     'messages' => [
                         Flang::_e('phone_invalid'),
                         Flang::_e('phone_length', 6, 30)
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                     ]
                 ],
                 'password' => [
@@ -276,34 +213,6 @@ class AuthController extends BaseController
                         Flang::_e('password_verify_invalid', $input['password_verify'])
                     ]
                 ],
-<<<<<<< HEAD
-                'telegram' => [
-                    'rules' => [
-                        Validate::length(6, 100)
-                    ],
-                    'messages' => [
-                        Flang::_e('telegram', 6, 100)
-                    ]
-                ],
-                'skype' => [
-                    'rules' => [
-                        Validate::length(6, 100)
-                    ],
-                    'messages' => [
-                        Flang::_e('skype', 6, 100)
-                    ]
-                ],
-                'whatsapp' => [
-                    'rules' => [
-                        Validate::length(6, 100)
-                    ],
-                    'messages' => [
-                        Flang::_e('whatsapp_length', 6, 100)
-                    ]
-                ]
-            ];
-            
-=======
                 // 'telegram' => [
                 //     'rules' => [
                 //         Validate::alnum('@.-+_'),
@@ -332,34 +241,21 @@ class AuthController extends BaseController
                 //     ]
                 // ]
             ];
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-<<<<<<< HEAD
-                
-                $this->data('errors', $errors);
-            }else{
-                $errors = [];
-                if ($this->usersModel->isUsernameExists($input['username'])) {
-=======
                 print_r($errors);
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
                 if ($this->usersModel->getUserByUsername($input['username'])) {
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                     $errors['username'] = array(
                         Flang::_e('username_double', $input['username'])
                     );
                     $isExists = true;
                 }
-<<<<<<< HEAD
-                if ($this->usersModel->isEmailExists($input['email'])) {
-=======
                 if ($this->usersModel->getUserByEmail($input['email'])) {
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                     $errors['email'] = array(
                         Flang::_e('email_double', $input['email'])
                     );
@@ -409,29 +305,17 @@ class AuthController extends BaseController
 
         if ($user_id) {
             // Gửi email kích hoạt
-<<<<<<< HEAD
-            $activationLink = admin_url('auth/activation/' . $user_id . '/' . $activationCode.'/');
-=======
             $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             //$emailContent = Render::component('common/email/activation', ['username' => $input['username'], 'activation_link' => $activationLink]);
             //echo $emailContent;die;
             $this->mailer = new Fastmail();
             $this->mailer->send($input['email'], 'Kích hoạt tài khoản', 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
 
-<<<<<<< HEAD
-            Session::flash('success', 'Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.');
-            redirect(admin_url("auth/activation/{$user_id}/"));
-        } else {
-            Session::flash('error', 'Đăng ký không thành công. Vui lòng thử lại.');
-            redirect(admin_url('auth/register'));
-=======
             Session::flash('success', Flang::_e('regsiter_success'));
             redirect(auth_url("activation/{$user_id}/"));
         } else {
             Session::flash('error', Flang::_e('register_error'));
             redirect(auth_url('register'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         }
     }
 
@@ -440,15 +324,6 @@ class AuthController extends BaseController
         // Lấy thông tin người dùng từ ID
         $user = $this->usersModel->getUserById($user_id);
         if (!$user) {
-<<<<<<< HEAD
-            Session::flash('error', 'Tài khoản không tồn tại.');
-            redirect(admin_url('auth/login'));
-            return;
-        }
-        if ($user['status'] != 'inactive'){
-            Session::flash('success', 'Tài khoản đã được kích hoạt.');
-            redirect(admin_url('auth/login'));
-=======
             Session::flash('error', Flang::_e('acccount_does_exist'));
             redirect(auth_url('login'));
             return;
@@ -456,7 +331,6 @@ class AuthController extends BaseController
         if ($user['status'] != 'inactive'){
             Session::flash('success', Flang::_e('account_active'));
             redirect(auth_url('login'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             return;
         }
 
@@ -470,15 +344,9 @@ class AuthController extends BaseController
         }
 
         if ($user_active_expires < time()){
-<<<<<<< HEAD
-            $this->data('error', 'Mã kích hoạt đã bị hết hạn.');
-            return $this->_activation_form($user_id);
-        }
-=======
             $this->data('error', Flang::_e('token_out_time'));
             return $this->_activation_form($user_id);
         } 
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 
         // Trường hợp người dùng truy cập qua URL
         if ($activationCode) {
@@ -487,11 +355,7 @@ class AuthController extends BaseController
                 // Kích hoạt tài khoản
                 return $this->_activation($user_id);
             } else {
-<<<<<<< HEAD
-                $this->data('error', 'Mã kích hoạt không hợp lệ.');
-=======
                 $this->data('error', Flang::_e('token_invalid'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                 return $this->_activation_form($user_id);
             }
         }
@@ -504,11 +368,7 @@ class AuthController extends BaseController
                 // Kích hoạt tài khoản
                 $this->_activation($user_id);
             } else {
-<<<<<<< HEAD
-                $this->data('error', 'Mã kích hoạt không hợp lệ.');
-=======
                 $this->data('error', Flang::_e('token_invalid'));
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                 $this->_activation_form($user_id);
             }
         } else {
@@ -516,8 +376,6 @@ class AuthController extends BaseController
             $this->_activation_form($user_id);
         }
     }
-<<<<<<< HEAD
-=======
         //Forgot Password
     public function forgot_password($user_id = '', $token = ''){
         if (empty($user_id) || empty($token)){
@@ -697,39 +555,22 @@ class AuthController extends BaseController
         
         }
     }
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 
     private function _activation_resend($user_id, $user_optional, $user)
     {
         // Tạo mã kích hoạt 6 ký tự cho người dùng nhập vào
         $activationNo = strtoupper(random_string(6)); // Tạo mã gồm 6 ký tự
         // Tạo mã kích hoạt riêng cho URL
-<<<<<<< HEAD
-        $activationCode = strtolower(random_string(20)); // Tạo mã gồm 20 ký tự
-        if (empty($user_optional)){
-            $user_optional = [];
-        }
-=======
         $activationCode = strtolower(random_string(32)); // Tạo mã gồm 32 ký tự
         if (empty($user_optional)){
             $user_optional = [];
         }/*  */
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         $user_optional['activation_no'] = $activationNo;
         $user_optional['activation_code'] = $activationCode;
         $user_optional['activation_expires'] = time()+86400;
         $this->usersModel->updateUser($user_id, ['optional'=>json_encode($user_optional)]);
 
         // Gửi email mã kích hoạt mới
-<<<<<<< HEAD
-        $activationLink = admin_url('auth/activation/' . $user_id . '/' . $activationCode.'/');
-        $this->mailer = new Fastmail();
-        $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
-
-        Session::flash('success', 'Mã kích hoạt mới đã được gửi tới email của bạn.');
-        redirect(admin_url('auth/activation/' . $user_id));
-    }
-=======
         $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
@@ -761,7 +602,6 @@ class AuthController extends BaseController
         Session::flash('success', Flang::_e('link_reset_password'));
         // redirect(auth_url('activation/' . $user_id));
     }   
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 
     /**
      * Hiển thị form nhập mã kích hoạt
@@ -779,25 +619,6 @@ class AuthController extends BaseController
             'optional' => null
         ]);
     
-<<<<<<< HEAD
-        Session::flash('success', 'Tài khoản của bạn đã được kích hoạt thành công.');
-        redirect(admin_url('auth/login'));
-    }
-
-    //Forgot Password
-    public function forgot_password(){
-        $this->data('assets_header', $this->assets->header('backend'));
-        $this->data('assets_footer', $this->assets->footer('backend'));
-
-        $this->render('backend', 'backend/auth/forgot_password');
-    }
-
-    public function reset_password() {
-        $this->data('assets_header', $this->assets->header('backend'));
-        $this->data('assets_footer', $this->assets->footer('backend'));
-
-        $this->render('backend', 'backend/auth/reset_password');
-=======
         Session::flash('success', Flang::_e('active_email_success'));
         redirect(auth_url('login'));
     }
@@ -958,7 +779,6 @@ class AuthController extends BaseController
         $this->data('assets_footer', $this->assets->footer('backend'));
         
         $this->render('backend', 'backend/auth/profile');
->>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
     }
 
     // Kiểm tra quyền truy cập (middleware)
