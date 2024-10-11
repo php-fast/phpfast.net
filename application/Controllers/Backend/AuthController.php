@@ -44,7 +44,7 @@ class AuthController extends BaseController
             redirect(admin_url('dashboard'));
         } else {
             // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-            redirect(admin_url('auth/login'));
+            redirect(auth_url('login'));
         }
     }
 
@@ -56,7 +56,7 @@ class AuthController extends BaseController
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
-                redirect(admin_url('auth/login'));
+                redirect(auth_url('login'));
             }
             $input = [
                 'username'  =>  S_POST('username') ?? '',
@@ -107,7 +107,7 @@ class AuthController extends BaseController
         if ($user && Security::verifyPassword($input['password'], $user['password'])) {
             if ($user['status'] !== 'active') {
                 Session::flash('error', Flang::_e('users_noactive', $input['username']));
-                redirect(admin_url('auth/login'));
+                redirect(auth_url('login'));
                 exit();
             }
 
@@ -121,7 +121,7 @@ class AuthController extends BaseController
             redirect(admin_url('dashboard'));
         } else {
             Session::flash('error', Flang::_e('login_failed', $input['username']) );
-            redirect(admin_url('auth/login'));
+            redirect(auth_url('login'));
         }
     }
 
@@ -131,7 +131,7 @@ class AuthController extends BaseController
         Session::del('user_id');
         Session::del('role');
         Session::del('permissions');
-        redirect(admin_url('auth/login'));
+        redirect(auth_url('login'));
         exit();
     }
 
@@ -143,7 +143,7 @@ class AuthController extends BaseController
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
-                redirect(admin_url('auth/register'));
+                redirect(auth_url('register'));
             }
             $input = [
                 'username' => S_POST('username'),
@@ -303,17 +303,17 @@ class AuthController extends BaseController
 
         if ($user_id) {
             // Gửi email kích hoạt
-            $activationLink = admin_url('auth/activation/' . $user_id . '/' . $activationCode.'/');
+            $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
             //$emailContent = Render::component('common/email/activation', ['username' => $input['username'], 'activation_link' => $activationLink]);
             //echo $emailContent;die;
             $this->mailer = new Fastmail();
             $this->mailer->send($input['email'], 'Kích hoạt tài khoản', 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
 
             Session::flash('success', Flang::_e('regsiter_success'));
-            redirect(admin_url("auth/activation/{$user_id}/"));
+            redirect(auth_url("activation/{$user_id}/"));
         } else {
             Session::flash('error', Flang::_e('register_error'));
-            redirect(admin_url('auth/register'));
+            redirect(auth_url('register'));
         }
     }
 
@@ -323,12 +323,12 @@ class AuthController extends BaseController
         $user = $this->usersModel->getUserById($user_id);
         if (!$user) {
             Session::flash('error', Flang::_e('acccount_does_exist'));
-            redirect(admin_url('auth/login'));
+            redirect(auth_url('login'));
             return;
         }
         if ($user['status'] != 'inactive'){
             Session::flash('success', Flang::_e('account_active'));
-            redirect(admin_url('auth/login'));
+            redirect(auth_url('login'));
             return;
         }
 
@@ -548,7 +548,7 @@ class AuthController extends BaseController
                 Session::set('fullname', $fullname);
                 Session::set('email', $email_user);
                 // Chuyển hướng đến trang đăng ký để nhập các trường còn lại
-                redirect(admin_url('auth/register'));
+                redirect(auth_url('register'));
             }
         
         }
@@ -569,12 +569,12 @@ class AuthController extends BaseController
         $this->usersModel->updateUser($user_id, ['optional'=>json_encode($user_optional)]);
 
         // Gửi email mã kích hoạt mới
-        $activationLink = admin_url('auth/activation/' . $user_id . '/' . $activationCode.'/');
+        $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
 
         Session::flash('success', Flang::_e('active_send_email'));
-        redirect(admin_url('auth/activation/' . $user_id));
+        redirect(auth_url('activation/' . $user_id));
     }   
     // send email forgot password
     private function _forgot_send($user)
@@ -592,14 +592,13 @@ class AuthController extends BaseController
         $this->usersModel->updateUser($user_id, ['optional'=>json_encode($user_optional)]);
 
         // Construct reset link 
-        //$reset_link = 'https://domainweb.com/admin/auth/reset_password/?token=' . $user_id . 'abec' . $token;
-        $reset_link = admin_url('auth/forgot_password/' . $user_id . '/' . $token .'/');
+        $reset_link = auth_url('forgot_password/' . $user_id . '/' . $token .'/');
         // Gửi email link reset password
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
         Session::flash('success', Flang::_e('link_reset_password'));
-        // redirect(admin_url('auth/activation/' . $user_id));
+        // redirect(auth_url('activation/' . $user_id));
     }   
 
     /**
@@ -619,7 +618,7 @@ class AuthController extends BaseController
         ]);
     
         Session::flash('success', Flang::_e('active_email_success'));
-        redirect(admin_url('auth/login'));
+        redirect(auth_url('login'));
     }
 
     // Kiểm tra quyền truy cập (middleware)

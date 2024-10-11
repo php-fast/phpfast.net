@@ -15,7 +15,7 @@ class AuthMiddleware {
         // Giả sử sử dụng session để kiểm tra người dùng đã đăng nhập
         if (!\System\Libraries\Session::has('user_id')) {
             // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-            redirect(base_url('admin/auth/login'));
+            redirect(base_url('auth/login'));
         }
         // Gọi middleware tiếp theo
         return $next($request);
