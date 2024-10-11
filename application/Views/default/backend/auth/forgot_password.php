@@ -7,7 +7,9 @@ if (Session::has_flash('success')){
 if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
+
 ?>
+
 
 <div class="page-wrapper">
       <div class="flex flex-wrap">
@@ -38,7 +40,7 @@ if (Session::has_flash('error')){
                 class="space-y-4 md:space-y-6"
                 action="<?= auth_url('forgot_password') ?>"
               >
-              thiếu csrf
+              <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">  
 
                 <div class="fieldset">
                   <label

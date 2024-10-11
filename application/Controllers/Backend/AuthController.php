@@ -412,7 +412,9 @@ class AuthController extends BaseController
                     }
                 }
             }
-             $this->data('title', Flang::_e('forgotpassw_welcome'));
+            
+            $this->data('csrf_token', Session::csrf_token(600));
+            $this->data('title', Flang::_e('forgotpassw_welcome'));
             
             $this->data('assets_header', $this->assets->header('backend'));
             $this->data('assets_footer', $this->assets->footer('backend'));

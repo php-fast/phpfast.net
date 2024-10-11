@@ -26,7 +26,9 @@ if (Session::has_flash('success')){
         <?php endif; ?>
 
         <form action="<?php echo auth_url('activation/' . $user_id); ?>" method="POST" class="space-y-4">
-            thiếu csrf
+            
+            <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">  
+
             <div>
                 <label for="activation_no" class="block text-sm font-medium text-gray-700"><?php Flang::_('active_number') ?>:</label>
                 <input type="text" name="activation_no" id="activation_no" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
