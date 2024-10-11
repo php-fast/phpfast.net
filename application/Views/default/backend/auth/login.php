@@ -11,6 +11,7 @@ if (Session::has_flash('error')){
 
 <div class="page-wrapper">
       <div class="flex flex-wrap">
+<<<<<<< HEAD
         <div class="w-full md:w-1/3">
           <div
             class="content bg-blue-800 h-auto md:h-full md:min-h-screen pt-12 px-5"
@@ -279,6 +280,10 @@ if (Session::has_flash('error')){
             </div>
           </div>
         </div>
+=======
+        <?php echo $sidebar; ?>
+      
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         <div class="w-full p-3 md:w-2/3">
           <div class="authorize-form w-full h-full bg-white flex items-center justify-center">
             <div class="w-full max-w-[470px] p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -287,6 +292,7 @@ if (Session::has_flash('error')){
               </h1>
 
                  <?php if (!empty($success)): ?>
+<<<<<<< HEAD
                 <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
                     <?= $success; ?>
                 </div>
@@ -297,6 +303,18 @@ if (Session::has_flash('error')){
                 <?php endif; ?>
 
               <form name="loginForm" class="space-y-4 md:space-y-6" action="<?= admin_url('auth/login') ?>" method="post">
+=======
+                  <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                      <?= $success; ?>
+                  </div>
+                  <?php elseif (!empty($error)): ?>
+                      <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                          <?= $error; ?>
+                      </div>
+                <?php endif; ?>
+
+              <form name="loginForm" class="space-y-4 md:space-y-6" action="<?= auth_url('login') ?>" method="post">
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
               <!-- CSRF Token -->
                <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">  
               
@@ -304,15 +322,25 @@ if (Session::has_flash('error')){
                   <label
                     for="username"
                     class="block mb-2 font-medium text-sm leading-5 text-gray-900"
+<<<<<<< HEAD
                     >User name or email</label
                   >
                   <div class="field">
+=======
+                    ><?= Flang::_e('login_title') ?></label
+                  >
+                  <div class="field email">
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                     <input
                       type="text"
                       name="username"  
                       id="username"
                       class=""
+<<<<<<< HEAD
                       placeholder="Enter your username or email"
+=======
+                      placeholder="<?= Flang::_e('placeholder_login') ?>"
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                       required=""
                     />
                   </div>
@@ -337,7 +365,11 @@ if (Session::has_flash('error')){
                       type="password"
                       name="password"
                       id="password"
+<<<<<<< HEAD
                       placeholder="Enter your password"
+=======
+                      placeholder="<?= Flang::_e('placeholder_password') ?>"
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                       class=""
                       required=""
                     />
@@ -388,14 +420,24 @@ if (Session::has_flash('error')){
                       <label
                         for="remember"
                         class="text-gray-500 "
+<<<<<<< HEAD
                         >Remember me</label
+=======
+                        ><?= Flang::_e('remember_me') ?></label
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                       >
                     </div>
                   </div>
                   <a
+<<<<<<< HEAD
                     href="<?= admin_url('auth/forgot_password') ?>"
                     class="text-sm font-medium text-primary-600 hover:underline "
                     >Forgot password?</a
+=======
+                    href="<?= auth_url('forgot_password') ?>"
+                    class="text-sm font-medium text-primary-600 hover:underline "
+                    ><?= Flang::_e('forgot_password') ?></a
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                   >
                 </div>
                 <button
@@ -407,9 +449,15 @@ if (Session::has_flash('error')){
                   <?= Flang::_e('login') ?>
                 </button>
                 <p class="text-sm font-light text-gray-500 ">
+<<<<<<< HEAD
                   Don’t have an account yet?
                   <a
                     href="<?= admin_url('auth/register') ?>"
+=======
+                  <?= Flang::_e('dont_have_account') ?>
+                  <a
+                    href="<?= auth_url('register') ?>"
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                     class="font-medium text-primary-600 hover:underline "
                     ><?= Flang::_e('register') ?></a
                   >
@@ -420,8 +468,13 @@ if (Session::has_flash('error')){
                   <hr class="w-full border-gray-300" />
                 </div>
 
+<<<<<<< HEAD
                 <button
                   type="button"
+=======
+                <a
+                   href="<?= auth_url('login_google') ?>"
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
                   class="w-full flex items-center justify-center gap-4 py-3 px-6 text-sm tracking-wide text-gray-800 border border-gray-300 rounded-md bg-gray-50 hover:bg-gray-100 focus:outline-none"
                 >
                   <svg
@@ -461,9 +514,15 @@ if (Session::has_flash('error')){
                       data-original="#eb4132"
                     />
                   </svg>
+<<<<<<< HEAD
                   Sign in with google
                 </button>
               </form>
+=======
+                  <?= Flang::_e('login_google') ?>
+                </a>
+              </form> 
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             </div>
           </div>
         </div>

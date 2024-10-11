@@ -23,7 +23,11 @@ if (Session::has_flash('error')){
             </div>
         <?php endif; ?>
             
+<<<<<<< HEAD
         <form action="<?= admin_url('auth/login') ?>" method="post">
+=======
+        <form action="<?= auth_url('login') ?>" method="post">
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
             <!-- CSRF Token -->
             <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">
 
@@ -57,11 +61,19 @@ if (Session::has_flash('error')){
         </form>
 
         <p class="text-center mt-4 text-sm">
+<<<<<<< HEAD
             Don't have an account? <a href="<?= admin_url('auth/register') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('register') ?></a>.
         </p>
 
         <p class="text-center mt-2 text-sm">
             <a href="<?= admin_url('auth/forgot') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('forgot_pass') ?></a>
+=======
+            Don't have an account? <a href="<?= auth_url('register') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('register') ?></a>.
+        </p>
+
+        <p class="text-center mt-2 text-sm">
+            <a href="<?= auth_url('forgot_password') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('forgot_pass') ?></a>
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         </p>
     </div>
 </div>

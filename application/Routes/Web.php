@@ -24,12 +24,23 @@ $routes->delete('product/delete/(:num)', 'ProductController::delete/$1');
 //     \App\Middleware\AuthMiddleware::class,
 //     \App\Middleware\PermissionMiddleware::class
 // ]);
+<<<<<<< HEAD
 $routes->get('admin/auth/logout', 'Backend\AuthController::logout',[\App\Middleware\AuthMiddleware::class]);
 $routes->get('admin/auth/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('admin/auth/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
 $routes->get('admin/auth/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('admin/auth/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 
+=======
+
+$routes->get('account/logout', 'Backend\AuthController::logout',[\App\Middleware\AuthMiddleware::class]);
+$routes->get('account/profile', 'Backend\AuthController::profile',[\App\Middleware\AuthMiddleware::class]);
+$routes->get('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
+$routes->post('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
+$routes->get('account/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
+$routes->post('account/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
+$routes->get('account', 'Backend\AuthController::index',[\App\Middleware\AuthMiddleware::class]);
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
 
 $routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);

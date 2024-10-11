@@ -1,0 +1,32 @@
+[2024-10-11 14:21:07] ERROR: Controller App\Controllers\MoviesController not found. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 108
+[2024-10-11 14:21:08] ERROR: Controller App\Controllers\MoviesController not found. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 108
+[2024-10-11 14:21:12] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:21:25] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:21:33] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:21:35] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:21:36] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:22:19] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:22:21] ERROR: 404 - Router: /account (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:22:22] ERROR: 404 - Router: /account (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:22:24] ERROR: 404 - Router: /account (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:23:15] ERROR: 404 - Router: /account (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:23:15] ERROR: 404 - Router: /account (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
+[2024-10-11 14:23:38] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:39] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:52] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:53] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:53] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:55] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:56] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:23:56] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:24:05] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:24:33] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:24:33] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:24:33] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:24:33] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:30:28] ERROR: missing the required client identifier in C:\laragon\www\phpfast.net\vendor\google\auth\src\OAuth2.php on line 843
+[2024-10-11 14:30:31] ERROR: missing the required client identifier in C:\laragon\www\phpfast.net\vendor\google\auth\src\OAuth2.php on line 843
+[2024-10-11 14:31:03] ERROR: Redirect URI must be absolute in C:\laragon\www\phpfast.net\vendor\google\auth\src\OAuth2.php on line 1013
+[2024-10-11 14:34:53] ERROR: Action profile not found in App\Controllers\Backend\AuthController Controller. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 115
+[2024-10-11 14:45:50] ERROR: Component 'backend/component/auth_sidebar' không tồn tại tại đường dẫn 'C:\laragon\www\phpfast.net/application/Views/default/backend/component/auth_sidebar.php'. in C:\laragon\www\phpfast.net\system\Libraries\Render.php on line 128
+[2024-10-11 14:45:51] ERROR: Component 'backend/component/auth_sidebar' không tồn tại tại đường dẫn 'C:\laragon\www\phpfast.net/application/Views/default/backend/component/auth_sidebar.php'. in C:\laragon\www\phpfast.net\system\Libraries\Render.php on line 128

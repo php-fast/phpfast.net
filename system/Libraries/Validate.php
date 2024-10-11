@@ -37,7 +37,11 @@ class Validate
     }
     // Alnum validator với các ký tự bổ sung
     public static function alnum(...$additionalChars)
+<<<<<<< HEAD
     {
+=======
+    {   
+>>>>>>> d56d56bc250df9011e4c0789f16dacc6aedb2327
         return RespectValidator::alnum(...$additionalChars);
     }
     // Length validator với độ dài tối thiểu và tối đa
