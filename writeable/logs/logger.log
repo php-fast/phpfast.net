@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2024-10-11 14:21:07] ERROR: Controller App\Controllers\MoviesController not found. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 108
 [2024-10-11 14:21:08] ERROR: Controller App\Controllers\MoviesController not found. in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 108
 [2024-10-11 14:21:12] ERROR: 404 - Router: /auth (GET) not found! in C:\laragon\www\phpfast.net\system\Core\Bootstrap.php on line 85
@@ -218,3 +219,5 @@
 >>>>>>> 75c90769b16da62bf8fc615029127fcb5aa4fa29
 [2024-10-11 16:40:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
 [2024-10-11 16:40:56] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+=======
+>>>>>>> f7ea9c9 (mergecode)
