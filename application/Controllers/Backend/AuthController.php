@@ -344,7 +344,7 @@ class AuthController extends BaseController
         if ($user_active_expires < time()){
             $this->data('error', Flang::_e('token_out_time'));
             return $this->_activation_form($user_id);
-        }
+        } 
 
         // Trường hợp người dùng truy cập qua URL
         if ($activationCode) {
