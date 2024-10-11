@@ -4,18 +4,15 @@
         window.Set = function() {
             this.items = [];
         };
-
         Set.prototype.add = function(item) {
             if (this.items.indexOf(item) === -1) {
                 this.items.push(item);
             }
             return this;
         };
-
         Set.prototype.has = function(item) {
             return this.items.indexOf(item) !== -1;
         };
-
         Set.prototype.delete = function(item) {
             var index = this.items.indexOf(item);
             if (index !== -1) {
@@ -24,26 +21,21 @@
             }
             return false;
         };
-
         Set.prototype.clear = function() {
             this.items = [];
         };
-
         Object.defineProperty(Set.prototype, 'size', {
             get: function() {
                 return this.items.length;
             }
         });
-
         Set.prototype.forEach = function(callback, thisArg) {
             for (var i = 0; i < this.items.length; i++) {
                 callback.call(thisArg, this.items[i], this.items[i], this);
             }
         };
-
         console.warn('Polyfill Set has been applied. Some methods may not be fully supported yet.');
     }
-
     // Polyfill cho NodeList.prototype.forEach
     if (window.NodeList && !NodeList.prototype.forEach) {
         NodeList.prototype.forEach = Array.prototype.forEach;
