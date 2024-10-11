@@ -1,5 +1,5 @@
 /vendor/
 /composer.lock/
 /application/Config/Config.php
+/writeable
 application/Config/Config.php
-/writeable/

@@ -9,8 +9,8 @@ if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
 
-$email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
-$fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
+$email = Session::has_flash('email')? Session::has_flash('email') : null;
+$fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : null;
 
 ?>
 
@@ -341,11 +341,10 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
                       type="text"
                       name="fullname"
                       id="fullname"
-                      value="<?php echo htmlspecialchars($fullname); ?>"
+                      value="<?php echo $fullname ?>"
                       class=""
                       placeholder="<?= Flang::_e('placeholder_fullname') ?>"
                       required=""
-                      <?php echo empty($fullname) ? '' : 'readonly'; ?>
                     />
                   </div>
                   <?php if (!empty($errors['fullname'])): ?>
@@ -366,7 +365,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
                     <input
                       type="email"
                       name="email"
-                      value="<?php echo htmlspecialchars($email); ?>"
+                      value="<?php echo $email ?>"
                       id="email"
                       class=""
                       placeholder="<?= Flang::_e('placeholder_email') ?>"
@@ -500,7 +499,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
                     </div>
                 <?php endif; ?>
                 </div>
-                <div>
+                <!-- <div>
                   <div
                     class="block mb-2 text-sm font-medium text-gray-900 "
                   >
@@ -655,7 +654,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : null;
                       </svg>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary w-full" disabled>
                   <?= Flang::_e('sign_up') ?>
                 </button>

@@ -62,7 +62,6 @@ return [
     'reset_password_success' => 'Reset Password successful',
     'login_now' => 'Login now',
 
-
     //users translate
     'users_noactive'  =>  '%1%: Your account no active! Please check Inbox or Spam Mail for active this account!',
 
@@ -77,8 +76,8 @@ return [
     'password_length'   =>  'Password length required is %1% to %2% characters.',
     'password_verify_invalid'   =>  'Password Verify %1% not math with password.',
     'fullname_length'   =>  'Fullname length required is %1% to %2% characters.',
+    'fullname_invalid'  =>  'Username must be letters, numbers not special characters.',
     'phone_invalid'  =>  'Phone must be format 0123456789',
-    'phone_length'  =>  'Phone length required is %1% characters.',
     'telegram_length'  =>  'Phone length required is %1% to %2% characters.',
     'skype_length'  =>  'Phone length required is %1% to %2% characters.',
     'whatsapp_length'  =>  'Phone length required is %1% characters.',
