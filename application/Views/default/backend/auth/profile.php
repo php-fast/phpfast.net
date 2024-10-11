@@ -10,10 +10,6 @@ if (Session::has_flash('error')){
 }
 
 print_r($me);
-
-$email = Session::has_flash('email')? Session::has_flash('email') : null;
-$fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : null;
-
 ?>
 
 <div class="page-wrapper">
@@ -45,7 +41,7 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                 <div class="fieldset">
                   <label for="username" class="block mb-2 text-sm font-medium leading-5 text-gray-900"><?= Flang::_e('username') ?></label>
                   <div class="field username">
-                    <input type="text" name="username" value="<?= $me['username'] ?>" id="username" disabled />
+                    <input type="text" name="username" value="<?= $me['username'] ?? '' ?>" id="username" disabled />
                   </div>
                 </div>
                 <div class="fieldset">
@@ -55,7 +51,7 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                     ><?= Flang::_e('fullname') ?></label
                   >
                   <div class="field fullname">
-                    <input type="text" name="fullname" value="<?= $me['fullname'] ?>" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" required="" />
+                    <input type="text" name="fullname" value="<?= $me['fullname'] ?? '' ?>" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" required="" />
                   </div>
                   <?php if (!empty($errors['fullname'])): ?>
                     <div class="text-red-500 mt-2 text-sm">
@@ -68,7 +64,7 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                 <div class="fieldset">
                   <label for="email" class="block mb-2 text-sm font-medium leading-5 text-gray-900"><?= Flang::_e('email') ?></label>
                   <div class="field email">
-                    <input type="email" name="email" value="<?= $me['email'] ?>" id="email" disabled />
+                    <input type="email" name="email" value="<?= $me['email'] ?? '' ?>" id="email" disabled />
                   </div>
                 </div>
                 <div class="fieldset">
@@ -81,10 +77,10 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                     <input
                       type="text"
                       name="phone"
-                      id="phone"
+                      id="phone"  
                       class=""
                       placeholder="<?= Flang::_e('placeholder_phone') ?>"
-                      required=""
+                      value="<?= $me['phone'] ?? '' ?>"
                     />
                   </div>
 

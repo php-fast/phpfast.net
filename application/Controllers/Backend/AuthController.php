@@ -154,14 +154,11 @@ class AuthController extends BaseController
                 'password' => S_POST('password'),
                 'password_verify' => S_POST('password_verify'),
                 'phone' => S_POST('phone'),
-                // 'telegram' => S_POST('telegram') ?? '',
-                // 'skype' => S_POST('skype') ?? '',
-                // 'whatsapp' => S_POST('whatsapp') ?? '',
             ];
             $rules = [
                 'username' => [
                     'rules' => [
-                        Validate::alnum('@.'),
+                        Validate::alnum('_'),
                         Validate::length(6, 30)
                     ],
                     'messages' => [
@@ -213,39 +210,11 @@ class AuthController extends BaseController
                         Flang::_e('password_verify_invalid', $input['password_verify'])
                     ]
                 ],
-                // 'telegram' => [
-                //     'rules' => [
-                //         Validate::alnum('@.-+_'),
-                //         Validate::length(null, 100)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('telegram_length', 0, 100)
-                //     ]
-                // ],
-                // 'skype' => [
-                //     'rules' => [
-                //         Validate::alnum('@.-+'),
-                //         Validate::length(null, 100)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('skype_length', 0, 100)
-                //     ]
-                // ],
-                // 'whatsapp' => [
-                //     'rules' => [
-                //         Validate::phone(),
-                //         Validate::length(null, 30)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('whatsapp_length', 0, 30)
-                //     ]
-                // ]
             ];
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-                print_r($errors);
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
@@ -310,9 +279,22 @@ class AuthController extends BaseController
             //echo $emailContent;die;
             $this->mailer = new Fastmail();
             $this->mailer->send($input['email'], 'Kích hoạt tài khoản', 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
-
+            
             Session::flash('success', Flang::_e('regsiter_success'));
+            $this->data('csrf_token', Session::csrf_token(600));
+         
+            $this->data('assets_header', $this->assets->header('backend'));
+            $this->data('assets_footer', $this->assets->footer('backend'));
             redirect(auth_url("activation/{$user_id}/"));
+
+            // $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
+     
+            // $this->data('assets_header', $this->assets->header('backend'));
+            // $this->data('assets_footer', $this->assets->footer('backend'));
+            // // $this->data('footer', 'Trang nay khong can footer');
+            // // Gọi layout chính và truyền dữ liệu cùng với các phần render
+            // $this->render('backend', 'backend/auth/login');
+
         } else {
             Session::flash('error', Flang::_e('register_error'));
             redirect(auth_url('register'));
@@ -412,7 +394,7 @@ class AuthController extends BaseController
                     }
                 }
             }
-            
+
             $this->data('csrf_token', Session::csrf_token(600));
             $this->data('title', Flang::_e('forgotpassw_welcome'));
             
@@ -576,8 +558,8 @@ class AuthController extends BaseController
         $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
-
         Session::flash('success', Flang::_e('active_send_email'));
+
         redirect(auth_url('activation/' . $user_id));
     }   
     // send email forgot password
@@ -610,7 +592,12 @@ class AuthController extends BaseController
      */
     private function _activation_form($user_id)
     {
+        $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
+        
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
         $this->data('title', Flang::_e('active_welcome'));
+
         $this->data('user_id', $user_id);
         $this->render('backend', 'backend/auth/activation');
     }
@@ -643,9 +630,9 @@ class AuthController extends BaseController
                 'password' => S_POST('password'),
                 'password_verify' => S_POST('password_verify'),
                 'phone' => S_POST('phone'),
-                // 'telegram' => S_POST('telegram') ?? '',
-                // 'skype' => S_POST('skype') ?? '',
-                // 'whatsapp' => S_POST('whatsapp') ?? '',
+                'telegram' => S_POST('telegram') ?? '',
+                'skype' => S_POST('skype') ?? '',
+                'whatsapp' => S_POST('whatsapp') ?? '',
             ];
             $rules = [
                 'username' => [
@@ -702,39 +689,38 @@ class AuthController extends BaseController
                         Flang::_e('password_verify_invalid', $input['password_verify'])
                     ]
                 ],
-                // 'telegram' => [
-                //     'rules' => [
-                //         Validate::alnum('@.-+_'),
-                //         Validate::length(null, 100)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('telegram_length', 0, 100)
-                //     ]
-                // ],
-                // 'skype' => [
-                //     'rules' => [
-                //         Validate::alnum('@.-+'),
-                //         Validate::length(null, 100)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('skype_length', 0, 100)
-                //     ]
-                // ],
-                // 'whatsapp' => [
-                //     'rules' => [
-                //         Validate::phone(),
-                //         Validate::length(null, 30)
-                //     ],
-                //     'messages' => [
-                //         Flang::_e('whatsapp_length', 0, 30)
-                //     ]
-                // ]
+                'telegram' => [
+                    'rules' => [
+                        Validate::alnum('@.-+_'),
+                        Validate::length(null, 100)
+                    ],
+                    'messages' => [
+                        Flang::_e('telegram_length', 0, 100)
+                    ]
+                ],
+                'skype' => [
+                    'rules' => [
+                        Validate::alnum('@.-+'),
+                        Validate::length(null, 100)
+                    ],
+                    'messages' => [
+                        Flang::_e('skype_length', 0, 100)
+                    ]
+                ],
+                'whatsapp' => [
+                    'rules' => [
+                        Validate::phone(),
+                        Validate::length(null, 30)
+                    ],
+                    'messages' => [
+                        Flang::_e('whatsapp_length', 0, 30)
+                    ]
+                ]
             ];
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
-                print_r($errors);
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
