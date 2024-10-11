@@ -178,13 +178,4 @@ class UsersModel extends BaseModel {
         return $this->del($this->table, 'id = ?', [$id]);
     }
 
-    // Kiểm tra trùng lặp username
-    public function isUsernameExists($username) {
-        return $this->row($this->table, 'username = ?', [$username]) !== false;
-    }
-
-    // Kiểm tra trùng lặp email
-    public function isEmailExists($email) {
-        return $this->row($this->table, 'email = ?', [$email]) !== false;
-    }
 }
