@@ -21,7 +21,7 @@ if (!function_exists('auth_url')){
             $base_url = !empty($app_url['app_url']) ? $app_url['app_url'] : '/';
             unset($app_url);
         }
-        return rtrim($base_url, '/') . '/auth/' . trim($path, '/').'/';
+        return rtrim($base_url, '/') . '/account/' . trim($path, '/').'/';
     }
 }
 if (!function_exists('admin_url')){

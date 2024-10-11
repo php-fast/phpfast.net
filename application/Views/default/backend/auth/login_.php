@@ -23,7 +23,7 @@ if (Session::has_flash('error')){
             </div>
         <?php endif; ?>
             
-        <form action="<?= admin_url('auth/login') ?>" method="post">
+        <form action="<?= auth_url('login') ?>" method="post">
             <!-- CSRF Token -->
             <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">
 
@@ -57,11 +57,11 @@ if (Session::has_flash('error')){
         </form>
 
         <p class="text-center mt-4 text-sm">
-            Don't have an account? <a href="<?= admin_url('auth/register') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('register') ?></a>.
+            Don't have an account? <a href="<?= auth_url('register') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('register') ?></a>.
         </p>
 
         <p class="text-center mt-2 text-sm">
-            <a href="<?= admin_url('auth/forgot') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('forgot_pass') ?></a>
+            <a href="<?= auth_url('forgot_password') ?>" class="text-blue-600 hover:underline"><?= Flang::_e('forgot_pass') ?></a>
         </p>
     </div>
 </div>

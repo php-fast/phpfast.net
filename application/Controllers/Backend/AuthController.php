@@ -32,6 +32,8 @@ class AuthController extends BaseController
         $this->assets->add('js', 'js/authorize.js', 'footer');
         //$header = Render::component('backend/component/header');
         //$footer = Render::component('backend/component/footer');
+        $sidebar = Render::component('backend/component/auth_sidebar');
+        $this->data('sidebar', $sidebar);
         $this->data('header', '');
         $this->data('footer', '');
     }
@@ -247,13 +249,13 @@ class AuthController extends BaseController
                 $this->data('errors', $errors);
             }else{
                 $errors = [];
-                if ($this->usersModel->isUsernameExists($input['username'])) {
+                if ($this->usersModel->getUserByUsername($input['username'])) {
                     $errors['username'] = array(
                         Flang::_e('username_double', $input['username'])
                     );
                     $isExists = true;
                 }
-                if ($this->usersModel->isEmailExists($input['email'])) {
+                if ($this->usersModel->getUserByEmail($input['email'])) {
                     $errors['email'] = array(
                         Flang::_e('email_double', $input['email'])
                     );
@@ -503,9 +505,9 @@ class AuthController extends BaseController
     public function login_google(){
         
         $app_url = config('google');
-        $client_id = $app_url['GOOGLE_CLIENT_ID'];
-        $client_secret = $app_url['GOOGLE_CLIENT_SECRET'];
-        $client_url = $app_url['GOOGLE_REDIRECT_URL'];
+        $client_id = $app_url['GOOGLE_CLIENT_ID'] ?? '';
+        $client_secret = $app_url['GOOGLE_CLIENT_SECRET'] ?? '';
+        $client_url = $app_url['GOOGLE_REDIRECT_URL'] ?? '';
 
         $client = new Google_Client();
         $client->setClientId($client_id); 
@@ -619,6 +621,164 @@ class AuthController extends BaseController
     
         Session::flash('success', Flang::_e('active_email_success'));
         redirect(auth_url('login'));
+    }
+
+
+    // Đăng ký tài khoản mới
+    public function profile()
+    {
+        //Buoc validate neu co request register.
+        if (isset($_POST['username'])){
+            $csrf_token = S_POST('csrf_token') ?? '';
+            if (!Session::csrf_verify($csrf_token)){
+                Session::flash('error', Flang::_e('csrf_failed') );
+                redirect(auth_url('register'));
+            }
+            $input = [
+                'username' => S_POST('username'),
+                'fullname' => S_POST('fullname'),
+                'email' => S_POST('email'),
+                'password' => S_POST('password'),
+                'password_verify' => S_POST('password_verify'),
+                'phone' => S_POST('phone'),
+                // 'telegram' => S_POST('telegram') ?? '',
+                // 'skype' => S_POST('skype') ?? '',
+                // 'whatsapp' => S_POST('whatsapp') ?? '',
+            ];
+            $rules = [
+                'username' => [
+                    'rules' => [
+                        Validate::alnum('@.'),
+                        Validate::length(6, 30)
+                    ],
+                    'messages' => [
+                        Flang::_e('username_invalid'),
+                        Flang::_e('username_length', 6, 30)
+                    ]
+                ],
+                'fullname' => [
+                    'rules' => [
+                        Validate::length(6, 30)
+                    ],
+                    'messages' => [
+                        Flang::_e('fullname_length', 6, 30)
+                    ]
+                ],
+                'email' => [
+                    'rules' => [
+                        Validate::email(),
+                        Validate::length(6, 150)
+                    ],
+                    'messages' => [
+                        Flang::_e('email_invalid'),
+                        Flang::_e('email_length', 6, 150)
+                    ]
+                ],
+                'phone' => [
+                    'rules' => [
+                        Validate::phone(),
+                        Validate::length(6, 30)
+                    ],
+                    'messages' => [
+                        Flang::_e('phone_invalid'),
+                        Flang::_e('phone_length', 6, 30)
+                    ]
+                ],
+                'password' => [
+                    'rules' => [
+                        Validate::length(6, 60),
+                    ],
+                    'messages' => [
+                        Flang::_e('password_length', 6, 60),
+                    ]
+                ],
+                'password_verify' => [
+                    'rules' => [
+                        Validate::equals($input['password'])
+                    ],
+                    'messages' => [
+                        Flang::_e('password_verify_invalid', $input['password_verify'])
+                    ]
+                ],
+                // 'telegram' => [
+                //     'rules' => [
+                //         Validate::alnum('@.-+_'),
+                //         Validate::length(null, 100)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('telegram_length', 0, 100)
+                //     ]
+                // ],
+                // 'skype' => [
+                //     'rules' => [
+                //         Validate::alnum('@.-+'),
+                //         Validate::length(null, 100)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('skype_length', 0, 100)
+                //     ]
+                // ],
+                // 'whatsapp' => [
+                //     'rules' => [
+                //         Validate::phone(),
+                //         Validate::length(null, 30)
+                //     ],
+                //     'messages' => [
+                //         Flang::_e('whatsapp_length', 0, 30)
+                //     ]
+                // ]
+            ];
+            $validator = new Validate();
+            if (!$validator->check($input, $rules)) {
+                // Lấy các lỗi và hiển thị
+                $errors = $validator->getErrors();
+                print_r($errors);
+                $this->data('errors', $errors);
+            }else{
+                $errors = [];
+                if ($this->usersModel->getUserByUsername($input['username'])) {
+                    $errors['username'] = array(
+                        Flang::_e('username_double', $input['username'])
+                    );
+                    $isExists = true;
+                }
+                if ($this->usersModel->getUserByEmail($input['email'])) {
+                    $errors['email'] = array(
+                        Flang::_e('email_double', $input['email'])
+                    );
+                    $isExists = true;
+                }
+                if (!isset($isExists) && empty($errors)){
+                    $input['password'] = Security::hashPassword($input['password']);
+                    $input['avatar'] = '';
+                    $input['role'] = 'admin';
+                    $input['permissions'] = config('admin', 'Roles');
+                    $input['permissions'] = json_encode($input['permissions']);
+                    $input['status'] = 'inactive';
+                    $input['created_at'] = DateTime();
+                    $input['updated_at'] = DateTime();
+                    return $this->_register($input);
+                }else{
+                    $this->data('errors', $errors);
+                }
+            }
+        }
+
+        $user_id = Session::get('user_id');
+        $user = $this->usersModel->getUserById($user_id);
+        if (!$user){
+            return $this->logout();
+        }
+        $this->data('me', $user);
+        
+        // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
+        $this->data('title', Flang::_e('profile_welcome'));
+        $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
+        
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+        
+        $this->render('backend', 'backend/auth/profile');
     }
 
     // Kiểm tra quyền truy cập (middleware)
