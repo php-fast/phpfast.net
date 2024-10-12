@@ -28,7 +28,7 @@ class AuthController extends BaseController
         Flang::load('auth', LANG);
 
         $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
+        $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
         //$header = Render::component('backend/component/header');
         //$footer = Render::component('backend/component/footer');
@@ -54,7 +54,7 @@ class AuthController extends BaseController
     public function login()
     {
         //Buoc validate neu co request login.
-        if (isset($_POST['username'])){
+        if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
@@ -141,7 +141,7 @@ class AuthController extends BaseController
     public function register()
     {
         //Buoc validate neu co request register.
-        if (isset($_POST['username'])){
+        if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
@@ -152,7 +152,7 @@ class AuthController extends BaseController
                 'fullname' => S_POST('fullname'),
                 'email' => S_POST('email'),
                 'password' => S_POST('password'),
-                'password_verify' => S_POST('password_verify'),
+                'password_repeat' => S_POST('password_repeat'),
                 'phone' => S_POST('phone'),
             ];
             $rules = [
@@ -171,7 +171,7 @@ class AuthController extends BaseController
                         Validate::length(6, 30)
                     ],
                     'messages' => [
-                        Flang::_e('fullname_length', 6, 30)
+                        Flang::_e('fullname_length', 6, 50)
                     ]
                 ],
                 'email' => [
@@ -202,12 +202,12 @@ class AuthController extends BaseController
                         Flang::_e('password_length', 6, 60),
                     ]
                 ],
-                'password_verify' => [
+                'password_repeat' => [
                     'rules' => [
                         Validate::equals($input['password'])
                     ],
                     'messages' => [
-                        Flang::_e('password_verify_invalid', $input['password_verify'])
+                        Flang::_e('password_repeat_invalid', $input['password_repeat'])
                     ]
                 ],
             ];
@@ -285,15 +285,8 @@ class AuthController extends BaseController
          
             $this->data('assets_header', $this->assets->header('backend'));
             $this->data('assets_footer', $this->assets->footer('backend'));
-            redirect(auth_url("activation/{$user_id}/"));
 
-            // $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
-     
-            // $this->data('assets_header', $this->assets->header('backend'));
-            // $this->data('assets_footer', $this->assets->footer('backend'));
-            // // $this->data('footer', 'Trang nay khong can footer');
-            // // Gọi layout chính và truyền dữ liệu cùng với các phần render
-            // $this->render('backend', 'backend/auth/login');
+            redirect(auth_url("activation/{$user_id}/"));
 
         } else {
             Session::flash('error', Flang::_e('register_error'));
@@ -321,7 +314,7 @@ class AuthController extends BaseController
         $user_active_expires = $user_optional['activation_expires'] ?? 0;
 
         // Nếu người dùng yêu cầu gửi lại mã
-        if (isset($_POST['activation_resend'])) {
+        if (HAS_POST('activation_resend')) {
             return $this->_activation_resend($user_id, $user_optional, $user);
         }
 
@@ -343,7 +336,7 @@ class AuthController extends BaseController
         }
 
         // Trường hợp người dùng nhập mã vào form
-        if (isset($_POST['activation_no'])) {
+        if (HAS_POST('activation_no')) {
             $activationNo = S_POST('activation_no');
             $user_active_no = $user_optional['activation_no'] ?? '';
             if (!empty($user_active_no) && strtoupper($user_active_no) === strtoupper($activationNo)) {
@@ -361,7 +354,7 @@ class AuthController extends BaseController
         //Forgot Password
     public function forgot_password($user_id = '', $token = ''){
         if (empty($user_id) || empty($token)){
-            if(isset($_POST['email'])) {
+            if(HAS_POST('email')) {
                 $input = [ 
                     'email' => S_POST('email')
                 ];
@@ -439,7 +432,7 @@ class AuthController extends BaseController
             $this->data('assets_header', $this->assets->header('backend'));
             $this->render('backend', 'backend/auth/forgot_password');
         }else{
-            if(isset($_POST['password'])) {
+            if(HAS_POST('password')) {
                 $input = [
                     'password' => S_POST('password'),
                 ];
@@ -497,14 +490,14 @@ class AuthController extends BaseController
         $client->setClientId($client_id); 
         $client->setClientSecret($client_secret);
         $client->setRedirectUri($client_url);
-
         // Thêm các phạm vi truy cập
         $client->addScope('email');
         $client->addScope('profile');
 
-        if (!isset($_GET['code'])) {
+        if (!HAS_GET('code')) {
             // Tạo URL để người dùng đăng nhập qua Google
             $auth_url = $client->createAuthUrl();
+            
             redirect(filter_var($auth_url, FILTER_SANITIZE_URL));
         }else{
             // Lấy mã code từ URL khi người dùng quay lại từ Google
@@ -530,7 +523,6 @@ class AuthController extends BaseController
 
                 redirect(admin_url('dashboard'));
             } else {
-
                 Session::set('fullname', $fullname);
                 Session::set('email', $email_user);
                 // Chuyển hướng đến trang đăng ký để nhập các trường còn lại
@@ -583,7 +575,7 @@ class AuthController extends BaseController
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
-        Session::flash('success', Flang::_e('link_reset_password'));
+        Session::flash('success', Flang::_e('link_reset_password') .$user['email']);
         // redirect(auth_url('activation/' . $user_id));
     }   
 
@@ -601,6 +593,7 @@ class AuthController extends BaseController
         $this->data('user_id', $user_id);
         $this->render('backend', 'backend/auth/activation');
     }
+
     private function _activation($user_id)
     {
         $this->usersModel->updateUser($user_id, [
@@ -612,86 +605,50 @@ class AuthController extends BaseController
         redirect(auth_url('login'));
     }
 
-
-    // Đăng ký tài khoản mới
+    // update profile
     public function profile()
     {
+        $user_id = Session::get('user_id');
+        $user = $this->usersModel->getUserById($user_id);
+        if (!$user){
+            return $this->logout();
+        }
+        
         //Buoc validate neu co request register.
-        if (isset($_POST['username'])){
+        if (HAS_POST('fullname')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
-                Session::flash('error', Flang::_e('csrf_failed') );
-                redirect(auth_url('register'));
+                $this->data('error', Flang::_e('csrf_failed'));
+                unset($_POST['username']);
             }
+        }
+        if (HAS_POST('fullname')){
             $input = [
-                'username' => S_POST('username'),
-                'fullname' => S_POST('fullname'),
-                'email' => S_POST('email'),
-                'password' => S_POST('password'),
-                'password_verify' => S_POST('password_verify'),
-                'phone' => S_POST('phone'),
+                'fullname' => S_POST('fullname') ?? '',
+                'phone' => S_POST('phone') ?? '',
                 'telegram' => S_POST('telegram') ?? '',
                 'skype' => S_POST('skype') ?? '',
                 'whatsapp' => S_POST('whatsapp') ?? '',
             ];
             $rules = [
-                'username' => [
-                    'rules' => [
-                        Validate::alnum('@.'),
-                        Validate::length(6, 30)
-                    ],
-                    'messages' => [
-                        Flang::_e('username_invalid'),
-                        Flang::_e('username_length', 6, 30)
-                    ]
-                ],
                 'fullname' => [
                     'rules' => [
-                        Validate::length(6, 30)
+                        Validate::length(3, 30)
                     ],
                     'messages' => [
-                        Flang::_e('fullname_length', 6, 30)
-                    ]
-                ],
-                'email' => [
-                    'rules' => [
-                        Validate::email(),
-                        Validate::length(6, 150)
-                    ],
-                    'messages' => [
-                        Flang::_e('email_invalid'),
-                        Flang::_e('email_length', 6, 150)
+                        Flang::_e('fullname_length', 3, 50)
                     ]
                 ],
                 'phone' => [
                     'rules' => [
-                        Validate::phone(),
-                        Validate::length(6, 30)
+                        Validate::length(null, 30)
                     ],
                     'messages' => [
-                        Flang::_e('phone_invalid'),
-                        Flang::_e('phone_length', 6, 30)
-                    ]
-                ],
-                'password' => [
-                    'rules' => [
-                        Validate::length(6, 60),
-                    ],
-                    'messages' => [
-                        Flang::_e('password_length', 6, 60),
-                    ]
-                ],
-                'password_verify' => [
-                    'rules' => [
-                        Validate::equals($input['password'])
-                    ],
-                    'messages' => [
-                        Flang::_e('password_verify_invalid', $input['password_verify'])
+                        Flang::_e('phone_length', 0, 30)
                     ]
                 ],
                 'telegram' => [
                     'rules' => [
-                        Validate::alnum('@.-+_'),
                         Validate::length(null, 100)
                     ],
                     'messages' => [
@@ -700,7 +657,6 @@ class AuthController extends BaseController
                 ],
                 'skype' => [
                     'rules' => [
-                        Validate::alnum('@.-+'),
                         Validate::length(null, 100)
                     ],
                     'messages' => [
@@ -709,7 +665,6 @@ class AuthController extends BaseController
                 ],
                 'whatsapp' => [
                     'rules' => [
-                        Validate::phone(),
                         Validate::length(null, 30)
                     ],
                     'messages' => [
@@ -717,49 +672,22 @@ class AuthController extends BaseController
                     ]
                 ]
             ];
+
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Lấy các lỗi và hiển thị
                 $errors = $validator->getErrors();
                 $this->data('errors', $errors);
             }else{
-                $errors = [];
-                if ($this->usersModel->getUserByUsername($input['username'])) {
-                    $errors['username'] = array(
-                        Flang::_e('username_double', $input['username'])
-                    );
-                    $isExists = true;
-                }
-                if ($this->usersModel->getUserByEmail($input['email'])) {
-                    $errors['email'] = array(
-                        Flang::_e('email_double', $input['email'])
-                    );
-                    $isExists = true;
-                }
-                if (!isset($isExists) && empty($errors)){
-                    $input['password'] = Security::hashPassword($input['password']);
-                    $input['avatar'] = '';
-                    $input['role'] = 'admin';
-                    $input['permissions'] = config('admin', 'Roles');
-                    $input['permissions'] = json_encode($input['permissions']);
-                    $input['status'] = 'inactive';
-                    $input['created_at'] = DateTime();
-                    $input['updated_at'] = DateTime();
-                    return $this->_register($input);
-                }else{
-                    $this->data('errors', $errors);
-                }
+                $this->data('success', Flang::_e('profile_updated'));
+                $this->usersModel->updateUser($user_id, $input);
+                $user = array_merge($user, $input);
             }
         }
-
-        $user_id = Session::get('user_id');
-        $user = $this->usersModel->getUserById($user_id);
-        if (!$user){
-            return $this->logout();
-        }
+        
         $this->data('me', $user);
         
-        // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
+        // // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
         $this->data('title', Flang::_e('profile_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
         
@@ -768,6 +696,9 @@ class AuthController extends BaseController
         
         $this->render('backend', 'backend/auth/profile');
     }
+
+
+
 
     // Kiểm tra quyền truy cập (middleware)
     // public function _checkPermission($controller, $action)

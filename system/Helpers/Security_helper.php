@@ -54,6 +54,19 @@ function S_GET($key, $default = null) {
 }
 
 /**
+ * Hàm check tồn tại dữ liệu từ $_GET hay không
+ * 
+ * @param string $key Tên của tham số cần lấy
+ * @return boolean True hoac False
+ */
+function HAS_GET($key) {
+    if (isset($_GET[$key])) {
+        return true;
+    }
+    return false;
+}
+
+/**
  * Hàm lấy dữ liệu từ $_POST một cách an toàn
  * 
  * @param string $key Tên của tham số cần lấy
@@ -68,6 +81,19 @@ function S_POST($key, $default = null) {
 }
 
 /**
+ * Hàm check tồn tại dữ liệu từ $_POST hay không
+ * 
+ * @param string $key Tên của tham số cần lấy
+ * @return boolean True hoac False
+ */
+function HAS_POST($key) {
+    if (isset($_POST[$key])) {
+        return true;
+    }
+    return false;
+}
+
+/**
  * Hàm lấy dữ liệu từ $_REQUEST một cách an toàn
  * 
  * @param string $key Tên của tham số cần lấy
@@ -79,6 +105,19 @@ function S_REQUEST($key, $default = null) {
         return clean_input($_REQUEST[$key]);
     }
     return $default;
+}
+
+/**
+ * Hàm check tồn tại dữ liệu từ $_REQUEST hay không
+ * 
+ * @param string $key Tên của tham số cần lấy
+ * @return boolean True hoac False
+ */
+function HAS_REQUEST($key) {
+    if (isset($_REQUEST[$key])) {
+        return true;
+    }
+    return false;
 }
 
 /**

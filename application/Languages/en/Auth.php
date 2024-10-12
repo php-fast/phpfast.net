@@ -11,6 +11,7 @@ return [
     'username'  =>  'Username',
     'fullname'  =>  'Fullname',
     'password'  =>  'Password',
+    'password_repeat' => 'Password repeat',
     'email'  =>  'Email',
     'phone'  =>  'Phone',
     'active_send_email' => 'A new activation code has been sent to your email.',
@@ -52,7 +53,7 @@ return [
     'token_fotgot_out_time' => 'Link expired, please re-enter email to reset password',
     'forgot_password_title' => 'Forgot password ?',
     'submit_link' => 'Send recover link',
-    'link_reset_password' => 'Password reset link has been sent to your email',
+    'link_reset_password' => 'Password reset link has been sent to email ',
     'update_password_welcome' => 'Welcome Update Password Page',
 
     // update password
@@ -61,6 +62,11 @@ return [
     'change_password' => 'Change Password',
     'reset_password_success' => 'Reset Password successful',
     'login_now' => 'Login now',
+
+    // update profile
+    'profile_updated' => 'Update profile success',
+    'profile_welcome' => 'Profile Welcome',
+    'update_submit' => 'Update',
 
     //users translate
     'users_noactive'  =>  '%1%: Your account no active! Please check Inbox or Spam Mail for active this account!',
@@ -74,7 +80,7 @@ return [
     'email_invalid'  =>  'Email must be format email@domainemail.etc ',
     'email_length'    =>  'Email length required is %1% to %2% characters.',
     'password_length'   =>  'Password length required is %1% to %2% characters.',
-    'password_verify_invalid'   =>  'Password Verify %1% not math with password.',
+    'password_repeat_invalid'   =>  'Password Verify %1% not math with password.',
     'fullname_length'   =>  'Fullname length required is %1% to %2% characters.',
     'fullname_invalid'  =>  'Username must be letters, numbers not special characters.',
     'phone_invalid'  =>  'Phone must be format 0123456789',

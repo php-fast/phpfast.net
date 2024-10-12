@@ -7,7 +7,7 @@ class UsersModel extends BaseModel {
     protected $table = 'fast_users';
 
     // Các cột được phép thêm hoặc sửa
-    protected $fillable = ['username', 'email', 'password', 'fullname', 'avatar', 'role', 'permissions', 'optional', 'status'];
+    protected $fillable = ['username', 'email', 'password', 'fullname', 'avatar', 'phone', 'whatsapp', 'telegram', 'skype', 'role', 'permissions', 'optional', 'status'];
 
     // Các cột không được phép sửa
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -50,8 +50,8 @@ class UsersModel extends BaseModel {
                 'default' => ''
             ],
             'phone' => [
-                'type' => 'varchar(10)',
-                'null' => false,
+                'type' => 'varchar(30)',
+                'null' => true,
                 'default' => ''
             ],
             'role' => [
@@ -72,7 +72,7 @@ class UsersModel extends BaseModel {
                 'default' => ''
             ],
             'whatsapp' => [
-                'type' => 'varchar(10)',
+                'type' => 'varchar(30)',
                 'null' => true,
                 'default' => ''
             ],

@@ -11,6 +11,7 @@ return [
     'username'  =>  'Tên đăng nhập',
     'fullname'  =>  'Họ và tên',
     'password'  =>  'Mật khẩu',
+    'password_repeat' => 'Nhập lại mật khẩu',
     'email'  =>  'Email',
     'phone'  =>  'Số điện thoại',
     'active_send_email' => 'Mã kích hoạt mới đã được gửi đến email của bạn.',
@@ -40,7 +41,7 @@ return [
     'register_success' => 'Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản của bạn.',
     'register_error' => 'Đăng ký thất bại. Vui lòng thử lại.',
     'placeholder_password_repeat' => 'Nhập lại mật khẩu của bạn',
-    'social_media' => 'Thông tin mạng xã hội của bạn để hỗ trợ',
+    'social_media' => 'Thông tin mạng xã hội',
     'placeholder_telegram' => 'Nhập Telegram của bạn',
     'placeholder_skype' => 'Nhập Skype của bạn',
     'placeholder_whatsapp' => 'Nhập WhatsApp của bạn',
@@ -52,7 +53,7 @@ return [
     'token_fotgot_out_time' => 'Liên kết đã hết hạn, vui lòng nhập lại email để đặt lại mật khẩu',
     'forgot_password_title' => 'Quên mật khẩu?',
     'submit_link' => 'Gửi liên kết khôi phục',
-    'link_reset_password' => 'Liên kết đặt lại mật khẩu đã được gửi đến email của bạn',
+    'link_reset_password' => 'Liên kết đặt lại mật khẩu đã được gửi đến email ',
     'update_password_welcome' => 'Chào mừng đến trang cập nhật mật khẩu',
     
     // update password
@@ -61,6 +62,11 @@ return [
     'change_password' => 'Thay đổi mật khẩu',
     'reset_password_success' => 'Đặt lại mật khẩu thành công',
     'login_now' => 'Đăng nhập ngay',
+
+    // update profile
+    'profile_updated' => 'Cập nhật thông tin thành công',
+    'profile_welcome' => 'Cập nhật thông tin',
+    'update_submit' => 'Cập nhật',
     
     //users translate
     'users_noactive'  =>  '%1%: Tài khoản của bạn chưa được kích hoạt! Vui lòng kiểm tra Hộp thư đến hoặc Thư rác để kích hoạt tài khoản này!',
@@ -74,7 +80,7 @@ return [
     'email_invalid'  =>  'Email phải có định dạng email@domain.com',
     'email_length'    =>  'Độ dài email yêu cầu từ %1% đến %2% ký tự.',
     'password_length'   =>  'Độ dài mật khẩu yêu cầu từ %1% đến %2% ký tự.',
-    'password_verify_invalid'   =>  'Mật khẩu xác nhận %1% không khớp với mật khẩu.',
+    'password_repeat_invalid'   =>  'Mật khẩu xác nhận %1% không khớp với mật khẩu.',
     'fullname_length'   =>  'Độ dài họ và tên yêu cầu từ %1% đến %2% ký tự.',
     'fullname_invalid'  =>  'Họ và tên phải là chữ cái, số, không chứa ký tự đặc biệt.',
     'phone_invalid'  =>  'Số điện thoại phải có định dạng 0123456789',

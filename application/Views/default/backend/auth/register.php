@@ -9,8 +9,8 @@ if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
 
-$email = Session::has_flash('email')? Session::has_flash('email') : null;
-$fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : null;
+$email = Session::get('email') ?? null;
+$fullname = Session::get('fullname') ?? null;
 
 ?>
 
@@ -188,25 +188,25 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                 </div>
                 <div class="fieldset">
                   <label
-                    for="password_verify"
+                    for="password_repeat"
                     class="block mb-2 text-sm font-medium text-gray-900"
-                    ><?= Flang::_e('password') ?></label
+                    ><?= Flang::_e('password_repeat') ?></label
                   >
                   <div class="field password">
                     <input
                       type="password" 
-                      name="password_verify"
-                      id="password_verify"
+                      name="password_repeat"
+                      id="password_repeat"
                       placeholder="<?= Flang::_e('placeholder_password_repeat') ?>"
-                      class="password_verify"
+                      class="password_repeat"
                       required=""
                     />
                     <span
-                      id="togglePassword"
+                      id="togglePasswordrepeat"
                       class="absolute inset-y-0 right-0 px-3 py-2 flex items-center text-gray-600 focus:outline-none"
                     >
                       <svg
-                        id="eyeIcon"
+                        id="eyeIconrepeat"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
@@ -224,9 +224,9 @@ $fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : nu
                       </svg>
                     </span>
                   </div>
-                  <?php if (!empty($errors['password_verify'])): ?>
+                  <?php if (!empty($errors['password_repeat'])): ?>
                     <div class="text-red-500 mt-2 text-sm">
-                        <?php foreach ($errors['password_verify'] as $error): ?>
+                        <?php foreach ($errors['password_repeat'] as $error): ?>
                             <p><?= $error; ?></p>
                         <?php endforeach; ?>
                     </div>
