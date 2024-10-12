@@ -54,7 +54,7 @@ class AuthController extends BaseController
     public function login()
     {
         //Buoc validate neu co request login.
-        if (isset($_POST['username'])){
+        if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
@@ -141,7 +141,7 @@ class AuthController extends BaseController
     public function register()
     {
         //Buoc validate neu co request register.
-        if (isset($_POST['username'])){
+        if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
@@ -314,7 +314,7 @@ class AuthController extends BaseController
         $user_active_expires = $user_optional['activation_expires'] ?? 0;
 
         // Nếu người dùng yêu cầu gửi lại mã
-        if (isset($_POST['activation_resend'])) {
+        if (HAS_POST('activation_resend')) {
             return $this->_activation_resend($user_id, $user_optional, $user);
         }
 
@@ -336,7 +336,7 @@ class AuthController extends BaseController
         }
 
         // Trường hợp người dùng nhập mã vào form
-        if (isset($_POST['activation_no'])) {
+        if (HAS_POST('activation_no')) {
             $activationNo = S_POST('activation_no');
             $user_active_no = $user_optional['activation_no'] ?? '';
             if (!empty($user_active_no) && strtoupper($user_active_no) === strtoupper($activationNo)) {
@@ -354,7 +354,7 @@ class AuthController extends BaseController
         //Forgot Password
     public function forgot_password($user_id = '', $token = ''){
         if (empty($user_id) || empty($token)){
-            if(isset($_POST['email'])) {
+            if(HAS_POST('email')) {
                 $input = [ 
                     'email' => S_POST('email')
                 ];
@@ -432,7 +432,7 @@ class AuthController extends BaseController
             $this->data('assets_header', $this->assets->header('backend'));
             $this->render('backend', 'backend/auth/forgot_password');
         }else{
-            if(isset($_POST['password'])) {
+            if(HAS_POST('password')) {
                 $input = [
                     'password' => S_POST('password'),
                 ];
@@ -494,7 +494,7 @@ class AuthController extends BaseController
         $client->addScope('email');
         $client->addScope('profile');
 
-        if (!isset($_GET['code'])) {
+        if (!HAS_GET('code')) {
             // Tạo URL để người dùng đăng nhập qua Google
             $auth_url = $client->createAuthUrl();
             
@@ -615,14 +615,14 @@ class AuthController extends BaseController
         }
         
         //Buoc validate neu co request register.
-        if (isset($_POST['fullname'])){
+        if (HAS_POST('fullname')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 $this->data('error', Flang::_e('csrf_failed'));
                 unset($_POST['username']);
             }
         }
-        if (isset($_POST['fullname'])){
+        if (HAS_POST('fullname')){
             $input = [
                 'fullname' => S_POST('fullname') ?? '',
                 'phone' => S_POST('phone') ?? '',
