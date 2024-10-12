@@ -39,6 +39,11 @@ $routes->get('admin/terms/(:any)/(:any)/(:any)/(:num)', 'Backend\TermsController
 $routes->get('admin/terms/(:any)/(:any)', 'Backend\TermsController::index:$1:$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->post('admin/terms/(:any)/(:any)', 'Backend\TermsController::index:$1:$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 
+$routes->get('admin/(:any)/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:3:4',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->post('admin/(:any)/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:3:4',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->get('admin/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:3',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->post('admin/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:3',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+
 
 $routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);

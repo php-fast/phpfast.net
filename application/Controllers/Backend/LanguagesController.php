@@ -6,6 +6,10 @@ use App\Models\LanguagesModel;
 use System\Libraries\Session;
 use System\Libraries\Render;
 use System\Libraries\Assets;
+use App\Libraries\Fastlang as Flang;
+use System\Libraries\Validate;
+
+
 
 
 class LanguagesController extends BaseController {
@@ -17,16 +21,22 @@ class LanguagesController extends BaseController {
     {
         load_helpers(['backend']);
         $this->languagesModel = new LanguagesModel();
-        $this->assets = new Assets();
 
+        $this->assets = new Assets();
         $this->assets->add('css', 'css/style.css', 'head');
-        $this->assets->add('js', 'js/jfast.1.1.2.js', 'footer');
-        $this->assets->add('js', 'js/authorize.js', 'footer');
+        $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
+        $this->assets->add('js', 'js/script.js', 'footer');
+        $this->assets->add('js', 'js/campaign.js', 'footer');
+        $this->assets->add('js', 'js/language.js', 'footer');
 
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
         $this->data('header', $header);
         $this->data('footer', $footer);
+
+        Flang::load('Languages', LANG);
+
+
     }
 
     // Liệt kê danh sách ngôn ngữ
@@ -34,40 +44,89 @@ class LanguagesController extends BaseController {
     {
         $languages = $this->languagesModel->getLanguages();
         $this->data('languages', $languages);
-        $this->data('title', 'Quản lý ngôn ngữ');
+        $this->data('title', Flang::_e('tile_languages'));
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
+
+        $this->data('csrf_token', Session::csrf_token()); //token security
+
         $this->render('dashbroad', 'backend/languages/index');
     }
-
     // Thêm ngôn ngữ mới
     public function add()
-    {
+    {   
+        // Validate form add new language
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $csrf_token = S_POST('csrf_token') ?? '';
             $name = S_POST('name') ?? '';
             $code = S_POST('code') ?? '';
             $status = S_POST('status') ?? 'inactive';
-            $flat = S_POST('flat') ?? '';
-            $isDefault = isset($_POST['is_default']) ? 1 : 0;
+            $default = S_POST('is_default') ?? 0;
 
-
-            if ($name && $code) {
-                if ($isDefault) {
-                    $this->languagesModel->unsetDefaultLanguage(); // Bỏ mặc định cho tất cả ngôn ngữ khác
-                }
-                
-                $this->languagesModel->add($this->languagesModel->_table(), [
-                    'name' => $name,
-                    'code' => $code,
-                    'status' => $status,
-                    'is_default' => $isDefault,
-                    'flat' => $flat
-                ]);
-
-                Session::flash('success', 'Ngôn ngữ mới đã được thêm thành công.');
+            // check CSRF token
+            if (!Session::csrf_verify($csrf_token)){
+                Session::flash('error', Flang::_e('csrf_failed') );
                 redirect(admin_url('languages'));
             }
+
+            if ($default) {
+                $this->languagesModel->unsetDefaultLanguage();
+                if($status == 'inactive') {
+                    $status = 'active';
+                }
+            }
+
+            $data = [
+                'name' => $name,
+                'code' => $code,
+                'status' => $status,
+                'is_default' => $default,
+            ];
+            
+            $rules = [
+               'name' =>  [
+                    'rules' => [Validate::length(3, 80)],
+                    'messages' => [Flang::_e('length_error', 3, 80)]
+               ],
+               'code' => [
+                    'rules' => [Validate::alpha(), Validate::lowercase() ,Validate::length(2, 2)],
+                    'messages' => [Flang::_e('notalpha'), Flang::_e('lowercase_error'), Flang::_e('length_error', 2, 2)]
+               ],
+                'is_default' => [
+                    'rules' => [Validate::in([0, 1])],
+                    'messages' => [Flang::_e('in_error')]
+                ],
+                'status' => [
+                    'rules' => [Validate::in(['active', 'inactive'])],
+                    'messages' => [Flang::_e('in_error')]
+                ]
+            ];
+            $validator = new Validate();
+            if(!$validator->check($data, $rules)){
+                $errors = $validator->getErrors();
+                foreach ($errors as $field => $messagesArray) {
+                    foreach ($messagesArray as $message) {
+                        $messages[] = ucfirst($field) . ": " . $message;
+                    }
+                }
+                $errorMessage = implode("<br>", $messages); 
+                Session::flash('error', $errorMessage);
+            } else {
+                if ($default == 1) {
+                    $this->languagesModel->unsetDefaultLanguage();
+                }
+                $status = $this->languagesModel->addLanguage($data);
+                if (!$status['success']) {
+                    echo $status['message'];
+                    Session::flash('error', Flang::_e($status['message']) );
+                } else {
+                    Session::flash('success', Flang::_e('add_success') );
+                }
+            }
         }
+
+        redirect(admin_url('languages'));
+
     }
 
     // Chỉnh sửa ngôn ngữ
@@ -76,37 +135,82 @@ class LanguagesController extends BaseController {
         $language = $this->languagesModel->getLanguageById($id);
 
         if (!$language) {
-            Session::flash('error', 'Ngôn ngữ không tồn tại.');
+            Session::flash('error', Flang::_e('not_exits'));
             redirect(admin_url('languages'));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $csrf_token = S_POST('csrf_token') ?? '';
             $name = S_POST('name') ?? '';
             $code = S_POST('code') ?? '';
             $status = S_POST('status') ?? 'inactive';
-            $is_default = isset($_POST['is_default']) ? 1 : 0;
+            $default = S_POST('is_default') ?? 0;
 
-            if ($is_default) {
-                $this->languagesModel->unsetDefaultLanguage(); // Bỏ mặc định tất cả trước khi đặt ngôn ngữ mới
+            if ($default) {
+                $this->languagesModel->unsetDefaultLanguage();
+                if($status == 'inactive') {
+                    $status = 'active';
+                }
             }
 
-            $this->languagesModel->set($this->languagesModel->_table(), [
+            $data = [
                 'name' => $name,
                 'code' => $code,
                 'status' => $status,
-                'is_default' => $is_default
-            ], 'id = ?', [$id]);
+                'is_default' => $default,
+            ];
 
-            //Them buoc thay doi ten cac bang Posts lien quan den ngon ngu nua
+            // check CSRF token
+            if (!Session::csrf_verify($csrf_token)){
+                Session::flash('error', Flang::_e('csrf_failed') );
+                redirect(admin_url('languages'));
+            }
 
-            Session::flash('success', 'Chỉnh sửa ngôn ngữ thành công.');
-            redirect(admin_url('languages'));
+            $rules = [
+               'name' =>  [
+                    'rules' => [Validate::length(3, 80)],
+                    'messages' => [Flang::_e('length_error', 3, 80)]
+               ],
+               'code' => [
+                    'rules' => [Validate::alpha(), Validate::lowercase() ,Validate::length(2, 2)],
+                    'messages' => [Flang::_e('notalpha'), Flang::_e('lowercase_error'), Flang::_e('length_error', 2, 2)]
+               ],
+                'is_default' => [
+                    'rules' => [Validate::in([0, 1])],
+                    'messages' => [Flang::_e('in_error')]
+                ],
+                'status' => [
+                    'rules' => [Validate::in(['active', 'inactive'])],
+                    'messages' => [Flang::_e('in_error')]
+                ]
+            ];
+            $validator = new Validate();
+            if(!$validator->check($data, $rules)){
+                $errors = $validator->getErrors();
+                foreach ($errors as $field => $messagesArray) {
+                    foreach ($messagesArray as $message) {
+                        $messages[] = ucfirst($field) . ": " . $message;
+                    }
+                }
+                $errorMessage = implode("<br>", $messages); 
+                Session::flash('error', $errorMessage);
+            } else {
+                $status = $this->languagesModel->setLanguage($id, $data);
+                if (!$status['success']) {
+                    Session::flash('error', Flang::_e($status['message']) );
+                } else {
+                    Session::flash('success', Flang::_e('update_success') );
+                }
+            }
+            redirect(admin_url('languages/edit/' . $id));
         }
 
+            
+        $this->data('csrf_token', Session::csrf_token()); //token security
         $this->data('language', $language);
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
-        $this->data('title', 'Chỉnh sửa ngôn ngữ');
+        $this->data('title', Flang::_e('edit_language') . ' ' . $language['name']);
         $this->render('dashbroad', 'backend/languages/edit');
     }
 
@@ -116,25 +220,70 @@ class LanguagesController extends BaseController {
         $language = $this->languagesModel->getLanguageById($id);
 
         if (!$language) {
-            Session::flash('error', 'Ngôn ngữ không tồn tại.');
+            Session::flash('error', Flang::_e('exits'));
             redirect(admin_url('languages'));
         }
 
         // Không cho phép xóa ngôn ngữ mặc định
         if ($language['is_default'] == 1) {
-            Session::flash('error', 'Không thể xóa ngôn ngữ mặc định.');
+            Session::flash('error', Flang::_e('not_del_defaute'));
             redirect(admin_url('languages'));
         }
 
         $this->languagesModel->del($this->languagesModel->_table(), 'id = ?', [$id]);
-        Session::flash('success', 'Xóa ngôn ngữ thành công.');
+        Session::flash('success', Flang::_e('delete_success'));
         redirect(admin_url('languages'));
     }
 
-    // get language active
-    public function getActiveLanguages()
+    public function setdefault($id) {
+        $language = $this->languagesModel->getLanguageById($id);
+
+        if (!$language) {
+            Session::flash('error', Flang::_e('exits'));
+            redirect(admin_url('languages'));
+        }
+
+        $this->languagesModel->unsetDefaultLanguage();
+        
+        $data = [
+            'is_default' => 1,
+            'status' => 'active'
+        ];
+        $status = $this->languagesModel->setLanguage($id, $data);
+
+        if (!$status['success']) {
+            Session::flash('error', Flang::_e($status['message']) );
+        } else {
+            Session::flash('success', Flang::_e('update_success') );
+        }
+
+        redirect(admin_url('languages'));
+
+    }
+
+    public function changestatus($id)
     {
-        $languages = $this->languagesModel->getActiveLanguages();
-        return $languages;
+        $language = $this->languagesModel->getLanguageById($id);
+
+        if (!$language) {
+            Session::flash('error', Flang::_e('exits'));
+            redirect(admin_url('languages'));
+        }
+        if($language['is_default'] == 1) {
+            Session::flash('error', Flang::_e('not_change_default'));
+            redirect(admin_url('languages'));
+        }
+        $status = $language['status'] == 'active' ? 'inactive' : 'active';
+        $data = [
+            'status' => $status
+        ];
+        $status = $this->languagesModel->setLanguage($id, $data);
+
+        if (!$status['success']) {
+            Session::flash('error', Flang::_e($status['message']) );
+        } else {
+            Session::flash('success', Flang::_e('update_success') );
+        }
+        redirect(admin_url('languages'));
     }
 }

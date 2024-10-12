@@ -20,7 +20,7 @@ class UsersModel extends BaseModel {
     public function _schema() {
         return [
             'id' => [
-                'type' => 'int unsigned',
+                'type' => 'int(10) unsigned',
                 'auto_increment' => true,
                 'key' => 'primary',
                 'null' => false

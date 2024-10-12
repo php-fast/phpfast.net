@@ -8,7 +8,7 @@ class LanguagesModel extends BaseModel
     protected $table = 'fast_languages';
 
     // Các cột được phép thêm hoặc sửa
-    protected $fillable = [ 'name', 'code', 'is_default', 'status', 'flat'];
+    protected $fillable = [ 'name', 'code', 'is_default', 'status', 'is_default'];
 
     // Các cột không được phép sửa
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -36,10 +36,6 @@ class LanguagesModel extends BaseModel
                 'type' => 'varchar(100)',
                 'null' => false
             ],
-            'flat' => [
-                'type' => 'varchar(100)',
-                'null' => true
-            ], 
             'is_default' => [
                 'type' => 'tinyint(1)',
                 'null' => false,
@@ -109,5 +105,52 @@ class LanguagesModel extends BaseModel
     public function unsetDefaultLanguage()
     {
         return $this->set($this->table, ['is_default' => 0], 'is_default = 1');
+    }
+
+
+    /**
+     * Thêm ngôn ngữ
+     */
+    public function addLanguage($data) {
+        try {
+            // Xử lý dữ liệu đầu vào trước khi thêm vào database
+            $data = $this->fill($data); 
+            
+            // Thực hiện thêm dữ liệu vào bảng, bắt lỗi nếu xảy ra
+            $result = $this->add($this->table, $data);
+            return [
+                'success' => true,
+                'id' => $result
+            ];
+        } catch (\PDOException $e) {
+            // Trả về thông báo lỗi cho người dùng
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    /**
+     * Sửa ngôn ngữ
+     */
+    public function setLanguage($id, $data) {
+        try {
+            // Xử lý dữ liệu đầu vào trước khi thêm vào database
+            $data = $this->fill($data); 
+            
+            // Thực hiện sửa dữ liệu vào bảng, bắt lỗi nếu xảy ra
+            $result = $this->set($this->table, $data, 'id = ?', [$id]);
+            return [
+                'success' => true,
+                'id' => $result
+            ];
+        } catch (\PDOException $e) {
+            // Trả về thông báo lỗi cho người dùng
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
     }
 }
