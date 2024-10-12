@@ -152,7 +152,7 @@ class AuthController extends BaseController
                 'fullname' => S_POST('fullname'),
                 'email' => S_POST('email'),
                 'password' => S_POST('password'),
-                'password_verify' => S_POST('password_verify'),
+                'password_repeat' => S_POST('password_repeat'),
                 'phone' => S_POST('phone'),
             ];
             $rules = [
@@ -202,12 +202,12 @@ class AuthController extends BaseController
                         Flang::_e('password_length', 6, 60),
                     ]
                 ],
-                'password_verify' => [
+                'password_repeat' => [
                     'rules' => [
                         Validate::equals($input['password'])
                     ],
                     'messages' => [
-                        Flang::_e('password_verify_invalid', $input['password_verify'])
+                        Flang::_e('password_repeat_invalid', $input['password_repeat'])
                     ]
                 ],
             ];
@@ -285,15 +285,8 @@ class AuthController extends BaseController
          
             $this->data('assets_header', $this->assets->header('backend'));
             $this->data('assets_footer', $this->assets->footer('backend'));
-            redirect(auth_url("activation/{$user_id}/"));
 
-            // $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
-     
-            // $this->data('assets_header', $this->assets->header('backend'));
-            // $this->data('assets_footer', $this->assets->footer('backend'));
-            // // $this->data('footer', 'Trang nay khong can footer');
-            // // Gọi layout chính và truyền dữ liệu cùng với các phần render
-            // $this->render('backend', 'backend/auth/login');
+            redirect(auth_url("activation/{$user_id}/"));
 
         } else {
             Session::flash('error', Flang::_e('register_error'));
@@ -519,9 +512,6 @@ class AuthController extends BaseController
             $email_user = $userInfo->email ?? '';
             $fullname = $userInfo->name ?? ''; 
             $user = $this->usersModel->getUserByEmail($email_user);
-            // print_r($email_user);
-            // die();
-
 
             if ($user) {
                    // Set thông tin đăng nhập vào session
@@ -585,7 +575,7 @@ class AuthController extends BaseController
         $this->mailer = new Fastmail();
         $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
-        Session::flash('success', Flang::_e('link_reset_password'));
+        Session::flash('success', Flang::_e('link_reset_password') .$user['email']);
         // redirect(auth_url('activation/' . $user_id));
     }   
 
@@ -603,6 +593,7 @@ class AuthController extends BaseController
         $this->data('user_id', $user_id);
         $this->render('backend', 'backend/auth/activation');
     }
+
     private function _activation($user_id)
     {
         $this->usersModel->updateUser($user_id, [

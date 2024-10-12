@@ -113,6 +113,7 @@ if (Session::has_flash('error')){
                       <input
                         id="remember"
                         aria-describedby="remember"
+                        name="remember"
                         type="checkbox"
                         class="w-4 h-4 border-gray-400 border-solid rounded focus:ring-3 focus:ring-primary-300 "
                       />

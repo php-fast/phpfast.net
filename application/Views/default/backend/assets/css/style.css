@@ -1742,7 +1742,7 @@ input[name="password"]{
   padding-left: 2.5rem;
 }
 
-input#code2FA, input[name="password_verify"] {
+input#code2FA, input[name="password_repeat"] {
   background-repeat: no-repeat;
   padding-left: 2.5rem;
 }

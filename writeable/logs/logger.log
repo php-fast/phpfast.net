@@ -124,3 +124,21 @@
 [2024-10-12 10:03:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
 [2024-10-12 10:03:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
 [2024-10-12 10:04:42] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
+[2024-10-12 10:26:59] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 10:27:26] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 10:28:37] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'flat' in 'field list' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 185
+[2024-10-12 10:29:09] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 10:29:10] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 10:29:10] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 10:30:48] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 11:05:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:06:15] ERROR: 404 - Router: /assets/backend/js/9fa46359a35b4cc611ea0641edd3b0ca.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:14:55] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 11:15:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:15:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:15:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:15:03] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 11:15:34] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 11:15:34] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 11:15:34] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-12 11:30:59] ERROR: 404 - Router: /account.logout (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85

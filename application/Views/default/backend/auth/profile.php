@@ -239,7 +239,7 @@ if (Session::has_flash('error')){
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-full">
-                  <?= Flang::_e('Update') ?>
+                  <?= Flang::_e('update_submit') ?>
                 </button>
               </form>
             </div>
