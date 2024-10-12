@@ -1742,6 +1742,11 @@ input[name="password"]{
   padding-left: 2.5rem;
 }
 
+input#code2FA, input[name="password_verify"] {
+  background-repeat: no-repeat;
+  padding-left: 2.5rem;
+}
+
 .floating-label label{
   position: absolute;
   top: -10px;

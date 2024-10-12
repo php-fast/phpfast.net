@@ -9,8 +9,8 @@ if (Session::has_flash('error')){
     $error = Session::flash('error');
 }
 
-$email = Session::has_flash('email')? Session::has_flash('email') : null;
-$fullname = Session::has_flash('fullname') ? Session::has_flash('fullname') : null;
+$email = Session::get('email') ?? null;
+$fullname = Session::get('fullname') ?? null;
 
 ?>
 

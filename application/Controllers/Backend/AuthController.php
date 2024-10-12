@@ -508,7 +508,6 @@ class AuthController extends BaseController
             redirect(filter_var($auth_url, FILTER_SANITIZE_URL));
         }else{
             // Lấy mã code từ URL khi người dùng quay lại từ Google
-            die;
             $code = $_GET['code'];
             // Trao đổi mã lấy token truy cập
             $token = $client->fetchAccessTokenWithAuthCode($code);
@@ -520,6 +519,8 @@ class AuthController extends BaseController
             $email_user = $userInfo->email ?? '';
             $fullname = $userInfo->name ?? ''; 
             $user = $this->usersModel->getUserByEmail($email_user);
+            // print_r($email_user);
+            // die();
 
 
             if ($user) {
@@ -532,7 +533,6 @@ class AuthController extends BaseController
 
                 redirect(admin_url('dashboard'));
             } else {
-
                 Session::set('fullname', $fullname);
                 Session::set('email', $email_user);
                 // Chuyển hướng đến trang đăng ký để nhập các trường còn lại
@@ -622,7 +622,7 @@ class AuthController extends BaseController
         if (!$user){
             return $this->logout();
         }
-
+        
         //Buoc validate neu co request register.
         if (isset($_POST['fullname'])){
             $csrf_token = S_POST('csrf_token') ?? '';
@@ -702,7 +702,6 @@ class AuthController extends BaseController
         
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
-   
         
         $this->render('backend', 'backend/auth/profile');
     }

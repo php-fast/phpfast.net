@@ -28,9 +28,9 @@ if (Session::has_flash('error')){
             <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
                 <?= $success; ?>
             </div>
-            <?php elseif (!empty($error)): ?>
+            <?php elseif (!empty($errors)): ?>
                 <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
-                    <?= $error; ?>
+                    <?= $errors; ?>
                 </div>
             <?php endif; ?>
 

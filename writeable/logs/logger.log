@@ -77,3 +77,50 @@
 [2024-10-11 19:12:05] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
 [2024-10-11 19:12:05] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
 [2024-10-11 19:12:05] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:15:44] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:15:45] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:15:45] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:15:45] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:15:45] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:27] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:28] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:28] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:29] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:29] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:29] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:16:29] ERROR: Action image not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-11 19:19:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:20:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:20:36] ERROR: 404 - Router: /assets/backend/js/9fa46359a35b4cc611ea0641edd3b0ca.js (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:20:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:22:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:22:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-11 19:22:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:14:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:30:59] ERROR: Object of class Google\Client could not be converted to string in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/AuthController.php on line 503
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:34:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:35:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:35:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 09:45:27] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-12 09:46:04] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-12 09:46:10] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-12 10:03:10] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 10:03:22] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 10:03:22] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 10:03:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 10:03:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-12 10:04:42] ERROR: Invalid token format in /Users/macvn/Documents/www/domainweb.com/vendor/google/apiclient/src/Client.php on line 572
