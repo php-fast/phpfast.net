@@ -30,16 +30,17 @@ class TermsController extends BaseController {
             $type = S_GET('type') ?? '';
             $posttype = S_GET('posttype') ?? '';
             $allTerm = $this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype);
+            $langActive = $this->LanguagesModel->getActiveLanguages();
             $tree = $this->treeTerm($allTerm);
             
-            $this->data('allTerm', $allTerm);
+            $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
             $this->data('type', $type); 
             $this->data('posttype', $posttype);
-            $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
+            $this->data('allTerm', $allTerm);
+            $this->data('langActive', $langActive);
             $this->data('tree', $tree);
             $this->render('backend', 'backend/terms/index');
-        }
-        else {
+        } else {
             $allTerm = $this->termModel->getTaxonomies();
             $tree = $this->treeTerm($allTerm);
             $this->data('allTerm', $allTerm);
@@ -61,12 +62,11 @@ class TermsController extends BaseController {
     
         // Xây dựng cây phân cấp từ dữ liệu
         foreach ($result as $id => &$node) {
-            // print_r($node['lang']);die();
-            // $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
+            // et name lang
             if (!empty($node['lang'])) {
-                $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
-                if ($langActive) {
-                    $node['lang_name'] = $langActive['name'];
+                $lang = $this->LanguagesModel->getLanguageById($node['lang']);
+                if ($lang) {
+                    $node['lang_name'] = $lang['name'];
                 } else {
                     $node['lang_name'] = '';
                 }
@@ -77,7 +77,6 @@ class TermsController extends BaseController {
             if (!empty($node['parent'])) {
                 $result[$node['parent']]['children'][] = &$node;
                 $node['parent_name'] = $result[$node['parent']]['name'];
-                $node['lang_name'] = $result[$langActive['name']];
             } else {
                 $tree[] = &$node;
             }
@@ -143,9 +142,9 @@ class TermsController extends BaseController {
     public function edit($posttype, $type, $termId) {
         $data = $this->termModel->getTermById($termId);
         $tree = $this->treeTerm($this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype));
+        $this->data('title', 'Edit term');
         $this->data('data', $data);
         $this->data('tree', $tree);
-        $this->data('title', 'Edit term');
         $this->render('backend', 'backend/terms/edit');
     }
 

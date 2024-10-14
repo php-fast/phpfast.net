@@ -1033,3 +1033,41 @@
 [2024-10-14 16:58:31] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
 [2024-10-14 16:58:38] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
 [2024-10-14 16:58:49] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 17:07:44] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 17:07:48] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:08:02] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:08:50] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:10:27] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:10:28] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:10:28] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:10:55] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:16:01] ERROR: Call to undefined function App\Controllers\Backend\getActiveLanguages() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 33
+[2024-10-14 17:16:14] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 93
+[2024-10-14 17:16:14] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:17:14] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 93
+[2024-10-14 17:17:14] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:17:29] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 93
+[2024-10-14 17:17:29] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:17:38] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 93
+[2024-10-14 17:17:38] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:17:56] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 93
+[2024-10-14 17:17:56] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:19:19] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:19:43] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:24:40] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:24:47] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:24:58] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:25:04] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:25:09] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:25:16] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:25:55] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:25:58] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:26:06] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:26:22] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:26:24] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:26:28] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:27:16] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:28:11] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:28:18] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:29:19] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:30:25] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
