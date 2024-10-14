@@ -2,12 +2,12 @@
 namespace App\Models;
 use System\Core\BaseModel;
 
-class TermModel extends BaseModel {
+class TermsModel extends BaseModel {
 
     protected $table = 'fast_terms';
 
     // Columns that are fillable (can be added or modified)
-    protected $fillable = ['name', 'slug', 'description', 'type', 'posttype', 'parent_id', 'language_id', 'main_language'];
+    protected $fillable = ['name', 'slug', 'description', 'type', 'posttype', 'parent', 'lang', 'id_main'];
 
     // Columns that are guarded (cannot be modified)
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -20,7 +20,7 @@ class TermModel extends BaseModel {
     public function _schema() {
         return [
             'id' => [
-                'type' => 'int unsigned',
+                'type' => 'int(10) unsigned',
                 'auto_increment' => true,
                 'key' => 'primary',
                 'null' => false
@@ -43,20 +43,28 @@ class TermModel extends BaseModel {
                 'type' => 'varchar(50)',
                 'null' => true
             ],
+            'seo_title' => [
+                'type' => 'varchar(50)',
+                'null' => true
+            ],
+            'seo_desc' => [
+                'type' => 'text',
+                'null' => true
+            ],
             'type' => [
                 'type' => 'varchar(50)',
                 'null' => false,
                 'default' => 'category'
             ],
-            'parent_id' => [
+            'parent' => [
                 'type' => 'int unsigned',
                 'null' => true
             ],
-            'language_id' => [
+            'lang' => [
                 'type' => 'int unsigned',
                 'null' => true
             ],
-            'main_language' => [
+            'id_main' => [
                 'type' => 'int unsigned',
                 'null' => false,
                 'default' => 0

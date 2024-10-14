@@ -1,9 +1,10 @@
 <?php 
 use System\Libraries\Session;?>
 <?php
+
 function buildOptions($tree, $level = 0, $current_id = null)
 {
-    $output = '';
+    $output = '';   
 
     foreach ($tree as $node) {
         // Tạo dấu gạch dựa theo cấp độ
@@ -22,7 +23,7 @@ function buildOptions($tree, $level = 0, $current_id = null)
     }
 
     return $output;
-}
+}   
 function renderTermRows($nodes, $level = 0)
 {
     foreach ($nodes as $node) {
@@ -35,11 +36,13 @@ function renderTermRows($nodes, $level = 0)
             <td class="px-4 py-2"><?= $node['slug']; ?></td>
             <td class="px-4 py-2"><?= $node['posttype']; ?></td>
             <td class="px-4 py-2"><?= $node['type']; ?></td>
-            <td class="px-4 py-2"><?= $node['language_id']; ?></td>
-            <td class="px-4 py-2"><?= $node['parent_id']; ?></td>
+            <td class="px-4 py-2"><?= $node['lang']; ?></td>
+            <td class="px-4 py-2"><?= $node['parent']; ?></td>
             <td class="px-4 py-2">
                 <a href="/admin/term/<?= $node['posttype'] . '/' . $node['type'] ?>/edit/<?= $node['id']; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-                <a href="/admin/term/<?= $node['posttype'] . '/' . $node['type'] ?>/delete/<?= $node['id'] . '?type=' . $node['type']; ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+          
+                <a href="<?= admin_url('terms/delete/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+              
             </td>
         </tr>
         <?php
@@ -53,12 +56,13 @@ function renderTermRows($nodes, $level = 0)
 <div class="container mx-auto">
     <h1 class="text-3xl font-bold mb-6"><?= $title ?></h1>
     <div class="flex flex-wrap -mx-3">
+
         <!-- Form Section (3/10) -->
         <div class="w-full md:w-3/10 px-3 mb-6">
             <div class="bg-white shadow-md rounded p-6">
-                <form action="/admin/term/create" method="POST">
-                    <input type="hidden" name="type" value="<?php echo htmlspecialchars($type); ?>">
-                    <input type="hidden" name="posttype" value="<?php echo htmlspecialchars($posttype); ?>">
+                <form action="<?= admin_url('terms/create') ?>" method="POST">
+                    <input type="hidden" name="type" value="<?= $type ?? 'default' ?>">
+                    <input type="hidden" name="posttype" value="<?= $posttype ?? 'default' ?>">
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Name <span class="text-red-500">*</span></label>
                         <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
@@ -73,15 +77,15 @@ function renderTermRows($nodes, $level = 0)
                     </div>
                     <!-- option -->
                     <div class="mb-4">
-                        <label for="parent_id" class="block text-gray-700 font-bold mb-2">Parent</label>
-                        <select id="parent_id" name="parent_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <label for="parent" class="block text-gray-700 font-bold mb-2">Parent</label>
+                        <select id="parent" name="parent" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <option value="">Select Parent</option>
                             <?= buildOptions($tree); ?>
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label for="language_id" class="block text-gray-700 font-bold mb-2">Languge</label>
-                        <select id="language_id" name="language_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <label for="lang" class="block text-gray-700 font-bold mb-2">Languge</label>
+                        <select id="lang" name="lang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <option value="">Select Languge</option>
                             <option value="1">Vietnamese</option>
                             <option value="2">English</option>
