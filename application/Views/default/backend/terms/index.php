@@ -25,7 +25,7 @@ function buildOptions($tree, $level = 0, $current_id = null)
     return $output;
 }   
 function renderTermRows($nodes, $level = 0)
-{
+{   
     foreach ($nodes as $node) {
         if(!$node) {
           continue;
@@ -36,7 +36,7 @@ function renderTermRows($nodes, $level = 0)
             <td class="px-4 py-2"><?= $node['slug']; ?></td>
             <td class="px-4 py-2"><?= $node['posttype']; ?></td>
             <td class="px-4 py-2"><?= $node['type']; ?></td>
-            <td class="px-4 py-2"><?= $node['lang']; ?></td>
+            <td class="px-4 py-2"><?= $node['lang_name']; ?></td>
             <td class="px-4 py-2"><?= $node['parent_name'] ?? 'No'; ?></td>
             <td class="px-4 py-2">
                 <a href="<?= admin_url('terms/edit/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>

@@ -31,7 +31,7 @@ class TermsController extends BaseController {
             $posttype = S_GET('posttype') ?? '';
             $allTerm = $this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype);
             $tree = $this->treeTerm($allTerm);
-            $langActive = $this->LanguagesModel->getActiveLanguages();
+            
             $this->data('allTerm', $allTerm);
             $this->data('type', $type); 
             $this->data('posttype', $posttype);
@@ -52,6 +52,7 @@ class TermsController extends BaseController {
     private function treeTerm($term) {
         $result = [];
         $tree = [];
+        
         // Sắp xếp dữ liệu theo id và parent
         foreach ($term as $item) {
             $result[$item['id']] = $item;
@@ -60,9 +61,23 @@ class TermsController extends BaseController {
     
         // Xây dựng cây phân cấp từ dữ liệu
         foreach ($result as $id => &$node) {
+            // print_r($node['lang']);die();
+            // $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
+            if (!empty($node['lang'])) {
+                $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
+                if ($langActive) {
+                    $node['lang_name'] = $langActive['name'];
+                } else {
+                    $node['lang_name'] = '';
+                }
+            } else {
+                $node['lang_name'] = '';
+            }
+
             if (!empty($node['parent'])) {
                 $result[$node['parent']]['children'][] = &$node;
                 $node['parent_name'] = $result[$node['parent']]['name'];
+                $node['lang_name'] = $result[$langActive['name']];
             } else {
                 $tree[] = &$node;
             }

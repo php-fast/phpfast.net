@@ -1006,3 +1006,30 @@
 [2024-10-14 16:28:37] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-14 16:29:01] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-14 16:29:07] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:36:19] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:36:19] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:36:20] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:37:20] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:40:32] ERROR: syntax error, unexpected identifier "allTerm", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 37
+[2024-10-14 16:46:14] ERROR: syntax error, unexpected token "}" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 69
+[2024-10-14 16:49:02] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:49:42] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:49:44] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:49:44] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:50:38] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:50:43] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:50:44] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 16:53:29] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:53:29] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:54:13] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:55:11] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:55:20] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:56:44] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:57:28] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:57:28] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:57:41] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:58:05] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:58:14] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:58:31] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:58:38] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 16:58:49] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
