@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 namespace App\Controllers\Backend;
-use App\Models\TermModel;
+use App\Models\TermsModel;
 use App\Models\LanguagesModel;
 use System\Libraries\Session;
 use System\Libraries\Render;
@@ -14,7 +14,7 @@ class TermsController extends BaseController {
     public function __construct()
     {
         load_helpers(['backend']);
-        $this->termModel = new TermModel();
+        $this->termModel = new TermsModel();
         $this->LanguagesModel = new LanguagesModel();
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
@@ -23,22 +23,37 @@ class TermsController extends BaseController {
     }
    
     // Hiển thị danh sách tất cả các term
-    public function index($posttype = null, $type = null) {
-        $allTerm = $this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype);
-        $tree = $this->treeTerm($allTerm);
-        $langActive = $this->LanguagesModel->getActiveLanguages();
-        $this->data('allTerm', $allTerm);
-        $this->data('type', $type);
-        $this->data('posttype', $posttype);
-        $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
-        $this->data('tree', $tree);
-        $this->render('backend', 'backend/terms/index');
+    public function index() {
+        
+        if(HAS_GET('type') && HAS_GET('posttype'))
+        {
+            $type = S_GET('type') ?? '';
+            $posttype = S_GET('posttype') ?? '';
+            $allTerm = $this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype);
+            $tree = $this->treeTerm($allTerm);
+            
+            $this->data('allTerm', $allTerm);
+            $this->data('type', $type); 
+            $this->data('posttype', $posttype);
+            $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
+            $this->data('tree', $tree);
+            $this->render('backend', 'backend/terms/index');
+        }
+        else {
+            $allTerm = $this->termModel->getTaxonomies();
+            $tree = $this->treeTerm($allTerm);
+            $this->data('allTerm', $allTerm);
+            $this->data('title', 'Term Management');
+            $this->data('tree', $tree);
+            $this->render('backend', 'backend/terms/index');
+        }    
         
     }
     private function treeTerm($term) {
         $result = [];
         $tree = [];
-        // Sắp xếp dữ liệu theo id và parent_id
+        
+        // Sắp xếp dữ liệu theo id và parent
         foreach ($term as $item) {
             $result[$item['id']] = $item;
             $result[$item['id']]['children'] = [];
@@ -46,13 +61,28 @@ class TermsController extends BaseController {
     
         // Xây dựng cây phân cấp từ dữ liệu
         foreach ($result as $id => &$node) {
-            if (!empty($node['parent_id'])) {
-                $result[$node['parent_id']]['children'][] = &$node;
+            // print_r($node['lang']);die();
+            // $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
+            if (!empty($node['lang'])) {
+                $langActive = $this->LanguagesModel->getLanguageById($node['lang']);
+                if ($langActive) {
+                    $node['lang_name'] = $langActive['name'];
+                } else {
+                    $node['lang_name'] = '';
+                }
+            } else {
+                $node['lang_name'] = '';
+            }
+
+            if (!empty($node['parent'])) {
+                $result[$node['parent']]['children'][] = &$node;
+                $node['parent_name'] = $result[$node['parent']]['name'];
+                $node['lang_name'] = $result[$langActive['name']];
             } else {
                 $tree[] = &$node;
             }
         }
-    
+        
         // Hàm đệ quy để in ra cây phân cấp
         function printTree($items, $level = 0) {
             foreach ($items as $item) {
@@ -61,25 +91,27 @@ class TermsController extends BaseController {
                     printTree($item['children'], $level + 1);
                 }
             }
-        }
-    
+        }  
         // In cây phân cấp
       return $tree;
-    } 
+    }
+    
     // Tạo mới một term
     public function create() {
-        $name = $_POST['name'];
-        $type = $_POST['type'];
-        $posttype = $_POST['posttype'];
-        $parent_id = $_POST['parent_id'];
+        $name = S_POST('name');
+        $type = S_POST('type');
+        $posttype = S_POST('posttype');
+        $parent = S_POST('parent');
+        $lang = S_POST('lang');
+    
         $counter = 2;
-        if(empty($parent_id) || $parent_id == 0) {
-            $parent_id = null;
-        }   
-        if(empty($_POST['slug'])) {
-            $slug = to_url($name);
+        if(empty($parent) || $parent == 0) {
+            $parent = null;
+        }
+        if(!empty(HAS_POST('slug'))) {
+            $slug = url_slug($name);
         } else {
-            $slug = $_POST['slug'];
+            $slug = S_POST('slug');
         }
         $allTerm = $this->termModel->getTaxonomies();
         $description = $_POST['description'];
@@ -97,42 +129,59 @@ class TermsController extends BaseController {
             'description' => $description,
             'type' => $type,
             'posttype' => $posttype,
-            'parent_id' => $parent_id
+            'parent' => $parent,
+            'lang' => $lang
         ];
-        $query = $this->termModel->addTerm($data);
-        redirect('/admin/term/'.$posttype.'/'.$type);
+        $this->termModel->addTerm($data);
+        $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+        $redirectUrl = rtrim($redirectUrl, '/');
+
+        redirect($redirectUrl);
     }
 
     // Chỉnh sửa một term
-    public function edit($posttype, $type, $edit, $termId) {
+    public function edit($posttype, $type, $termId) {
         $data = $this->termModel->getTermById($termId);
         $tree = $this->treeTerm($this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype));
         $this->data('data', $data);
         $this->data('tree', $tree);
-        $this->data('title', 'Chỉnh sửa term');
+        $this->data('title', 'Edit term');
         $this->render('backend', 'backend/terms/edit');
     }
 
-
-
     // Cập nhật term
-    public function update($posttype, $type, $update, $termId) {
-        $newdata = [
-            'name' => $_POST['name'],
-            'slug' => $_POST['slug'],
-            'description' => $_POST['description'],
-            'updated_at' => date('Y-m-d H:i:s')
-            
-        ];
-       $this->termModel->setTerm($termId, $newdata);
-       // reload page
-       redirect('/admin/term/'.$posttype.'/'.$type);
+    public function update($posttype, $type, $termId) {
+            $newdata = [
+                'name' => S_POST('name'),
+                'slug' => S_POST('slug'),
+                'parent' => S_POST('parent'),
+                'description' => S_POST('description'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ];
+            $this->termModel->setTerm($termId, $newdata);
+            // reload page
+            $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+            $redirectUrl = rtrim($redirectUrl, '/');
+            redirect($redirectUrl);
     }
 
     // Xóa term
-    public function delete($posttype, $type, $update, $termId) {
-        $this->termModel->delTerm($termId);
-        redirect('/admin/term/'.$posttype.'/'.$type);
+    public function delete($posttype, $type, $termId) {
+        $children = $this->termModel->getTermByParent($termId);
+        if (!empty($children)) {
+            foreach ($children as $child) {
+                $newdata = [
+                    'parent' => null,
+                ];
+                $this->termModel->setTerm($child['id'], $newdata);
+            }
+        }
     
+        $this->termModel->delTerm($termId);
+        $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+        $redirectUrl = rtrim($redirectUrl, '/');
+
+        redirect($redirectUrl);
+
     }
 }

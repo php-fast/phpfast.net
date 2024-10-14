@@ -122,7 +122,7 @@ class UsersModel extends BaseModel {
      * @return array Danh sách người dùng và thông tin phân trang
      */
     public function getUsersPaging($limit = 10, $page = 1) {
-        return $this->listpaging($this->table, 'age > ?', [18], 'age DESC', $limit, ($page - 1) * $limit);
+        return $this->listpaging($this->table, 'age > ?', [18], 'age DESC', $page, $limit);
     }
 
     /**

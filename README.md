@@ -547,9 +547,9 @@ In this section, we will walk through the `BaseModel` class, which provides the 
 
 7. **`row($table, $where, $params)`**: Fetches a single row from the database based on the specified conditions.
 
-8. **`list($table, $where, $params, $orderBy, $limit, $offset)`**: Fetches multiple rows from the database. Allows specifying conditions, ordering, and limits for the results.
+8. **`list($table, $where, $params, $orderBy, $page, $limit)`**: Fetches multiple rows from the database. Allows specifying conditions, ordering, and limits for the results.
 
-9. **`listpaging($table, $where, $params, $orderBy, $limit, $offset)`**: Fetches rows with pagination support. Useful for displaying data in a paginated format.
+9. **`listpaging($table, $where, $params, $orderBy, $page, $limit)`**: Fetches rows with pagination support. Useful for displaying data in a paginated format.
 
 10. **`add($table, $data)`**: Inserts a new row into the specified table. Calls the `insert` method of the database driver.
 
