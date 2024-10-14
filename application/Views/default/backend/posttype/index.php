@@ -1,8 +1,20 @@
+<?php
+use System\Libraries\Session;
+use App\Libraries\Fastlang as Flang;
+?>
 <div class="container mx-auto p-6">
+<?php if (Session::has_flash('success')): ?>
+        <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4">
+            <?= Session::flash('success'); ?>
+        </div>
+    <?php endif; ?>
+    <?php if (Session::has_flash('error')): ?>
+        <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+        <?= Session::flash('error'); ?>
+        </div>
+    <?php endif; ?>
     <h2 class="text-2xl font-bold mb-6">Danh Sách Post Types</h2>
-    
-    <a href="<?= admin_url('posttype/add'); ?>" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">Tạo Post Type Mới</a>
-
+    <a href="<?= admin_url('posttype/add'); ?>" class="bg-blue-600 text-white px-4 py-2 mb-4 rounded hover:bg-blue-700">Tạo Post Type Mới</a>
     <table class="min-w-full bg-white">
         <thead>
             <tr>

@@ -65,7 +65,7 @@ class PostgresqlDriver extends Database {
     /**
      * Thực thi truy vấn SELECT lấy nhiều dòng
      */
-    public function fetchAll($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null) {
+    public function fetchAll($table, $where = '', $params = [], $orderBy = '', $page=1, $limit = null) {
         $sql = "SELECT * FROM {$table}";
         if ($where) {
             $sql .= " WHERE {$where}";
@@ -74,6 +74,7 @@ class PostgresqlDriver extends Database {
             $sql .= " ORDER BY {$orderBy}";
         }
         if (!is_null($limit)) {
+            $offset = ($page-1)*$limit;
             $sql .= " LIMIT {$limit}";
             if (!is_null($offset) && $offset > 0) {
                 $sql .= " OFFSET {$offset}";
@@ -85,12 +86,22 @@ class PostgresqlDriver extends Database {
     }
 
     /**
-     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang
+     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang, hỗ trợ tính toán offset từ số trang
+     * Example: $users = $db->fetchPagination('users', 'age > ? AND status = ?', [30, 'active'], 'age DESC', 10, 20);
+     * 
+     * @param string $table Tên bảng
+     * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
+     * @param array $params Mảng giá trị tương ứng với chuỗi WHERE (tùy chọn)
+     * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
+     * @param int $page So trang hien tai cua phan trang
+     * @param int $limit Số lượng kết quả trả về cho mỗi trang (tùy chọn)
+     * @return array Kết quả truy vấn và thông tin có trang tiếp theo hay không
      */
-    public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null) {
+    public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null) {
         $hasNextPage = false;
         $page = $page ?? 1;  // Mặc định là trang 1 nếu không truyền
         $limit = $limit ?? 10;  // Mặc định là 10 bản ghi nếu không truyền
+        $offset = ($page-1)*$limit;
 
         // Lấy dư ra 1 bản ghi để kiểm tra có trang tiếp theo
         $limitExtra = $limit + 1;

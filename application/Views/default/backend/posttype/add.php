@@ -5,6 +5,8 @@ use System\Libraries\Session;
 
 <div id="app" class="container mx-auto p-4">
         <h1 class="text-xl font-bold mb-4">Thêm Posttype</h1>
+        <!-- message -->
+         <div id="message"></div>
         <!-- Form thêm Posttype sẽ được đặt ở đây -->
         <posttype-form></posttype-form>
     </div>
@@ -13,7 +15,10 @@ use System\Libraries\Session;
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- Script cho Vue component -->
     <script>
-    // Đăng ký component field-item
+        var posttypeUrl = "<?= admin_url('posttype') ?>";
+        var posttypeAddUrl = "<?= admin_url('posttype/add') ?>";
+        var languages =   JSON.parse( '<?= json_encode( $languages) ?>');
+        console.log(languages);
     Vue.component('field-item', {
         props: ['field', 'availableFieldTypes', 'postTypesList', 'postStatusOptions', 'parentField', 'index', 'fieldsArray'],
         data() {
@@ -259,8 +264,10 @@ use System\Libraries\Session;
                 posttype: {
                     name: '',
                     slug: '',
+                    languages: [],
                     fields: [],
                 },
+                languages: languages,
                 availableFieldTypes: [
                     'Text', 'Email', 'Number', 'Password', 'Date', 'DateTime', 'URL',
                     'Textarea', 'Checkbox', 'Radio', 'Select', 'File', 'Image', 'Images Gallery',
@@ -274,9 +281,6 @@ use System\Libraries\Session;
                 postStatusOptions: [
                     { value: 'active', label: 'Active' },
                     { value: 'inactive', label: 'Inactive' },
-                    { value: 'schedule', label: 'Schedule' },
-                    { value: 'delete', label: 'Delete' },
-                    { value: '', label: 'Không lọc' },
                 ],
             }
         },
@@ -316,62 +320,99 @@ use System\Libraries\Session;
             },
             submitForm() {
                 // Xử lý gửi dữ liệu đến server
-                fetch('/admin/posttype/add', {
+                fetch(posttypeAddUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify(this.posttype)
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Xử lý kết quả trả về
-                    alert('Posttype đã được lưu thành công!');
+                    if (data.status === 'success') {
+                       // direct to list posttype url = url_admin('posttype')
+                          window.location.href = posttypeUrl;
+                    } else {
+                       // add to div message data.message
+                       const messageDiv = document.getElementById('message');
+                        if (messageDiv) {
+                            messageDiv.innerHTML = data.message;
+                        }
+
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error.message);
                 });
-            },
+            }
         },
         template: `
-        <div>
-            <!-- Form nhập Tên Posttype và Slug -->
-            <div class="mb-3">
-                <label class="block text-gray-700 text-sm">Tên Posttype</label>
-                <input v-model="posttype.name" type="text" class="mt-0.5 pl-1 block w-full border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div class="mb-3">
-                <label class="block text-gray-700 text-sm">Slug</label>
-                <input v-model="posttype.slug" type="text" class="mt-0.5 pl-1 block w-full border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
-            </div>
-    
-            <!-- Danh sách Fields -->
-            <div class="mb-3">
-                <h2 class="text-lg font-semibold mb-1">Fields</h2>
-                <div v-for="(field, index) in posttype.fields" :key="index">
-                    <field-item
-                        :field="field"
-                        :available-field-types="availableFieldTypes"
-                        :post-types-list="postTypesList"
-                        :post-status-options="postStatusOptions"
-                        @remove="removeField(index)"
-                        :parent-field="null"
-                        :index="index"
-                        :fields-array="posttype.fields"
-                    ></field-item>
+            <div>
+                <!-- Form nhập Tên Posttype và Slug -->
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm">Tên Posttype</label>
+                    <input v-model="posttype.name" type="text" class="mt-0.5 pl-1 block w-full border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <button @click="addField" class="px-3 py-1 bg-blue-500 text-white text-sm rounded">Thêm Field</button>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm">Slug</label>
+                    <input v-model="posttype.slug" type="text" class="mt-0.5 pl-1 block w-full border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <!-- Status -->
+
+                <div class="mb-3">
+                    <h2 class="text-lg font-semibold mb-1">Status</h2>
+                    <select v-model="posttype.status" class="mt-0.5 pl-1 block w-full border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option v-for="option in postStatusOptions" :key="option.value" :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Danh sách Languages -->
+                <div class="mb-3">
+                    <h2 class="text-lg font-semibold mb-1">Languages</h2>
+                    <div v-for="language in languages" :key="language.id" class="mb-1">
+                        <label>
+                            <input type="checkbox" :value="language.code" v-model="posttype.languages">
+                            {{ language.name }}
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Danh sách Fields -->
+                <div class="mb-3">
+                    <h2 class="text-lg font-semibold mb-1">Fields</h2>
+                    <div v-for="(field, index) in posttype.fields" :key="index">
+                        <field-item
+                            :field="field"
+                            :available-field-types="availableFieldTypes"
+                            :post-types-list="postTypesList"
+                            :post-status-options="postStatusOptions"
+                            @remove="removeField(index)"
+                            :parent-field="null"
+                            :index="index"
+                            :fields-array="posttype.fields"
+                        ></field-item>
+                    </div>
+                    <button @click="addField" class="px-3 py-1 bg-blue-500 text-white text-sm rounded">Thêm Field</button>
+                </div>
+
+                <!-- Hiển thị JSON của form để kiểm tra -->
+                <div class="mb-3">
+                    <h2 class="text-lg font-semibold mb-1">JSON Form Data</h2>
+                    <pre class="text-xs">{{ JSON.stringify(posttype, null, 2) }}</pre>
+                </div>
+
+                <!-- Nút submit -->
+                <button @click="submitForm" class="px-3 py-1 bg-green-500 text-white text-sm rounded">Lưu Posttype</button>
             </div>
-    
-            <!-- Hiển thị JSON của form để kiểm tra -->
-            <div class="mb-3">
-                <h2 class="text-lg font-semibold mb-1">JSON Form Data</h2>
-                <pre class="text-xs">{{ JSON.stringify(posttype, null, 2) }}</pre>
-            </div>
-    
-            <!-- Nút submit -->
-            <button @click="submitForm" class="px-3 py-1 bg-green-500 text-white text-sm rounded">Lưu Posttype</button>
-        </div>
         `
     });
     

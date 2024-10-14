@@ -54,7 +54,7 @@ class AuthController extends BaseController
     public function login()
     {
         //Buoc validate neu co request login.
-        if (HAS_POST('username')){
+        if (    ('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );

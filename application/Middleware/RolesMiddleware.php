@@ -4,7 +4,6 @@ namespace App\Middleware;
 use System\Libraries\Session;
 
 class RolesMiddleware {
-
     /**
      * Xử lý middleware
      * 

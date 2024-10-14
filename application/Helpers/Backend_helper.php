@@ -59,3 +59,26 @@ if (!function_exists('admin_url_posttype')){
     }
 }
 
+// trans table name posttype $tableName = 'fast_posts_'.$data['slug'].'_'.$lang;
+if(!function_exists('table_posttype')) {
+    function table_posttype($slug, $lang) {
+        $tableName = 'fast_posts_'.$slug.'_'.$lang;
+        return  $tableName;
+    }
+}
+
+if(!function_exists('convers_array')) {
+    function convers_array($data) {
+        if (is_string($data)) {
+            // Nếu $data là chuỗi JSON, chuyển đổi thành mảng
+            $data = json_decode($data, true);
+        } elseif (is_object($data)) {
+            // Nếu $data là đối tượng, chuyển thành mảng
+            $data = (array)$data;
+        } elseif (!is_array($data)) {
+            // Nếu $data không phải là mảng, đối tượng hoặc chuỗi JSON, chuyển thành mảng rỗng
+            $data = [];
+        }
+        return $data;
+    }
+}

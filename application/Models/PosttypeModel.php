@@ -7,7 +7,7 @@ class PosttypeModel extends BaseModel
 {
     protected $table = 'fast_posttype';
 
-    protected $fillable = ['name', 'slug', 'fields'];
+    protected $fillable = ['name', 'slug', 'fields', 'status'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
@@ -16,6 +16,7 @@ class PosttypeModel extends BaseModel
      * 
      * @return array Cấu trúc bảng
      */
+
     public function _schema()
     {
         return [
@@ -23,7 +24,7 @@ class PosttypeModel extends BaseModel
                 'type' => 'int unsigned',
                 'auto_increment' => true,
                 'key' => 'primary',
-                'null' => false,
+                'null' => false
             ],
             'name' => [
                 'type' => 'varchar(100)',
@@ -34,9 +35,18 @@ class PosttypeModel extends BaseModel
                 'key' => 'unique',
                 'null' => false,
             ],
+            'languages' => [
+                'type' => 'json',
+                'null' => true,
+            ],
             'fields' => [
                 'type' => 'json',
                 'null' => true,
+            ],
+            'status' => [
+                'type' => "enum('active', 'inactive')",
+                'null' => false,
+                'default' => 'active',
             ],
             'created_at' => [
                 'type' => 'datetime',
@@ -58,59 +68,118 @@ class PosttypeModel extends BaseModel
         return $this->list($this->table);
     }
 
+    // get posttype by id
+    public function getPostTypeByID($id) {
+        return $this->row($this->table, 'id = ?', [$id]);
+    }
+
     // Tạo mới Post Type và tạo bảng nội dung tương ứng
     public function createPostType($data)
     {
         // Lưu Post Type vào bảng posttype
-        $inserted = $this->add($this->table, $data);
-
-        if ($inserted) {
-            // Lấy danh sách ngôn ngữ hiện tại
-            $languages = $this->list('fast_languages', 'status = ?', ['active']);
-            $slug = $data['slug'];
-            $fields = json_decode($data['fields'], true);
-
-            foreach ($languages as $lang) {
-                $tableName = "posts_{$slug}_{$lang['code']}";
-                $this->createPostTypeTable($tableName, $fields);
-            }
-
-            return true;
-        }
-
-        return false;
+        return $this->add($this->table, $data);
+        
     }
 
     // Tạo bảng cho Post Type
-    protected function createPostTypeTable($tableName, $fields = [])
-    {
+    public function createPostTypeTable($tableName, $fields)
+    {   
+        
         // Các field mặc định của một bài viết trong Post Type
         $defaultFields = [
             'id' => 'INT UNSIGNED AUTO_INCREMENT PRIMARY KEY',
             'title' => 'VARCHAR(255) NOT NULL',
             'slug' => 'VARCHAR(255) NOT NULL',
-            'content' => 'TEXT',
-            'author_id' => 'INT UNSIGNED NOT NULL',
             'status' => "ENUM('draft', 'published', 'archived') NOT NULL DEFAULT 'draft'",
             'created_at' => 'DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at' => 'DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
         ];
-
-        // Chuyển fields tùy chỉnh thành định dạng SQL
+        // Kiểm tra và chuyển đổi $fields thành mảng nếu nó không phải là mảng hoặc đối tượng
         $customFieldsSql = [];
-        foreach ($fields as $field => $type) {
-            $customFieldsSql[] = "`$field` $type";
+        foreach ($fields as $field) {
+            // Ánh xạ kiểu dữ liệu từ 'type' sang SQL
+            switch ($field['type']) {
+                case 'Text':
+                case 'Email':
+                case 'Password':
+                case 'URL':
+                    $type = 'VARCHAR(255)';
+                    break;
+                case 'Number':
+                    $type = 'INT';
+                    break;
+                case 'Date':
+                    $type = 'DATE';
+                    break;
+                case 'DateTime':
+                    $type = 'DATETIME';
+                    break;
+                case 'Textarea':
+                case 'WYSIWYG Editor':
+                    $type = 'TEXT';
+                    break;
+                case 'Checkbox':
+                    $type = 'TINYINT(1)';
+                    break;
+                case 'Radio':
+                case 'Select':
+                    $type = 'VARCHAR(255)';
+                    break;
+                case 'File':
+                case 'Image':
+                    $type = 'VARCHAR(255)';
+                    break;
+                case 'Images Gallery':
+                    $type = 'TEXT'; // Lưu danh sách các đường dẫn ảnh dạng JSON
+                    break;
+                case 'Reference':
+                    $type = 'INT UNSIGNED';
+                    break;
+                case 'Repeater':
+                    $type = 'TEXT'; // Lưu dữ liệu động dạng JSON
+                    break;
+                default:
+                    $type = 'TEXT'; // Mặc định nếu không biết kiểu dữ liệu
+                    break;
+            }
+
+            // Tạo câu lệnh SQL cho từng cột dựa trên dữ liệu field
+            $columnDefinition = "`{$field['field_name']}` $type";
+
+            // Nếu field yêu cầu bắt buộc
+            if (!empty($field['required'])) {
+                $columnDefinition .= " NOT NULL";
+            }
+
+            // Nếu có giá trị mặc định
+            if (!empty($field['default_value'])) {
+                $defaultValue = is_numeric($field['default_value']) ? $field['default_value'] : "'{$field['default_value']}'";
+                $columnDefinition .= " DEFAULT $defaultValue";
+            }
+
+            // Thêm định nghĩa cột vào mảng các field tùy chỉnh
+            $customFieldsSql[] = $columnDefinition;
+        }
+
+        // Chuyển đổi các fields mặc định thành định dạng SQL
+        $defaultFieldsSql = [];
+        foreach ($defaultFields as $field => $type) {
+            $defaultFieldsSql[] = "`$field` $type";
         }
 
         // Kết hợp các fields mặc định và tùy chỉnh
-        $fieldsSql = array_merge($defaultFields, $customFieldsSql);
+        $fieldsSql = array_merge($defaultFieldsSql, $customFieldsSql);
 
         // Xây dựng câu lệnh tạo bảng
         $createTableQuery = "CREATE TABLE IF NOT EXISTS `$tableName` (" . implode(", ", $fieldsSql) . ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-
         // Thực thi truy vấn tạo bảng
-        $this->query($createTableQuery);
+        $creatTable = $this->query($createTableQuery);
+        if($creatTable){
+            return true;
+        } 
+        return false;
     }
+
 
     // Cập nhật Post Type
     public function updatePostType($id, $data)
@@ -121,24 +190,11 @@ class PosttypeModel extends BaseModel
     // Xóa Post Type
     public function deletePostType($id)
     {
-        $postType = $this->row($this->table, 'id = ?', [$id]);
-        if ($postType) {
-            // Lấy danh sách ngôn ngữ hiện tại
-            $languages = $this->list('fast_languages', 'status = ?', ['active']);
-            $slug = $postType['slug'];
-
-            foreach ($languages as $lang) {
-                $tableName = "posts_{$slug}_{$lang['code']}";
-                $this->db->dropTable($tableName);
-            }
-
-            return $this->del($this->table, 'id = ?', [$id]);
-        }
-
+        return $this->del($this->table, 'id = ?', [$id]);
         return false;
     }
 
-    protected function dropPostTypeTable($tableName)
+    public function dropPostTypeTable($tableName)
     {
         $dropTableQuery = "DROP TABLE IF EXISTS `$tableName`;";
         $this->query($dropTableQuery);
