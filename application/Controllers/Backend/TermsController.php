@@ -124,7 +124,7 @@ class TermsController extends BaseController {
     }
 
     // Chỉnh sửa một term
-    public function edit($posttype, $type, $edit, $termId) {
+    public function edit($posttype, $type, $termId) {
         $data = $this->termModel->getTermById($termId);
         $tree = $this->treeTerm($this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype));
         $this->data('data', $data);
@@ -134,16 +134,19 @@ class TermsController extends BaseController {
     }
 
     // Cập nhật term
-    public function update($posttype, $type, $update, $termId) {
+    public function update($posttype, $type, $termId) {
         $newdata = [
             'name' => $_POST['name'],
             'slug' => $_POST['slug'],
             'description' => $_POST['description'],
             'updated_at' => date('Y-m-d H:i:s')
         ];
-       $this->termModel->setTerm($termId, $newdata);
+        $this->termModel->setTerm($termId, $newdata);
        // reload page
-       redirect('/admin/term/'.$posttype.'/'.$type);
+        $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+        $redirectUrl = rtrim($redirectUrl, '/');
+        redirect($redirectUrl);
+
     }
 
     // Xóa term

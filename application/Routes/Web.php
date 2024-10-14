@@ -41,6 +41,7 @@ $routes->get('account', 'Backend\AuthController::index',[\App\Middleware\AuthMid
 // $routes->post('admin/terms/(:any)/(:any)', 'Backend\TermsController::index:$1:$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 
 $routes->get('admin/(:any)/(:any)/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:$3:$4:$5',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
+$routes->post('admin/(:any)/(:any)/(:any)/(:any)/(:any)', 'Backend\$1Controller::$2:$3:$4:$5',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->get('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->post('admin/(:any)/(:any)', 'Backend\$1Controller::$2',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);
 $routes->get('admin/(:any)', 'Backend\$1Controller::index',[\App\Middleware\AuthMiddleware::class,\App\Middleware\RolesMiddleware::class]);

@@ -39,7 +39,7 @@ function renderTermRows($nodes, $level = 0)
             <td class="px-4 py-2"><?= $node['lang']; ?></td>
             <td class="px-4 py-2"><?= $node['parent']; ?></td>
             <td class="px-4 py-2">
-                <a href="/admin/term/<?= $node['posttype'] . '/' . $node['type'] ?>/edit/<?= $node['id']; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                <a href="<?= admin_url('terms/edit/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
           
                 <a href="<?= admin_url('terms/delete/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
               
@@ -122,3 +122,28 @@ function renderTermRows($nodes, $level = 0)
         </div>
     </div>
 </div>
+
+
+<!--  tạo value slug cho input được lấy từ value name -->
+<script>
+  function urlSlug(str) {
+    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    str = str.toLowerCase().trim();
+    str = str.replace(/[^a-z0-9\s-]/g, '');
+    str = str.replace(/[\s-]+/g, '-'); 
+    str = str.replace(/^-+|-+$/g, '');
+
+    return str;
+
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const nameInput = document.getElementById('name');
+    const slugInput = document.getElementById('slug');
+
+    nameInput.addEventListener('input', function() {
+      const slugValue = urlSlug(nameInput.value);
+      slugInput.value = slugValue;
+    });
+  });
+</script>
