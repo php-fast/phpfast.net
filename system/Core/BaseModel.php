@@ -86,11 +86,12 @@ abstract class BaseModel {
      * @param string $table Tên bảng
      * @param array $where Điều kiện truy vấn
      * @param string|null $orderBy Sắp xếp
+     * @param int|1 $page So trang phan trangßß
      * @param int|null $limit Giới hạn kết quả
      * @return array Danh sách dòng dữ liệu
      */
-    public function list($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null) {
-        return $this->db->fetchAll($table, $where, $params, $orderBy, $limit, $offset);
+    public function list($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null) {
+        return $this->db->fetchAll($table, $where, $params, $orderBy, $page, $limit);
     }
 
     /**
@@ -99,11 +100,12 @@ abstract class BaseModel {
      * @param string $table Tên bảng
      * @param array $where Điều kiện truy vấn
      * @param string|null $orderBy Sắp xếp
+     * @param int|null $page Number trang phan trang
      * @param int|null $limit Giới hạn kết quả
      * @return array Danh sách dòng dữ liệu
      */
-    public function listpaging($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null) {
-        return $this->db->fetchPagination($table, $where, $params, $orderBy, $limit, $offset);
+    public function listpaging($table, $where = '', $params = [], $orderBy = '', $page=1, $limit = null) {
+        return $this->db->fetchPagination($table, $where, $params, $orderBy, $page, $limit);
     }
 
     /**

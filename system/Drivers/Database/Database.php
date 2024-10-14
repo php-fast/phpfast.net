@@ -47,11 +47,11 @@ abstract class Database {
      * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
      * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
+     * @param int $page Number trang hien tai cua phan trang
      * @param int $limit Số lượng kết quả cần giới hạn (tùy chọn)
-     * @param int $offset Vị trí bắt đầu lấy kết quả (tùy chọn)
      * @return array Mảng chứa kết quả truy vấn
      */
-    abstract public function fetchAll($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null);
+    abstract public function fetchAll($table, $where = '', $params = [], $orderBy = '', $page=1, $limit = null);
 
     /**
      * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang
@@ -61,10 +61,10 @@ abstract class Database {
      * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
      * @param int $limit Số lượng kết quả cần giới hạn cho mỗi trang
-     * @param int $offset Vị trí bắt đầu lấy kết quả (tùy chọn)
+     * @param int $page So trang phan trang bat dau
      * @return array Mảng chứa kết quả truy vấn và thông tin về trang tiếp theo
      */
-    abstract public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $limit = null, $offset = null);
+    abstract public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null);
 
     /**
      * Thực thi truy vấn SELECT lấy 1 dòng

@@ -37,12 +37,10 @@ function renderTermRows($nodes, $level = 0)
             <td class="px-4 py-2"><?= $node['posttype']; ?></td>
             <td class="px-4 py-2"><?= $node['type']; ?></td>
             <td class="px-4 py-2"><?= $node['lang']; ?></td>
-            <td class="px-4 py-2"><?= $node['parent']; ?></td>
+            <td class="px-4 py-2"><?= $node['parent_name'] ?? 'No'; ?></td>
             <td class="px-4 py-2">
                 <a href="<?= admin_url('terms/edit/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-          
                 <a href="<?= admin_url('terms/delete/' . $node['posttype'] . '/' . $node['type'] . '/' . $node['id']); ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
-              
             </td>
         </tr>
         <?php
@@ -123,18 +121,16 @@ function renderTermRows($nodes, $level = 0)
     </div>
 </div>
 
-
 <!--  tạo value slug cho input được lấy từ value name -->
 <script>
   function urlSlug(str) {
     str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     str = str.toLowerCase().trim();
-    str = str.replace(/[^a-z0-9\s-]/g, '');
+    str = str.replace(/[^a-z0-9\s-]/g, ''); 
     str = str.replace(/[\s-]+/g, '-'); 
     str = str.replace(/^-+|-+$/g, '');
 
     return str;
-
   }
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -142,8 +138,27 @@ function renderTermRows($nodes, $level = 0)
     const slugInput = document.getElementById('slug');
 
     nameInput.addEventListener('input', function() {
-      const slugValue = urlSlug(nameInput.value);
-      slugInput.value = slugValue;
+      // check trường slug hiện tại không có giá trị, thì cập nhật
+      if (slugInput.value.trim() === '') {
+        const slugValue = urlSlug(nameInput.value);
+        slugInput.value = slugValue;
+      }
+    });
+
+    slugInput.addEventListener('input', function() {
+      // Khi người dùng chỉnh sửa trường slug, đặt giá trị đã được sửa thành cố định
+      if (slugInput.value.trim() !== '') {
+        slugInput.dataset.userModified = true;
+      }
+    });
+
+    nameInput.addEventListener('input', function() {
+      // Nếu người dùng chưa chỉnh sửa slug thủ công, tiếp tục tự động cập nhật slug từ name
+      if (!slugInput.dataset.userModified) {
+        const slugValue = urlSlug(nameInput.value);
+        slugInput.value = slugValue;
+      }
     });
   });
 </script>
+

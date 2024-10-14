@@ -102,6 +102,12 @@ class TermsModel extends BaseModel {
         return $this->row($this->table, 'slug = ?', [$slug]);
     }
     /**
+     * Get list term by parentd
+     */
+    public function getTermByParent($parent_id) {
+        return $this->list($this->table, 'parent = ?', [$parent_id]);
+    }
+    /**
      * Get taxonomies by type (e.g., category or tag)
      */
     public function getTaxonomiesByType($type, $orderBy = 'id DESC') {
@@ -112,7 +118,7 @@ class TermsModel extends BaseModel {
      */
     public function getTaxonomiesByTypeAndPostType($type, $posttype) {
         return $this->list($this->table, 'type = ? AND posttype = ?', [$type, $posttype]);
-    }
+    }   
     /**
      * Add a new term
      */

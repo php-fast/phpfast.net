@@ -62,11 +62,12 @@ class TermsController extends BaseController {
         foreach ($result as $id => &$node) {
             if (!empty($node['parent'])) {
                 $result[$node['parent']]['children'][] = &$node;
+                $node['parent_name'] = $result[$node['parent']]['name'];
             } else {
                 $tree[] = &$node;
             }
         }
-    
+        
         // Hàm đệ quy để in ra cây phân cấp
         function printTree($items, $level = 0) {
             foreach ($items as $item) {
@@ -75,11 +76,11 @@ class TermsController extends BaseController {
                     printTree($item['children'], $level + 1);
                 }
             }
-        }
-    
+        }  
         // In cây phân cấp
       return $tree;
     }
+    
     // Tạo mới một term
     public function create() {
         $name = S_POST('name');
@@ -129,31 +130,43 @@ class TermsController extends BaseController {
         $tree = $this->treeTerm($this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype));
         $this->data('data', $data);
         $this->data('tree', $tree);
-        $this->data('title', 'Chỉnh sửa term');
+        $this->data('title', 'Edit term');
         $this->render('backend', 'backend/terms/edit');
     }
 
     // Cập nhật term
     public function update($posttype, $type, $termId) {
-        $newdata = [
-            'name' => $_POST['name'],
-            'slug' => $_POST['slug'],
-            'description' => $_POST['description'],
-            'updated_at' => date('Y-m-d H:i:s')
-        ];
-        $this->termModel->setTerm($termId, $newdata);
-       // reload page
-        $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
-        $redirectUrl = rtrim($redirectUrl, '/');
-        redirect($redirectUrl);
-
+            $newdata = [
+                'name' => S_POST('name'),
+                'slug' => S_POST('slug'),
+                'parent' => S_POST('parent'),
+                'description' => S_POST('description'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ];
+            $this->termModel->setTerm($termId, $newdata);
+            // reload page
+            $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+            $redirectUrl = rtrim($redirectUrl, '/');
+            redirect($redirectUrl);
     }
 
     // Xóa term
     public function delete($posttype, $type, $termId) {
-
+        $children = $this->termModel->getTermByParent($termId);
+        if (!empty($children)) {
+            foreach ($children as $child) {
+                $newdata = [
+                    'parent' => null,
+                ];
+                $this->termModel->setTerm($child['id'], $newdata);
+            }
+        }
+    
         $this->termModel->delTerm($termId);
-        redirect(admin_url('terms/?posttype=' . $posttype . '&type=' . $type));
+        $redirectUrl = admin_url('terms/?posttype=' . $posttype . '&type=' . $type);
+        $redirectUrl = rtrim($redirectUrl, '/');
+
+        redirect($redirectUrl);
 
     }
 }
