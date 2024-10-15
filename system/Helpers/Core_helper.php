@@ -92,7 +92,7 @@ function server_info() {
         'server_name' => $_SERVER['SERVER_NAME'] ?? 'Unknown',
         'server_protocol' => $_SERVER['SERVER_PROTOCOL'] ?? 'Unknown',
     ];
-}
+}  
 
 /**
  * Hàm random_string

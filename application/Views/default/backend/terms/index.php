@@ -2,9 +2,11 @@
 use System\Libraries\Session;?>
 <?php
 
+
+
 function buildOptions($tree, $level = 0, $current_id = null)
 {
-    $output = '';   
+    $output = '';
 
     foreach ($tree as $node) {
         // Tạo dấu gạch dựa theo cấp độ
