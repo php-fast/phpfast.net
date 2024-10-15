@@ -1071,3 +1071,132 @@
 [2024-10-14 17:28:18] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-14 17:29:19] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
 [2024-10-14 17:30:25] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 18:09:04] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 158
+[2024-10-14 18:09:05] ERROR: syntax error, unexpected token ";", expecting "]" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 158
+[2024-10-14 18:09:36] ERROR: Using $this when not in object context in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 4
+[2024-10-14 18:09:36] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 18:10:18] ERROR: Using $this when not in object context in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/index.php on line 4
+[2024-10-14 18:10:18] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 18:11:39] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 18:13:58] ERROR: Action image not found in App\Controllers\Backend\TermsController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 19:09:17] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:11:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:12:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:12:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:17:28] ERROR: 404 - Router: /index.php/assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:17:31] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:17:34] ERROR: 404 - Router: /index.php/assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 19:52:40] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 19:52:41] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 19:52:42] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:04:36] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:04:37] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:08:34] ERROR: Action index not found in App\Controllers\Backend\UsersController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:09:15] ERROR: MysqlDriver->update(): SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'code' at row 1 in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-14 20:10:24] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:10:39] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:10:49] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:11:16] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:11:26] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:11:32] ERROR: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames in /Users/macvn/Documents/www/domainweb.com/vendor/respect/stringifier/src/Stringifiers/TraversableStringifier.php on line 54
+[2024-10-14 20:18:29] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:18:37] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:39] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:45] ERROR: 404 - Router: /auth/logout (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-14 20:18:47] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:50] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:50] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:50] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:51] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:51] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:51] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:52] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:52] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:52] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:52] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:18:52] ERROR: Action 
+ not found in App\Controllers\Backend\AuthController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-14 20:19:47] ERROR: Controller App\Controllers\Backend\ProfileController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:19:49] ERROR: Controller App\Controllers\Backend\ProfileController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:20:09] ERROR: Controller App\Controllers\Backend\ProfileController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:20:12] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:20:13] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-14 20:20:13] ERROR: Controller App\Controllers\Backend\LogoutController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:27:49] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:27:52] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:27:55] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:02] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:06] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:08] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:08] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:08] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:08] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:08] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:09] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:28:09] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:29:30] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:29:31] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:29:31] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:30:13] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:30:18] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:30:24] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:30:30] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:31:22] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:31:22] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:31:23] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:31:38] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:31:49] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:04] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:07] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:08] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:08] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:08] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:08] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:08] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:32:16] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:32:20] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:33:23] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:33:23] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:33:24] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:37:21] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:37:22] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:37:22] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:37:22] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:38:00] ERROR: 404 - Router: /index.php (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:38:44] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:21] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:21] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:22] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:22] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:22] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:22] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 09:49:24] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 11:55:41] ERROR: Controller App\Controllers\MoviesController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 11:55:55] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 11:56:33] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:38] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:38] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:39] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:39] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:39] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:00:39] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:01:50] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:04:59] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:04:59] ERROR: Connect MysqlDriver failed: SQLSTATE[HY000] [1049] Unknown database 'domainweb.com' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 23
+[2024-10-15 12:14:45] ERROR: Call to a member function add() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 19
+[2024-10-15 12:15:08] ERROR: Class "App\Controllers\Backend\Assets" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/TermsController.php on line 18
+[2024-10-15 12:20:52] ERROR: SQLSTATE[22007]: Invalid datetime format: 1366 Incorrect integer value: '' for column `domainweb.com`.`fast_terms`.`lang` at row 1 in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 187
+[2024-10-15 13:34:49] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108

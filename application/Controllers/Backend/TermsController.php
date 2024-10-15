@@ -5,32 +5,42 @@ use App\Models\TermsModel;
 use App\Models\LanguagesModel;
 use System\Libraries\Session;
 use System\Libraries\Render;
+use System\Libraries\Assets;
 use System\Core\BaseController;
 use App\Helpers\Backend_helper;
 
 class TermsController extends BaseController {
     protected  $termModel;
+    protected $assets;
     protected  $LanguagesModel;
+
     public function __construct()
     {
         load_helpers(['backend']);
         $this->termModel = new TermsModel();
+        $this->assets = new Assets();
         $this->LanguagesModel = new LanguagesModel();
+
+        $this->assets->add('css', 'css/style.css', 'head');
+        $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
+        $this->assets->add('js', 'js/authorize.js', 'footer');
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
         $this->data('header', $header);
         $this->data('footer', $footer);
     }
-   
+
     // Hiển thị danh sách tất cả các term
     public function index() {
         
+        $langActive = $this->LanguagesModel->getActiveLanguages();
         if(HAS_GET('type') && HAS_GET('posttype'))
         {
             $type = S_GET('type') ?? '';
             $posttype = S_GET('posttype') ?? '';
             $allTerm = $this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype);
-            $langActive = $this->LanguagesModel->getActiveLanguages();
             $tree = $this->treeTerm($allTerm);
             
             $this->data('title', 'Term Management'. ' - ' . $posttype . ($type ? ' - ' . $type : ''));
@@ -46,6 +56,7 @@ class TermsController extends BaseController {
             $this->data('allTerm', $allTerm);
             $this->data('title', 'Term Management');
             $this->data('tree', $tree);
+            $this->data('langActive', $langActive);
             $this->render('backend', 'backend/terms/index');
         }    
         
