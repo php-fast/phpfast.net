@@ -51,7 +51,7 @@ class PosttypeController extends BaseController
         $this ->data('title', 'Danh sách Post Type');
         $this->render('dashbroad', 'backend/posttype/index');
     }
-    
+
     // Trang tạo Post Type mới
     public function add()
     {
@@ -163,5 +163,23 @@ class PosttypeController extends BaseController
             Session::flash('success', 'Xóa Post Type thành công.');
         }
         redirect(admin_url('posttype'));
+    }
+
+
+    public function edit($id) {
+        // Lấy thông tin Post Type
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                   
+        } else {
+            $languages = $this->languageModel->getActiveLanguages();
+            $postType = $this->posttypeModel->getPostTypeByID($id);
+            $this->data('postType', $postType);
+            $this->data('languages', $languages);
+            $this->data('title', 'Tạo Post Type');
+            $this->data('assets_header', $this->assets->header('backend'));
+            $this->data('assets_footer', $this->assets->footer('backend'));
+            $this->data('csrf_token', Session::csrf_token(600));
+            $this->render('dashbroad', 'backend/posttype/edit');
+        }
     }
 }

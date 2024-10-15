@@ -1963,3 +1963,24 @@
 [2024-10-14 16:58:38] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
 [2024-10-14 16:58:49] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
 >>>>>>> 35716ff96d9314354caf9edb3ec11b66dfcd8695
+[2024-10-14 17:18:51] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-14 17:19:56] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-14 17:19:56] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-15 09:06:52] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
