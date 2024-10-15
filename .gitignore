@@ -1,11 +1,4 @@
 /vendor/
 /composer.lock/
 /application/Config/Config.php
-<<<<<<< HEAD
 /writeable/
-=======
-/writeable
-writeable
-/writeable/
-/writeable/logs/
->>>>>>> 1ca824ee7226a8a3b5f4e47d575b718f7029a251
