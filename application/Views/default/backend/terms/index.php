@@ -85,9 +85,13 @@ function renderTermRows($nodes, $level = 0)
                         <label for="lang" class="block text-gray-700 font-bold mb-2">Languge</label>
                         <select id="lang" name="lang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <option value="">Select Languge</option>
-                            <option value="1">Vietnamese</option>
-                            <option value="2">English</option>
-                            
+                            <?php 
+                            foreach($langActive as $lang) {
+                                ?>
+                                <option value="<?= $lang['id'] ?>"><?= $lang['name'] ?></option>
+                                <?php
+                            }
+                            ?> 
                         </select>
                     </div>
 
