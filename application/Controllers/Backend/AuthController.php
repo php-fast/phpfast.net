@@ -54,7 +54,7 @@ class AuthController extends BaseController
     public function login()
     {
         //Buoc validate neu co request login.
-        if (    ('username')){
+        if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)){
                 Session::flash('error', Flang::_e('csrf_failed') );
@@ -112,7 +112,6 @@ class AuthController extends BaseController
                 redirect(auth_url('login'));
                 exit();
             }
-
             // Set thông tin đăng nhập vào session
             Session::set('user_id', $user['id']);
             Session::set('role', $user['role']);

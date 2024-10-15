@@ -1203,3 +1203,61 @@
 [2024-10-15 12:20:52] ERROR: SQLSTATE[22007]: Invalid datetime format: 1366 Incorrect integer value: '' for column `domainweb.com`.`fast_terms`.`lang` at row 1 in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 187
 [2024-10-15 13:34:49] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
 >>>>>>> 66441afc59c83ef3c8f8e1dc09ea135e423cddbc
+[2024-10-15 14:18:17] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:18:26] ERROR: Class "App\Controllers\Backend\UsersModel" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 10
+[2024-10-15 14:19:40] ERROR: Class "App\Controllers\Backend\Render" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 24
+[2024-10-15 14:20:06] ERROR: Class "App\Controllers\Backend\Session" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 30
+[2024-10-15 14:20:12] ERROR: Class "App\Controllers\Backend\Session" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 30
+[2024-10-15 14:20:22] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:20:28] ERROR: Action list not found in App\Controllers\Backend\UsersController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-15 14:20:38] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:20:50] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:21:10] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:21:19] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:21:43] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:22:05] ERROR: Controller App\Controllers\Backend\UserController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:22:25] ERROR: Action list not found in App\Controllers\Backend\UsersController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-15 14:23:38] ERROR: Action list not found in App\Controllers\Backend\UsersController Controller. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 115
+[2024-10-15 14:26:52] ERROR: Call to a member function getUsers() on null in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 33
+[2024-10-15 14:28:32] ERROR: Undefined constant "App\Controllers\Backend\Session" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 31
+[2024-10-15 14:28:48] ERROR: Call to undefined function App\Controllers\Backend\Session() in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 31
+[2024-10-15 14:34:37] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'phone' in 'field list' in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 187
+[2024-10-15 14:38:54] ERROR: Controller App\Controllers\Backend\AccountController not found. in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 108
+[2024-10-15 14:48:01] ERROR: 404 - Router: /users/edit/18 (GET) not found! in /Users/macvn/Documents/www/domainweb.com/system/Core/Bootstrap.php on line 85
+[2024-10-15 15:01:53] ERROR: View 'backend/terms/add' not found at Path: '/Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/terms/add.php'. in /Users/macvn/Documents/www/domainweb.com/system/Libraries/Render.php on line 99
+[2024-10-15 15:05:31] ERROR: Call to undefined function buildOptions() in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 28
+[2024-10-15 15:05:31] ERROR: Call to undefined function buildOptions() in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 28
+[2024-10-15 15:05:31] ERROR: Call to undefined function buildOptions() in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 28
+[2024-10-15 15:05:31] ERROR: Call to undefined function buildOptions() in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 28
+[2024-10-15 15:21:42] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:21:51] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:21:52] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:21:53] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:21:53] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:22:08] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:22:18] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:22:19] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:22:19] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:27:36] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:27:37] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:27:37] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:27:37] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:27:38] ERROR: Cannot access offset of type array on array in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Core_helper.php on line 143
+[2024-10-15 15:46:34] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 23
+[2024-10-15 15:46:53] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 23
+[2024-10-15 15:47:26] ERROR: Unmatched ')' in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 22
+[2024-10-15 16:23:54] ERROR: htmlspecialchars(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 32
+[2024-10-15 16:24:45] ERROR: htmlspecialchars(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 32
+[2024-10-15 16:25:04] ERROR: htmlspecialchars(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 32
+[2024-10-15 16:25:04] ERROR: htmlspecialchars(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 32
+[2024-10-15 16:27:13] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 33
+[2024-10-15 16:27:29] ERROR: syntax error, unexpected token "exit", expecting ";" in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 27
+[2024-10-15 16:27:30] ERROR: syntax error, unexpected token "exit", expecting ";" in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 27
+[2024-10-15 16:27:32] ERROR: syntax error, unexpected token "exit", expecting ";" in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 27
+[2024-10-15 16:27:43] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 33
+[2024-10-15 16:29:49] ERROR: syntax error, unexpected token "endforeach", expecting end of file in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 33
+[2024-10-15 16:45:20] ERROR: htmlspecialchars(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Views/default/backend/users/add.php on line 32
+[2024-10-15 17:09:59] ERROR: syntax error, unexpected token "}", expecting variable or "{" or "$" in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 87
+[2024-10-15 17:40:58] ERROR: trim(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Security_helper.php on line 30
+[2024-10-15 17:43:53] ERROR: trim(): Argument #1 ($string) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/system/Helpers/Security_helper.php on line 30
+[2024-10-15 17:46:58] ERROR: Class "App\Controllers\Backend\Flang" not found in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 72
