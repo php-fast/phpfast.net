@@ -1,8 +1,29 @@
+<?php
+use System\Libraries\Session;
+use App\Libraries\Fastlang as Flang;
+if (Session::has_flash('success')){
+    $success = Session::flash('success');
+}
+if (Session::has_flash('error')){
+    $error = Session::flash('error');
+}
+?>
+
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
 
 <div class="container mx-auto">
     <h1 class="text-3xl font-bold mb-6"><?= $title ?></h1>
     <div class="flex flex-wrap -mx-3">
+        <?php if (!empty($success)): ?>
+            <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                <?= $success; ?>
+            </div>
+            <?php elseif (!empty($errors)): ?>
+                <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                    <?= $error; ?>
+                </div>
+        <?php endif; ?>
+
         <!-- Form Section (3/10) -->
         <div class="w-full md:w-3/10 px-3 mb-6">
             <div class="bg-white shadow-md rounded p-6">
@@ -11,36 +32,89 @@
                     <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">  
                     
                     <div class="mb-4">
-                        <label for="username" class="block text-gray-700 font-bold mb-2">User name <span class="text-red-500">*</span></label>
-                        <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <label for="username" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('username') ?><span class="text-red-500">*</span></label>
+                        <input type="text" id="username" placeholder="<?= Flang::_e('placeholder_username') ?>" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                     </div>
+                    <?php if (!empty($errors['username'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['username'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-4">
-                        <label for="fullname" class="block text-gray-700 font-bold mb-2">Full name <span class="text-red-500">*</span></label>
-                        <input type="text" id="fullname" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <label for="fullname" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('fullname') ?><span class="text-red-500">*</span></label>
+                        <input type="text" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                     </div>
+                    <?php if (!empty($errors['fullname'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['fullname'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-bold mb-2">Email<span class="text-red-500">*</span></label>
-                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <label for="email" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('email') ?><span class="text-red-500">*</span></label>
+                        <input type="email" id="email" placeholder="<?= Flang::_e('placeholder_email') ?>" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
+                    <?php if (!empty($errors['email'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['email'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-4">
-                        <label for="phone" class="block text-gray-700 font-bold mb-2">Phone<span class="text-red-500">*</span></label>
-                        <input type="phone" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <label for="phone" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('phone') ?><span class="text-red-500">*</span></label>
+                        <input type="text" id="phone" placeholder="<?= Flang::_e('placeholder_phone') ?>" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
+                    <?php if (!empty($errors['phone'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['phone'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-4">
-                        <label for="password_repeat" class="block text-gray-700 font-bold mb-2">password_repeat<span class="text-red-500">*</span></label>
-                        <input type="text" id="password_repeat" name="password_repeat" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                        <label for="password" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('password') ?><span class="text-red-500">*</span></label>
+                        <input type="password" id="password" placeholder="<?= Flang::_e('placeholder_password') ?>" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                     </div>
+                    <?php if (!empty($errors['password'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['password'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="mb-4">
+                        <label for="password_repeat" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('password_repeat') ?><span class="text-red-500">*</span></label>
+                        <input type="password" id="password_repeat" placeholder="<?= Flang::_e('placeholder_password_repeat') ?>" name="password_repeat" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <?php if (!empty($errors['password_repeat'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['password_repeat'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <!-- role -->
 
                     <div class="mb-4">
-                        <label for="role" class="block text-gray-700 font-bold mb-2">Role</label>
+                        <label for="role" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('role') ?></label>
                         <select id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="">Select roles</option>
+                            <option value=""><?= Flang::_e('select_role') ?></option>
                             <?php foreach ($roles as $role => $permissions):?>
                                 <option value="<?= htmlspecialchars($role) ?>"><?= htmlspecialchars($role) ?></option>
                                 <?php endforeach; ?>
                         </select>
                     </div>
+                    <?php if (!empty($errors['role_option'])): ?>
+                        <div class="text-red-500 mt-2 text-sm">
+                            <?php foreach ($errors['role_option'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- permissions -->
                     <div id="permissions-container" class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
@@ -48,18 +122,8 @@
                         <div id="permissions-list" class="grid grid-cols-4 gap-4"></div>
                     </div>
 
-                    <!-- status -->
-                    <div class="mb-4">
-                        <label for="status" class="block text-gray-700 font-bold mb-2">Status</label>
-                        <select id="status" name="status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="">Select Status</option>
-                            <?php foreach ($status as $value): ?>
-                                <option value="<?= htmlspecialchars($value) ?>"><?= htmlspecialchars($value) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
                     <div class="flex items-center justify-between">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Term</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"><?= Flang::_e('submit_add') ?></button>
                     </div>
                 </form>
             </div>

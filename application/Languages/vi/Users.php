@@ -1,5 +1,39 @@
 <?php
 return [
-    'csrf_failed'   =>  'Request CSRF timeout or not valid by double URL request!',
+    'csrf_failed'   =>  'Yêu cầu CSRF đã hết thời gian hoặc không hợp lệ do yêu cầu URL kép!',
     
-]
+    'title_add_member' => 'Thêm thành viên',
+    'username'  =>  'Tên đăng nhập',
+    'fullname'  =>  'Họ và tên',
+    'password'  =>  'Mật khẩu',
+    'password_repeat' => 'Nhập lại mật khẩu',
+    'email'  =>  'Email',
+    'phone'  =>  'Số điện thoại',
+    'role' => 'Quyền',
+    'select_role' => 'Select Roles',
+    'status' => 'Trạng thái',
+    'select_status' => 'Select Status',
+    'submit_add' => 'Thêm',
+    'username_double'  =>  '%1%: Tên đăng nhập đã tồn tại trong hệ thống.',
+    'username_invalid'  =>  'Tên đăng nhập phải là chữ cái, số, không chứa ký tự đặc biệt.',
+    'username_length'   =>  'Độ dài tên đăng nhập yêu cầu từ %1% đến %2% ký tự.',
+    'email_double'  =>  '%1%: Email đã tồn tại trong hệ thống.',
+    'email_exist'   => 'Email %1% không tồn tại trong hệ thống',
+    'email_invalid'  =>  'Email phải có định dạng email@domain.com',
+    'email_length'    =>  'Độ dài email yêu cầu từ %1% đến %2% ký tự.',
+    'password_length'   =>  'Độ dài mật khẩu yêu cầu từ %1% đến %2% ký tự.',
+    'password_repeat_invalid'   =>  'Mật khẩu xác nhận %1% không khớp với mật khẩu.',
+    'fullname_length'   =>  'Độ dài họ và tên yêu cầu từ %1% đến %2% ký tự.',
+    'fullname_invalid'  =>  'Họ và tên phải là chữ cái, số, không chứa ký tự đặc biệt.',
+    'phone_invalid'  =>  'Số điện thoại phải có định dạng 0123456789',
+    'phone_length' => 'Số điện thoại phải từ %1% đến %2%', 
+    'role_option' => 'Vai trò phải được chọn',
+    'permission_array_json' => 'Quyền phải được trọn',
+
+    // placeholder
+    'placeholder_username' => 'Nhập tên đăng nhập của bạn',
+    'placeholder_fullname' => 'Nhập họ và tên của bạn',
+    'placeholder_email' => 'Nhập email của bạn',
+    'placeholder_phone' => 'Nhập số điện thoại của bạn',
+    'placeholder_password_repeat' => 'Nhập lại mật khẩu của bạn',
+];
