@@ -7,7 +7,7 @@ return [
         'Backend\Options' => ["index", 'edit'],
     ],
     'moderator' => [
-        'Backend\Dashboarddashboard' => ["index",],
+        'Backend\Dashboard' => ["index",],
         'Backend\Users' => ["index", 'edit'],
         'Backend\Posts' => ["index",'edit', 'create'],
     ],

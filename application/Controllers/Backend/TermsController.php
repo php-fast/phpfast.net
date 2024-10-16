@@ -160,7 +160,14 @@ class TermsController extends BaseController {
     }
 
     // Cập nhật term
-    public function update($posttype, $type, $termId) {
+    public function update($posttype, $type, $termId) { public function edit($posttype, $type, $termId) {
+        $data = $this->termModel->getTermById($termId);
+        $tree = $this->treeTerm($this->termModel->getTaxonomiesByTypeAndPostType($type, $posttype));
+        $this->data('title', 'Edit term');
+        $this->data('data', $data);
+        $this->data('tree', $tree);
+        $this->render('backend', 'backend/terms/edit');
+    }
             $newdata = [
                 'name' => S_POST('name'),
                 'slug' => S_POST('slug'),

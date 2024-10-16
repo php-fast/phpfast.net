@@ -72,6 +72,7 @@ return [
     'users_noactive'  =>  '%1%: Tài khoản của bạn chưa được kích hoạt! Vui lòng kiểm tra Hộp thư đến hoặc Thư rác để kích hoạt tài khoản này!',
     
     //validate
+    'account_active' => 'tài khoản đã hoạt động',
     'username_double'  =>  '%1%: Tên đăng nhập đã tồn tại trong hệ thống.',
     'username_invalid'  =>  'Tên đăng nhập phải là chữ cái, số, không chứa ký tự đặc biệt.',
     'username_length'   =>  'Độ dài tên đăng nhập yêu cầu từ %1% đến %2% ký tự.',

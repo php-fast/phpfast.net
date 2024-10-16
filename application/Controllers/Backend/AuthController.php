@@ -112,7 +112,6 @@ class AuthController extends BaseController
                 redirect(auth_url('login'));
                 exit();
             }
-
             // Set thông tin đăng nhập vào session
             Session::set('user_id', $user['id']);
             Session::set('role', $user['role']);

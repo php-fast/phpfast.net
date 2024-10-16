@@ -72,6 +72,7 @@ return [
     'users_noactive'  =>  '%1%: Your account no active! Please check Inbox or Spam Mail for active this account!',
 
     //validate
+    'account_active' => 'Account is active',
     'username_double'  =>  '%1%: Username already exists in the system.',
     'username_invalid'  =>  'Username must be letters, numbers not special characters.',
     'username_length'   =>  'Username length required is %1% to %2% characters.',
