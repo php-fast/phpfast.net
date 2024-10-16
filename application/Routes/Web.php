@@ -29,8 +29,8 @@ $routes->get('account/profile', 'Backend\AuthController::profile',[\App\Middlewa
 $routes->post('account/profile', 'Backend\AuthController::profile',[\App\Middleware\AuthMiddleware::class]);
 $routes->get('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('account/(:any)/(:any)', 'Backend\AuthController::$1:$2',[\App\Middleware\NoauthMiddleware::class]);
-$routes->get('account/(:any)/(:any)/(:any)', 'Backend\AuthController::$1:$2:$3',[\App\Middleware\NoauthMiddleware::class]);
-$routes->post('account/(:any)/(:any)/(äny)', 'Backend\AuthController::$1:$2:$3',[\App\Middleware\NoauthMiddleware::class]);
+$routes->get('account/(:any)/(:any)/(:any)', 'Backend\AuthController::$1:$2:$2',[\App\Middleware\NoauthMiddleware::class]);
+$routes->post('account/(:any)/(:any)', 'Backend\AuthController::$1:$2:$2',[\App\Middleware\NoauthMiddleware::class]);
 $routes->get('account/(:any)/', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 $routes->post('account/(:any)', 'Backend\AuthController::$1',[\App\Middleware\NoauthMiddleware::class]);
 

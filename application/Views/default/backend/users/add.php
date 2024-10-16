@@ -14,14 +14,10 @@ if (Session::has_flash('error')){
 <div class="container mx-auto">
     <h1 class="text-3xl font-bold mb-6"><?= $title ?></h1>
     <div class="flex flex-wrap -mx-3">
-        <?php if (!empty($success)): ?>
+        <?php if (!empty($errors)): ?>
             <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
-                <?= $success; ?>
+                <?= $errors; ?>
             </div>
-            <?php elseif (!empty($errors)): ?>
-                <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
-                    <?= $error; ?>
-                </div>
         <?php endif; ?>
 
         <!-- Form Section (3/10) -->
@@ -130,74 +126,105 @@ if (Session::has_flash('error')){
         </div>
     </div>
 </div>
-<!-- encode -->
+
 <script>
-        const roles = <?php echo json_encode($roles); ?>;
+    const roles = <?php echo json_encode($roles); ?>;
 
-        // Lấy các phần tử cần thiết từ DOM
-        const roleSelect = document.getElementById('role');
-        const permissionsContainer = document.getElementById('permissions-container');
-        const permissionsList = document.getElementById('permissions-list');
-        const roleTitle = document.getElementById('role-title');
+    // Lấy các phần tử cần thiết từ DOM
+    const roleSelect = document.getElementById('role');
+    const permissionsContainer = document.getElementById('permissions-container');
+    const permissionsList = document.getElementById('permissions-list');
+    const roleTitle = document.getElementById('role-title');
+    const permissionsJsonOutput = document.getElementById('permissions-json-output');
 
-        // Lắng nghe sự kiện thay đổi của select
-        roleSelect.addEventListener('change', function() {
-            const selectedRole = roleSelect.value;
+    // Lắng nghe sự kiện thay đổi của select
+    roleSelect.addEventListener('change', function() {
+        const selectedRole = roleSelect.value;
 
-            // Xóa các quyền hiện có trong danh sách
-            permissionsList.innerHTML = '';
+        // Xóa các quyền hiện có trong danh sách
+        permissionsList.innerHTML = '';
 
-            if (selectedRole && roles[selectedRole]) {
-                // Hiển thị container danh sách quyền
-                permissionsContainer.classList.remove('hidden');
-                roleTitle.textContent = `Role: ${selectedRole} - Permissions`;
+        if (selectedRole && roles[selectedRole]) {
+            // Hiển thị container danh sách quyền
+            permissionsContainer.classList.remove('hidden');
+            roleTitle.textContent = `Role: ${selectedRole} - Permissions`;
 
-                // Lặp qua danh sách quyền và thêm checkbox
-                for (const [resource, permissions] of Object.entries(roles[selectedRole])) {
-                    // Tạo phần chứa cho từng nhóm quyền
-                    const resourceContainer = document.createElement('div');
-                    resourceContainer.className = 'mb-4 p-4 border border-gray-300 rounded-md';
+            // Lặp qua danh sách quyền và thêm checkbox
+            for (const [resource, permissions] of Object.entries(roles[selectedRole])) {
+                // Tạo phần chứa cho từng nhóm quyền
+                const resourceContainer = document.createElement('div');
+                resourceContainer.className = 'mb-4 p-4 border border-gray-300 rounded-md';
 
-                    const resourceTitle = document.createElement('h3');
-                    resourceTitle.className = 'font-medium text-gray-600 mb-2';
-                    resourceTitle.textContent = resource;
+                const resourceTitle = document.createElement('h3');
+                resourceTitle.className = 'font-medium text-gray-600 mb-2';
+                resourceTitle.textContent = resource;
 
-                    resourceContainer.appendChild(resourceTitle);
+                resourceContainer.appendChild(resourceTitle);
 
-                    // Thêm các quyền cho từng resource trong lưới 3 cột
-                    const permissionsGrid = document.createElement('div');
-                    permissionsGrid.className = 'grid grid-cols-2 gap-4';
+                // Thêm các quyền cho từng resource trong lưới 3 cột
+                const permissionsGrid = document.createElement('div');
+                permissionsGrid.className = 'grid grid-cols-3 gap-4';
 
-                    permissions.forEach(permission => {
-                        const div = document.createElement('div');
+                permissions.forEach(permission => {
+                    const div = document.createElement('div');
 
-                        const label = document.createElement('label');
-                        label.className = 'inline-flex items-center';
+                    const label = document.createElement('label');
+                    label.className = 'inline-flex items-center';
 
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.name = 'permission[]';
-                        checkbox.className = 'form-checkbox text-indigo-600';
-                        checkbox.value = permission;
-                        checkbox.checked = true;
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.name = `permissions[${resource}][]`; // Đặt tên checkbox theo dạng permission[resource][]
+                    checkbox.className = 'form-checkbox text-indigo-600';
+                    checkbox.value = permission;
+                    checkbox.checked = true; // Theo mặc định, tất cả các quyền đều được chọn
 
-                        const span = document.createElement('span');
-                        span.className = 'ml-2 text-gray-700';
-                        span.textContent = permission;
+                    // Lắng nghe sự kiện thay đổi của checkbox
+                    checkbox.addEventListener('change', updatePermissionsJson);
 
-                        label.appendChild(checkbox);
-                        label.appendChild(span);
-                        div.appendChild(label);
-                        permissionsGrid.appendChild(div);
-                    });
+                    const span = document.createElement('span');
+                    span.className = 'ml-2 text-gray-700';
+                    span.textContent = permission;
 
-                    // Thêm lưới vào container quyền
-                    resourceContainer.appendChild(permissionsGrid);
-                    permissionsList.appendChild(resourceContainer);
+                    label.appendChild(checkbox);
+                    label.appendChild(span);
+                    div.appendChild(label);
+                    permissionsGrid.appendChild(div);
+                });
+
+                // Thêm lưới vào container quyền
+                resourceContainer.appendChild(permissionsGrid);
+                permissionsList.appendChild(resourceContainer);
+            }
+
+            // Cập nhật JSON ban đầu sau khi render
+            updatePermissionsJson();
+        } else {
+            // Ẩn container nếu không có vai trò nào được chọn
+            permissionsContainer.classList.add('hidden');
+            permissionsJsonOutput.textContent = '';
+        }
+    });
+
+    // Hàm để cập nhật và render JSON dựa trên các quyền đã chọn
+    function updatePermissionsJson() {
+        const selectedPermissions = {};
+
+        // Lặp qua tất cả các checkbox và thêm quyền đã chọn vào JSON
+        const checkboxes = document.querySelectorAll('#permissions-list input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const resource = checkbox.name.match(/permissions\[([^\]]+)]\[]/)[1];
+                if (!selectedPermissions[resource]) {
+                    selectedPermissions[resource] = [];
                 }
-            } else {
-                // Ẩn container nếu không có vai trò nào được chọn
-                permissionsContainer.classList.add('hidden');
+                selectedPermissions[resource].push(checkbox.value);
             }
         });
-    </script>
+
+        // Chuyển đổi đối tượng thành JSON
+        const permissionsJson = JSON.stringify(selectedPermissions, null, 2);
+
+        // Hiển thị JSON kết quả
+        permissionsJsonOutput.textContent = permissionsJson;
+    }
+</script>

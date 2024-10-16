@@ -6,6 +6,12 @@ use System\Libraries\Session;?>
     <div class="flex items-center justify-between">
         <a href="<?= admin_url('users/add') ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add User</a>
     </div>
+    <?php if (!empty($success)): ?>
+        <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+            <?= $success; ?>
+        </div>
+    <?php endif; ?>
+
     <div class="flex flex-wrap -mx-3">
         <div class="w-full md:w-7/10 px-3 mb-6">
             <div class="bg-white shadow-md rounded p-4">

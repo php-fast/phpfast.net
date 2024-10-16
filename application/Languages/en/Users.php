@@ -6,6 +6,7 @@ return [
     'username'  =>  'Username',
     'fullname'  =>  'Fullname',
     'password'  =>  'Password',
+    'create_member_success' => 'Create member success',
     'password_repeat' => 'Password repeat',
     'email'  =>  'Email',
     'phone'  =>  'Phone',

@@ -6,6 +6,7 @@ return [
     'username'  =>  'Tên đăng nhập',
     'fullname'  =>  'Họ và tên',
     'password'  =>  'Mật khẩu',
+    'create_member_success' => 'Thêm thành viên thành công',
     'password_repeat' => 'Nhập lại mật khẩu',
     'email'  =>  'Email',
     'phone'  =>  'Số điện thoại',
