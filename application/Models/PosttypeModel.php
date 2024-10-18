@@ -7,7 +7,7 @@ class PosttypeModel extends BaseModel
 {
     protected $table = 'fast_posttype';
 
-    protected $fillable = ['name', 'slug', 'fields', 'status'];
+    protected $fillable = ['name', 'slug', 'fields', 'status', 'languages'];
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
@@ -181,9 +181,10 @@ class PosttypeModel extends BaseModel
     }
 
 
-    // Cập nhật Post Type
+    // Cập nhật Post Type trong bang posttype
     public function updatePostType($id, $data)
     {
+        $data = $this->fill($data);
         return $this->set($this->table, $data, 'id = ?', [$id]);
     }
 
@@ -198,5 +199,123 @@ class PosttypeModel extends BaseModel
     {
         $dropTableQuery = "DROP TABLE IF EXISTS `$tableName`;";
         $this->query($dropTableQuery);
+    }
+
+    public function duplicateTable($new_table, $orginal_table)
+    {
+        $sql = "CREATE TABLE $new_table LIKE $orginal_table";
+        $insert = "INSERT INTO $new_table SELECT * FROM $orginal_table";
+        $this->query($sql);
+        $this->query($insert);
+
+    }
+    public function changeTableName($oldName, $newName)
+    {
+        $sql = "RENAME TABLE $oldName TO $newName";
+        $this->query($sql);
+    }
+
+    public function removeColumn($table, $column)
+    {
+        $sql = "ALTER TABLE $table DROP COLUMN $column";
+        $this->query($sql);
+    }
+    public function addColumn($table, $column, $type)
+    {   
+        switch ($type) {
+            case 'Text':
+            case 'Email':
+            case 'Password':
+            case 'URL':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'Number':
+                $type = 'INT';
+                break;
+            case 'Date':
+                $type = 'DATE';
+                break;
+            case 'DateTime':
+                $type = 'DATETIME';
+                break;
+            case 'Textarea':
+            case 'WYSIWYG Editor':
+                $type = 'TEXT';
+                break;
+            case 'Checkbox':
+                $type = 'TINYINT(1)';
+                break;
+            case 'Radio':
+            case 'Select':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'File':
+            case 'Image':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'Images Gallery':
+                $type = 'TEXT'; // Lưu danh sách các đường dẫn ảnh dạng JSON
+                break;
+            case 'Reference':
+                $type = 'INT UNSIGNED';
+                break;
+            case 'Repeater':
+                $type = 'TEXT'; // Lưu dữ liệu động dạng JSON
+                break;
+            default:
+                $type = 'TEXT'; // Mặc định nếu không biết kiểu dữ liệu
+                break;
+        }
+        $sql = "ALTER TABLE `$table` ADD COLUMN `$column` $type";
+        $this->query($sql);
+    }
+    public function updateColumn($table, $column, $type)
+    {
+        switch ($type) {
+            case 'Text':
+            case 'Email':
+            case 'Password':
+            case 'URL':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'Number':
+                $type = 'INT';
+                break;
+            case 'Date':
+                $type = 'DATE';
+                break;
+            case 'DateTime':
+                $type = 'DATETIME';
+                break;
+            case 'Textarea':
+            case 'WYSIWYG Editor':
+                $type = 'TEXT';
+                break;
+            case 'Checkbox':
+                $type = 'TINYINT(1)';
+                break;
+            case 'Radio':
+            case 'Select':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'File':
+            case 'Image':
+                $type = 'VARCHAR(255)';
+                break;
+            case 'Images Gallery':
+                $type = 'TEXT'; // Lưu danh sách các đường dẫn ảnh dạng JSON
+                break;
+            case 'Reference':
+                $type = 'INT UNSIGNED';
+                break;
+            case 'Repeater':
+                $type = 'TEXT'; // Lưu dữ liệu động dạng JSON
+                break;
+            default:
+                $type = 'TEXT'; // Mặc định nếu không biết kiểu dữ liệu
+                break;
+        }
+        $sql = "ALTER TABLE $table MODIFY COLUMN $column $type";
+        $this->query($sql);
     }
 }

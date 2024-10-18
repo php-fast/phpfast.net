@@ -4,9 +4,9 @@ use System\Libraries\Session;
 <script src="https://cdn.tailwindcss.com"></script>
 
 <div id="app" class="container mx-auto p-4">
-        <h1 class="text-xl font-bold mb-4">Thêm Posttype</h1>
+        <h1 class="text-xl font-bold mb-4">Edit <?= $postType['name'] ?></h1>
         <!-- message -->
-         <div id="message"></div>
+         <div id="message"></div>         
         <!-- Form thêm Posttype sẽ được đặt ở đây -->
         <posttype-form></posttype-form>
     </div> 
@@ -15,8 +15,12 @@ use System\Libraries\Session;
     <!-- Script cho Vue component -->
     <script>
         var posttypeUrl = "<?= admin_url('posttype') ?>";
-        var posttypeEditUrl = "<?= admin_url('posttype/Edit') ?>";
-        var languages =   JSON.parse( '<?= json_encode( $languages) ?>');
+        var posttypeEditUrl = "<?= admin_url('posttype/edit/'.$postType['id']) ?>";
+        var languages =   JSON.parse( '<?= json_encode($languages) ?>');
+        var jsonString = <?= json_encode($postType['languages']) ?>;
+        var langSelected = JSON.parse(jsonString);
+        var fieldString = <?= json_encode($postType['fields']) ?>;
+        var fields = JSON.parse(fieldString);
     Vue.component('field-item', {
         props: ['field', 'availableFieldTypes', 'postTypesList', 'postStatusOptions', 'parentField', 'index', 'fieldsArray'],
         data() {
@@ -260,10 +264,11 @@ use System\Libraries\Session;
         data() {
             return {
                 posttype: {
-                    name: '',
-                    slug: '',
-                    languages: [],
-                    fields: [],
+                    name: '<?= $postType['name'] ?>',
+                    slug: '<?= $postType['slug'] ?>',
+                    status: '<?= $postType['status'] ?>',
+                    languages: langSelected,
+                    fields: fields,
                 },
                 languages: languages,
                 availableFieldTypes: [
@@ -318,7 +323,7 @@ use System\Libraries\Session;
             },
             submitForm() {
                 // Xử lý gửi dữ liệu đến server
-                fetch(posttypeAddUrl, {
+                fetch(posttypeEditUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -342,7 +347,6 @@ use System\Libraries\Session;
                         if (messageDiv) {
                             messageDiv.innerHTML = data.message;
                         }
-
                     }
                 })
                 .catch(error => {

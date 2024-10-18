@@ -1297,3 +1297,391 @@
 [2024-10-16 14:53:35] ERROR: SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_users.permissions` failed for `domainweb.com`.`fast_users` in /Users/macvn/Documents/www/domainweb.com/system/Drivers/Database/MysqlDriver.php on line 187
 [2024-10-16 14:54:44] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/macvn/Documents/www/domainweb.com/application/Controllers/Backend/UsersController.php on line 87
 >>>>>>> 827709032fb684cecc61b7176bd87bd25ec3bb6f
+[2024-10-16 15:37:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:37:36] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-16 15:37:41] ERROR: 404 - Router: /assets/backend/js/389a95ad7982df89d284f7414139f106.js (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:46:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:46:29] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:46:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:46:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:47:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:48:39] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:48:40] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:48:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:49:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:49:52] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:49:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:51:27] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:51:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:52:04] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:52:21] ERROR: json_encode() expects at least 1 argument, 0 given in /Users/mac/Documents/www/domainweb3.vn/application/Views/default/backend/posttype/edit.php on line 21
+[2024-10-16 15:52:21] ERROR: json_encode() expects at least 1 argument, 0 given in /Users/mac/Documents/www/domainweb3.vn/application/Views/default/backend/posttype/edit.php on line 21
+[2024-10-16 15:52:21] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:52:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:52:47] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:53:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:53:32] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:53:57] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:54:09] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:54:12] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:54:25] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:54:34] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 15:55:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:01:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:01:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:03:00] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:03:18] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:03:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:04:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:04:20] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:04:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:04:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:05:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:06:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:06:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:07:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:07:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:07:35] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:07:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:08:21] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:08:40] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:08:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:09:15] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:09:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:10:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:10:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:10:38] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:11:10] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:11:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:11:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:12:15] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:12:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:13:08] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:13:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:14:26] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:14:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:15:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:16:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:16:14] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:17:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:17:52] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:18:02] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:20:14] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:42:16] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:43:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:44:00] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:44:22] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:44:33] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:44:34] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-16 16:46:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:46:22] ERROR: Call to undefined method App\Controllers\Backend\PosttypeController::_edit() in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 173
+[2024-10-16 16:49:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:50:32] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:52:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:53:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:53:59] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 16:54:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:09:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:10:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:11:04] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:14:59] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:16:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:33:07] ERROR: 404 - Router: /assets/backend/js/389a95ad7982df89d284f7414139f106.js (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:33:08] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:33:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:33:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:34:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:35:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:36:04] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:37:06] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:37:28] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:37:29] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:38:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:38:56] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:39:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:44:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:44:02] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 193
+[2024-10-16 17:45:39] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:45:43] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 193
+[2024-10-16 17:45:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:45:54] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 193
+[2024-10-16 17:46:08] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:46:09] ERROR: sort(): Argument #1 ($array) must be of type array, string given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-16 17:48:20] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:48:23] ERROR: sort(): Argument #1 ($array) must be of type array, string given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 197
+[2024-10-16 17:48:34] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:49:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:49:45] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-16 17:51:06] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:51:10] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-16 17:51:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:51:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-16 17:52:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 08:59:28] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:16:26] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:19:52] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:21] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:25] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:20:28] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:20:28] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:20:29] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:20:41] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:20:51] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:20:51] ERROR: explode(): Argument #2 ($string) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:29] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:21:53] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:55] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:55] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:55] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:58] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:21:58] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:22:11] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 09:24:28] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 09:24:36] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 09:30:15] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:32:59] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:33:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:34:43] ERROR: array_diff(): Argument #2 must be of type array, string given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 199
+[2024-10-18 09:34:47] ERROR: array_diff(): Argument #2 must be of type array, string given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 199
+[2024-10-18 09:34:50] ERROR: array_diff(): Argument #2 must be of type array, null given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 199
+[2024-10-18 09:34:50] ERROR: array_diff(): Argument #2 must be of type array, null given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 199
+[2024-10-18 09:34:50] ERROR: array_diff(): Argument #2 must be of type array, null given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 199
+[2024-10-18 09:35:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:36:52] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:53:25] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:53:32] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:53:35] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:53:38] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:53:38] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:53:38] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:53:38] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:54:29] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:54:32] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:54:34] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:54:34] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:54:34] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:55:06] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:55:21] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:55:28] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:55:34] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:56:17] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:56:27] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:56:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 09:56:52] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 232
+[2024-10-18 09:58:37] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:58:47] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:58:49] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:59:56] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 09:59:59] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:00:02] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:00:02] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:00:02] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:00:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:00:32] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:00:33] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:10] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:11] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:11] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:12] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:42] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:42] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:02:42] ERROR: MysqlDriver->update(): SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `fast_posttype.languages` failed for `domainweb`.`fast_posttype` in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 203
+[2024-10-18 10:12:33] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 235
+[2024-10-18 10:12:36] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 235
+[2024-10-18 10:15:43] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:15:45] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 236
+[2024-10-18 10:24:52] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 10:24:58] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:25:00] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 10:25:00] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 10:25:00] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 10:25:03] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 194
+[2024-10-18 10:26:25] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:33:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:49:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:51:10] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:51:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:53:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:55:03] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 10:57:12] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:00:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:08:33] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:11:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:11:18] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:12:25] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:18:44] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:18:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:20:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:20:40] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:20:51] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:20:51] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:22:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:22:40] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:22:40] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:22:40] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:23:36] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:26:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:28:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:37:22] ERROR: 404 - Router: /assets/backend/js/389a95ad7982df89d284f7414139f106.js (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:37:23] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:37:25] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:37:46] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:37:53] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:37:56] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:41:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:41:16] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:41:32] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:41:43] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:41:50] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:41:56] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:42:37] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:42:40] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:47:32] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:47:35] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:47:48] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:47:51] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:01] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:11] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:12] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:50:19] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:19] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:50:20] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:20] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:50:24] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:50:24] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:50:34] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:51:33] ERROR: sort(): Argument #1 ($array) must be of type array, null given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 196
+[2024-10-18 11:51:34] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:51:37] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:51:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:52:12] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:52:24] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:52:47] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:53:46] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:53:48] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:53:58] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:53:58] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:54:03] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:54:11] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 11:54:17] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 11:54:19] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 12:00:05] ERROR: 404 - Router: /assets/backend/css/6a6a912d0c7b55b537768da778032849.css (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 12:00:16] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 12:00:19] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 12:01:04] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:17:58] ERROR: 404 - Router: /assets/backend/js/389a95ad7982df89d284f7414139f106.js (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:17:59] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:18:00] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:01] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:02] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:02] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:02] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:21] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:18:21] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:22] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:22] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:18:22] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 241
+[2024-10-18 13:20:55] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:35:38] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:36:42] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 242
+[2024-10-18 13:36:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:37:03] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 242
+[2024-10-18 13:37:56] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:42:12] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:42:20] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:43:42] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:48:58] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:52:42] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 13:52:56] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:52:57] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:53:48] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:55:45] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:55:47] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:55:47] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:55:47] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:55:47] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:14] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:57:24] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:29] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:29] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:29] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:29] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:42] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:43] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:43] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:57:45] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:59:26] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 13:59:28] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:59:41] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:59:42] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 13:59:43] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:00:00] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:00:02] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:03:17] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:03:24] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:04:14] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:06:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:06:32] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:06:37] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:06:46] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:07:22] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:21:25] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:21:30] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:21:32] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 108
+[2024-10-18 14:23:13] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:23:50] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:25:41] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:25:43] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:25:44] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:26:01] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:26:57] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:27:34] ERROR: json_decode(): Argument #1 ($json) must be of type string, array given in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:33:32] ERROR: Undefined constant "App\Controllers\Backend\field_name" in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 243
+[2024-10-18 14:36:33] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 14:39:56] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:42:51] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:47:56] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Controllers/Backend/PosttypeController.php on line 244
+[2024-10-18 14:49:37] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:53:50] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 93
+[2024-10-18 14:54:26] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:55:41] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:56:12] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:56:12] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:56:23] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:56:57] ERROR: Cannot use object of type stdClass as array in /Users/mac/Documents/www/domainweb3.vn/application/Helpers/Backend_helper.php on line 90
+[2024-10-18 14:59:49] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:02:31] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:05:31] ERROR: Controller App\Controllers\Backend\ImageController not found. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 108
+[2024-10-18 15:05:40] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:05:56] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:06:39] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:02] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:23] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:26] ERROR: Action image not found in App\Controllers\Backend\LanguagesController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:37] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:39] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:07:40] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:08:05] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:09:22] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:10:54] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:16:09] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:16:23] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP COLUMN `test`; check that it exists in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:16:27] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:19:31] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP COLUMN `test`; check that it exists in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:19:34] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:19:47] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '123123' at line 1 in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:21:20] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '123123' at line 1 in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:23:49] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '123123' at line 1 in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:24:05] ERROR: MysqlDriver->query(): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP COLUMN `thinh_2`; check that it exists in /Users/mac/Documents/www/domainweb3.vn/system/Drivers/Database/MysqlDriver.php on line 33
+[2024-10-18 15:25:20] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:25:20] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
+[2024-10-18 15:29:42] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:29:57] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:30:11] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 15:30:19] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 16:04:24] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 16:17:00] ERROR: Action image not found in App\Controllers\Backend\PosttypeController Controller. in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 115
+[2024-10-18 16:17:00] ERROR: 404 - Router: /favicon.ico (GET) not found! in /Users/mac/Documents/www/domainweb3.vn/system/Core/Bootstrap.php on line 85
