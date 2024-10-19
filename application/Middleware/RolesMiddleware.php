@@ -12,8 +12,6 @@ class RolesMiddleware {
      * @return mixed
      */
     public function handle($request, $next) {
-        return $next($request);
-
         // Lấy tên controller và action từ request (giả sử chúng được lưu trong request)
         $controller = $request['controller'] ?? '';
         $action = $request['action'] ?? '';

@@ -18,7 +18,6 @@ use System\Libraries\Session;
         var posttypeUrl = "<?= admin_url('posttype') ?>";
         var posttypeAddUrl = "<?= admin_url('posttype/add') ?>";
         var languages =   JSON.parse( '<?= json_encode( $languages) ?>');
-        console.log(languages);
     Vue.component('field-item', {
         props: ['field', 'availableFieldTypes', 'postTypesList', 'postStatusOptions', 'parentField', 'index', 'fieldsArray'],
         data() {
@@ -261,11 +260,13 @@ use System\Libraries\Session;
     Vue.component('posttype-form', {
         data() {
             return {
+                csrfToken: '<?= $csrf_token ?>',
                 posttype: {
                     name: '',
                     slug: '',
                     languages: [],
                     fields: [],
+                    status: 'active',
                 },
                 languages: languages,
                 availableFieldTypes: [
@@ -324,7 +325,8 @@ use System\Libraries\Session;
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': this.csrfToken
                     },
                     body: JSON.stringify(this.posttype)
                 })

@@ -82,3 +82,18 @@ if(!function_exists('convers_array')) {
         return $data;
     }
 }
+
+if(!function_exists('indexByFieldName')) {
+    function indexByFieldName($data) {
+        $result = [];
+        if(empty($data)) {
+            return $result;
+        }
+        foreach ($data as $item) {
+            if(isset($item['field_name'])) {
+                $result[$item['field_name']] = $item;
+            }
+        }
+        return $result;
+    }
+}
