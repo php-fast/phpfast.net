@@ -2,11 +2,16 @@
 return [
     'csrf_failed'   =>  'Request CSRF timeout or not valid by double URL request!',
 
+    'welcome_user_member' => 'Welcome Member Pages',
     'title_add_member' => 'Add member',
+    'title_edit_member' => 'Edit member',
+    'button_edit_member' => 'Edit',
     'username'  =>  'Username',
     'fullname'  =>  'Fullname',
     'password'  =>  'Password',
+    'active_accouont' => 'Active account',
     'create_member_success' => 'Create member success',
+    'update_member_success' => 'Update member success',
     'password_repeat' => 'Password repeat',
     'email'  =>  'Email',
     'phone'  =>  'Phone',
@@ -15,6 +20,8 @@ return [
     'status' => 'Status',
     'select_status' => 'Select Status',
     'submit_add' => 'Submit',
+    'update_member_success' => 'Update member success',
+    'submit_update' => 'Update',
     
     // validation
     'username_double'  =>  '%1%: Username already exists in the system.',
@@ -30,8 +37,9 @@ return [
     'fullname_invalid'  =>  'Username must be letters, numbers not special characters.',
     'phone_invalid'  =>  'Phone must be format 0123456789',
     'phone_length' => 'Phone must be from %1% to %2%', 
-    'role_option' => 'Role option',
-    'permission_array_json' => 'Permission must be array',
+    'role_option' => 'Role must not be empty ',
+    'active' => 'Action',
+    'permission_array_json' => 'Permission does exists',
 
     // placeholder
     'placeholder_username' => 'Enter your Username',

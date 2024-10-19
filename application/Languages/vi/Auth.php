@@ -11,6 +11,8 @@ return [
     'username'  =>  'Tên đăng nhập',
     'fullname'  =>  'Họ và tên',
     'password'  =>  'Mật khẩu',
+    'code_active_account' => 'Mã kích hoạt tài khoản',
+    'title_email_link_reset' => 'Cập nhật lại mật khẩu',
     'password_repeat' => 'Nhập lại mật khẩu',
     'email'  =>  'Email',
     'phone'  =>  'Số điện thoại',

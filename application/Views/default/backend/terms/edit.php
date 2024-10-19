@@ -1,3 +1,8 @@
+<?php
+use System\Libraries\Session;
+use App\Libraries\Fastlang as Flang;
+?>
+
 <?php 
 function buildOptions($tree, $level = 0, $current_id = null, $parent = null)
 {
@@ -28,43 +33,94 @@ function buildOptions($tree, $level = 0, $current_id = null, $parent = null)
 
 ?>
 
-<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-  <h2 class="text-2xl font-bold mb-6">Edit Term Details</h2>
-  <form action="<?= admin_url('terms/update/' . $data['posttype'] . '/' . $data['type'] . '/' . $data['id']) ?>" method="POST">
-    <?php 
-    // Assuming $data contains term information 
-    ?>
-    <input type="hidden" name="type" value="<?= $data['type']; ?>">
-    <input type="hidden" name="posttype" value="<?= $data['posttype']; ?>">
-
-    <!-- Name -->
-    <div class="mb-4">
-      <label for="name" class="block text-gray-700 font-bold mb-2">Name:</label>
-      <input type="text" id="name" name="name" value="<?= $data['name']; ?>" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100">
+<div class="page-wrapper">
+  <div class="flex flex-wrap">
+        <!-- Sidebar left -->
+  <?php echo $sidebar; ?>
+        <!-- Content right -->
+    <div class="content-wrapper">
+      <div class="min-h-screen flex flex-col">
+        <div class="page-main flex flex-wrap flex-1 py-5 px-4 md:px-8">
+          <div class="flex flex-wrap flex-col w-full">
+            <h1 class="text-3xl font-bold mb-6"><?= $title ?></h1>
+            <?php if (!empty($success)): ?>
+              <div class="bg-green-100 text-green-800 p-4 mb-4 rounded">
+                  <?= $success; ?>
+              </div>
+            <?php endif; ?>
+            <form action="<?= admin_url('terms/edit/' . $data['posttype'] . '/' . $data['type'] . '/' . $data['id']) ?>" method="POST">
+              <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">
+              <input type="hidden" name="type" value="<?= $type ?? 'default' ?>">
+              <input type="hidden" name="posttype" value="<?= $posttype ?? 'default' ?>">
+              <!-- Form Fields Container -->
+              <div class="flex flex-wrap -mx-2">
+                <!-- name -->
+                <div class="w-full md:w-1/2 px-2 mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('lable_name') ?></label>
+                <input type="text" value="<?= $data['name']; ?>" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <!-- Display errors if any -->
+                    <?php if (!empty($errors['name'])): ?>
+                        <div class="text-red-800 mt-2 text-sm">
+                            <?php foreach ($errors['name'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <!-- slug -->
+                <div class="w-full md:w-1/2 px-2 mb-4">
+                  <label for="slug" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('lable_slug') ?></label>
+                  <input type="text" value="<?= $data['slug']; ?>" id="slug" name="slug" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <!-- Display errors if any -->
+                    <?php if (!empty($errors['slug'])): ?>
+                        <div class="text-red-800 mt-2 text-sm">
+                            <?php foreach ($errors['slug'] as $error): ?>
+                                <p><?= $error; ?></p>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                  <!-- lang -->
+                <div class="w-full md:w-1/2 px-2 mb-4">
+                  <label for="lang" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('lable_lang') ?></label>
+                  <select id="lang" name="lang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                      <!-- <option value=""><?= Flang::_e('select_lang') ?></option> -->
+                      <?php foreach($lang as $item) { ?>
+                          <option value="<?= $item['id'] ?>" <?= $data['lang'] == $item['id'] ? 'selected' : '' ?>><?= $item['name'] ?></option>
+                      <?php } ?>
+                  </select>
+                  <!-- Display errors if any -->
+                  <?php if (!empty($errors['lang'])): ?>
+                      <div class="text-red-800 mt-2 text-sm">
+                          <?php foreach ($errors['lang'] as $error): ?>
+                              <p><?= $error; ?></p>
+                          <?php endforeach; ?>
+                      </div>
+                  <?php endif; ?>
+                </div>
+                <!-- parent -->
+                <div class="w-full md:w-1/2 px-2 mb-4">
+                  <label for="parent" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('lable_parent') ?></label>
+                  <select id="parent" name="parent" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <?= buildOptions($tree, 0, $data['id'], $data['parent']) ?>
+                  </select>
+                  <!-- Display errors if any -->
+                  <?php if (!empty($errors['parent'])): ?>
+                      <div class="text-red-800 mt-2 text-sm">
+                          <?php foreach ($errors['parent'] as $error): ?>
+                              <p><?= $error; ?></p>
+                          <?php endforeach; ?>
+                      </div>
+                  <?php endif; ?>
+                </div>
+            <!-- Submit Button -->
+              <div class="flex items-center justify-between">
+              <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 me-2"><?= Flang::_e('btn_update') ?></button>
+              <a href="<?= admin_url('terms/delete/' . $data['posttype'] . '/' . $data['type'] . '/' . $data['id']); ?>" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"><?= Flang::_e('btn_del') ?></a>
+              </div>
+            </form>
+        </div>
+      </div>
     </div>
-
-    <!-- Slug -->
-    <div class="mb-4">
-      <label for="slug" class="block text-gray-700 font-bold mb-2">Slug:</label>
-      <input type="text" id="slug" name="slug" value="<?= $data['slug']; ?>" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100">
   </div>
-
-    <!-- Description -->
-    <div class="mb-4">
-      <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
-      <textarea id="description" name="description" rows="3" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100"><?= $data['description'] ?></textarea>
-    </div>
-    <div class="mb-4">
-      <label for="parent" class="block text-gray-700 font-bold mb-2">Parent</label>
-      <select id="parent" name="parent" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-          <?= buildOptions($tree, 0, $data['id'], $data['parent']) ?>
-      </select>
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex space-x-4">
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
-    <a href="<?= admin_url('terms/delete/' . $data['posttype'] . '/' . $data['type'] . '/' . $data['id']); ?>" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Delete</a>
-    </div>
-  </form>
 </div>

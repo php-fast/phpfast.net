@@ -19,24 +19,30 @@ function xss_clean($data) {
  * Hàm clean_input
  * Làm sạch dữ liệu đầu vào để tránh các lỗ hổng bảo mật như XSS
  * 
- * @param string $data Dữ liệu cần làm sạch
- * @return string Dữ liệu đã được làm sạch
+ * @param mixed $data Dữ liệu cần làm sạch (chuỗi hoặc mảng)
+ * @return mixed Dữ liệu đã được làm sạch
  */
-// function clean_input($data) {
-//     return trim(stripslashes(htmlspecialchars($data, ENT_QUOTES, 'UTF-8')));
-// }
 function clean_input($data) {
-    // Loại bỏ khoảng trắng ở đầu và cuối
-    $data = trim($data);
-    // Xóa các ký tự backslashes \
-    $data = stripslashes($data);
-    // Loại bỏ các ký tự không mong muốn như ', "
-    $data = str_replace(["'", '"'], '', $data);
-    // Chuyển đổi các ký tự đặc biệt thành các thực thể HTML
-    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    // Loại bỏ các ký tự không phải chữ cái, số, dấu cách và dấu câu cơ bản
-    $data = preg_replace('/[^\w\s\p{P}]/u', '', $data);
-    return $data;
+    if (is_array($data)) {
+        // Nếu $data là một mảng, áp dụng clean_input cho từng phần tử
+        foreach ($data as $key => $value) {
+            $data[$key] = clean_input($value);
+        }
+        return $data;
+    } else {
+        // Nếu $data là một chuỗi, làm sạch như bình thường
+        // Loại bỏ khoảng trắng ở đầu và cuối
+        $data = trim($data);
+        // Xóa các ký tự backslashes \
+        $data = stripslashes($data);
+        // Loại bỏ các ký tự không mong muốn như ', "
+        $data = str_replace(["'", '"'], '', $data);
+        // Chuyển đổi các ký tự đặc biệt thành các thực thể HTML
+        $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+        // Loại bỏ các ký tự không phải chữ cái, số, dấu cách và dấu câu cơ bản
+        $data = preg_replace('/[^\w\s\p{P}]/u', '', $data);
+        return $data;
+    }
 }
 
 /**

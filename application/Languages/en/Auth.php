@@ -11,7 +11,9 @@ return [
     'username'  =>  'Username',
     'fullname'  =>  'Fullname',
     'password'  =>  'Password',
+    'code_active_account' => 'Code active account',
     'password_repeat' => 'Password repeat',
+    'title_email_link_reset' => 'Reset password for user',
     'email'  =>  'Email',
     'phone'  =>  'Phone',
     'active_send_email' => 'A new activation code has been sent to your email.',
@@ -72,8 +74,8 @@ return [
     'users_noactive'  =>  '%1%: Your account no active! Please check Inbox or Spam Mail for active this account!',
 
     //validate
-    'account_active' => 'Account is active',
-    'username_double'  =>  '%1%: Username already exists in the system.',
+    'account_active' => 'tài khoản đã hoạt động',
+    'username_double'  =>  '%1%: Username alrea,dy exists in the system.',
     'username_invalid'  =>  'Username must be letters, numbers not special characters.',
     'username_length'   =>  'Username length required is %1% to %2% characters.',
     'email_double'  =>  '%1%: Username already exists in the system.',

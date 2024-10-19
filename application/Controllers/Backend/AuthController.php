@@ -87,7 +87,7 @@ class AuthController extends BaseController
         // Hiển thị trang đăng nhập: Nếu ko có request login, or validate that bai
         $this->data('title', Flang::_e('login_welcome'));
         $this->data('csrf_token', Session::csrf_token(600)); //token security login chi ton tai 10 phut.
-     
+        
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
         // $this->data('footer', 'Trang nay khong can footer');
@@ -277,7 +277,7 @@ class AuthController extends BaseController
             //$emailContent = Render::component('common/email/activation', ['username' => $input['username'], 'activation_link' => $activationLink]);
             //echo $emailContent;die;
             $this->mailer = new Fastmail();
-            $this->mailer->send($input['email'], 'Kích hoạt tài khoản', 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
+            $this->mailer->send($input['email'], Flang::_e('active_account'), 'activation', ['username' => $input['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
             
             Session::flash('success', Flang::_e('regsiter_success'));
             $this->data('csrf_token', Session::csrf_token(600));
@@ -548,7 +548,7 @@ class AuthController extends BaseController
         // Gửi email mã kích hoạt mới
         $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode.'/');
         $this->mailer = new Fastmail();
-        $this->mailer->send($user['email'], 'Mã lích hoạt lại tài khoản', 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
+        $this->mailer->send($user['email'], Flang::_e('code_active_account'), 'activation', ['username' => $user['username'], 'activation_link' => $activationLink, 'activation_no' => $activationNo]);
         Session::flash('success', Flang::_e('active_send_email'));
 
         redirect(auth_url('activation/' . $user_id));
@@ -572,10 +572,9 @@ class AuthController extends BaseController
         $reset_link = auth_url('forgot_password/' . $user_id . '/' . $token .'/');
         // Gửi email link reset password
         $this->mailer = new Fastmail();
-        $this->mailer->send($user['email'], 'Link reset password for user', 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
+        $this->mailer->send($user['email'], Flang::_r('title_email_link_reset'), 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
         Session::flash('success', Flang::_e('link_reset_password') .$user['email']);
-        // redirect(auth_url('activation/' . $user_id));
     }   
 
     /**
@@ -695,9 +694,6 @@ class AuthController extends BaseController
         
         $this->render('backend', 'backend/auth/profile');
     }
-
-
-
 
     // Kiểm tra quyền truy cập (middleware)
     // public function _checkPermission($controller, $action)

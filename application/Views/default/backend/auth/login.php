@@ -58,7 +58,6 @@ if (Session::has_flash('error')){
                         <?php endforeach; ?>
                      </div>
                   <?php endif; ?>
-               
                 </div>
                 <div class="fieldset">
                   <label
@@ -198,6 +197,7 @@ if (Session::has_flash('error')){
                 </a>
               </form> 
             </div>
+
           </div>
         </div>
       </div>

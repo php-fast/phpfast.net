@@ -2741,4 +2741,8 @@ input#code2FA, input[name="password_repeat"] {
 }.bg-red-500{
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }

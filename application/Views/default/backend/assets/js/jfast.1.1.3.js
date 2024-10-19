@@ -667,3 +667,4 @@
     global.$ = jFast;
 
 }(window));
+
