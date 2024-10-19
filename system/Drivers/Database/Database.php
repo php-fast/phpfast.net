@@ -1,5 +1,4 @@
 <?php
-
 namespace System\Drivers\Database;
 
 abstract class Database {
@@ -47,34 +46,37 @@ abstract class Database {
      * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
      * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
-     * @param int $page Number trang hien tai cua phan trang
      * @param int $limit Số lượng kết quả cần giới hạn (tùy chọn)
+     * @param int $offset Vị trí bắt đầu lấy kết quả (tùy chọn)
      * @return array Mảng chứa kết quả truy vấn
      */
-    abstract public function fetchAll($table, $where = '', $params = [], $orderBy = '', $page=1, $limit = null);
+    abstract public function fetchAll($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null);
 
     /**
-     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang
+     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang, hỗ trợ tính toán offset từ số trang
+     * Example: $users = $db->fetchPagination('users', 'age > ? AND status = ?', [30, 'active'], 'age DESC', 10, 20);
      * 
-     * @param string $table Tên bảng cần truy vấn
+     * @param string $table Tên bảng
      * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
-     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
+     * @param array $params Mảng giá trị tương ứng với chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
-     * @param int $limit Số lượng kết quả cần giới hạn cho mỗi trang
-     * @param int $page So trang phan trang bat dau
-     * @return array Mảng chứa kết quả truy vấn và thông tin về trang tiếp theo
+     * @param int $page Vị trí bắt đầu lấy kết quả (tùy chọn)
+     * @param int $limit Số lượng kết quả trả về cho mỗi trang (tùy chọn)
+     * @return array Kết quả truy vấn và thông tin có trang tiếp theo hay không
      */
     abstract public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null);
-
+    
     /**
      * Thực thi truy vấn SELECT lấy 1 dòng
      * 
      * @param string $table Tên bảng cần truy vấn
      * @param string $where Điều kiện WHERE dưới dạng chuỗi
      * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE
+     * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
+     * @param int $page Vị trí trang hiện tại (tùy chọn)
      * @return array|null Mảng chứa kết quả truy vấn hoặc null nếu không có kết quả
      */
-    abstract public function fetchRow($table, $where = '', $params = []);
+    abstract public function fetchRow($table, $where = '', $params = [], $orderBy = '', $page = 1);
 
     /**
      * Thực thi truy vấn INSERT

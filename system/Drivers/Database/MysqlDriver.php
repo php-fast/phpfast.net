@@ -24,37 +24,64 @@ class MysqlDriver extends Database {
         }
     }
 
-    // Thực thi truy vấn SQL tùy ý
-    public function query($query, $params = []) {
+    /**
+     * Thực thi truy vấn SQL tùy ý
+     * 
+     * @param string $query Câu lệnh SQL cần thực thi
+     * @param array $params Mảng giá trị tương ứng với các tham số trong câu lệnh SQL
+     * @return mixed Kết quả của truy vấn (sử dụng cho SELECT, INSERT, UPDATE, DELETE)
+     */
+    public function query($query, $params = [])
+    {
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
+            if (preg_match('/^\s*(SELECT|SHOW|DESCRIBE|EXPLAIN)\s/i', $query)) {
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $stmt->rowCount();
         } catch (PDOException $e) {
             throw new \System\Core\AppException("MysqlDriver->query(): " . $e->getMessage(), 500);
         }
-        return $stmt;
     }
 
-    // Lấy ID của bản ghi vừa chèn
+    /**
+     * Lấy ID của bản ghi vừa chèn
+     * 
+     * @return string ID của bản ghi vừa chèn
+     */
     public function lastInsertId() {
-        return $this->pdo->lastInsertId();
+        try {
+            return $this->pdo->lastInsertId();
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->lastInsertId(): " . $e->getMessage(), 500);
+        }
     }
 
-    // Đếm số bản ghi trong bảng
+    /**
+     * Đếm số bản ghi trong bảng
+     * 
+     * @param string $table Tên bảng cần đếm số bản ghi
+     * @param string $where Điều kiện WHERE để đếm số bản ghi (tùy chọn)
+     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
+     * @return int Số bản ghi trong bảng
+     */
     public function count($table, $where = '', $params = []) {
+        $table = '`' . str_replace('`', '``', $table) . '`';
         $query = "SELECT COUNT(*) as count FROM {$table}";
         if ($where) {
             $query .= " WHERE {$where}";
         }
         try {
-            $stmt = $this->query($query, $params);
-            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $result = $this->query($query, $params);
         } catch (PDOException $e) {
             throw new \System\Core\AppException("MysqlDriver->count(): " . $e->getMessage(), 500);
         }
-        return $result['count'] ?? 0;
+        if (!empty($result)){
+            return $result[0]['count'];
+        }
+        return 0;
     }
-
 
     /**
      * Chuẩn bị một câu truy vấn SQL (PDO::prepare)
@@ -63,7 +90,11 @@ class MysqlDriver extends Database {
      * @return PDOStatement Đối tượng PDOStatement
      */
     public function prepare($query) {
-        return $this->pdo->prepare($query);
+        try {
+            return $this->pdo->prepare($query);
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->prepare(): " . $e->getMessage(), 500);
+        }
     }
 
     /**
@@ -74,22 +105,26 @@ class MysqlDriver extends Database {
      * @return bool Kết quả thực thi
      */
     public function execute($stmt, $params = []) {
-        return $stmt->execute($params);
+        try {
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->execute(): " . $e->getMessage(), 500);
+        }
     }
 
     /**
      * Thực thi truy vấn SELECT lấy nhiều dòng
-     * Example: $users = $db->fetchAll('users', 'age > ? AND status = ?', [30, 'active'], 'age DESC', 1, 10);
      * 
-     * @param string $table Tên bảng
+     * @param string $table Tên bảng cần truy vấn
      * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
-     * @param array $params Mảng giá trị tương ứng với chuỗi WHERE (tùy chọn)
+     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
-     * @param int $page So trang hien tai cua phan trang
-     * @param int $limit Số lượng kết quả trả về cho mỗi trang (tùy chọn)
-     * @return array Kết quả truy vấn
+     * @param int $page Vị trí trang hiện tại (tùy chọn)
+     * @param int $limit Số lượng kết quả cần giới hạn (tùy chọn)
+     * @return array Mảng chứa kết quả truy vấn
      */
     public function fetchAll($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null) {
+        $table = '`' . str_replace('`', '``', $table) . '`';
         $sql = "SELECT * FROM {$table}";
         if ($where) {
             $sql .= " WHERE {$where}";
@@ -98,9 +133,11 @@ class MysqlDriver extends Database {
             $sql .= " ORDER BY {$orderBy}";
         }
         if (!is_null($limit)) {
-            $offset = ($page-1)*$limit;
+            $page = max((int)$page, 1);
+            $limit = (int)$limit;
+            $offset = ($page - 1) * $limit;
             $sql .= " LIMIT {$limit}";
-            if (!is_null($offset) && $offset > 0) {
+            if ($offset > 0) {
                 $sql .= " OFFSET {$offset}";
             }
         }
@@ -110,31 +147,68 @@ class MysqlDriver extends Database {
         } catch (PDOException $e) {
             throw new \System\Core\AppException("MysqlDriver->fetchAll(): " . $e->getMessage(), 500);
         }
-        
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
-     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang, hỗ trợ tính toán offset từ số trang
-     * Example: $users = $db->fetchPagination('users', 'age > ? AND status = ?', [30, 'active'], 'age DESC', 10, 20);
+     * Thực thi truy vấn SELECT lấy nhiều dòng với phân trang
      * 
      * @param string $table Tên bảng
      * @param string $where Điều kiện WHERE dưới dạng chuỗi (tùy chọn)
      * @param array $params Mảng giá trị tương ứng với chuỗi WHERE (tùy chọn)
      * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
-     * @param int $page So trang hien tai cua phan trang
+     * @param int $page Vị trí trang hiện tại (tùy chọn)
      * @param int $limit Số lượng kết quả trả về cho mỗi trang (tùy chọn)
      * @return array Kết quả truy vấn và thông tin có trang tiếp theo hay không
      */
     public function fetchPagination($table, $where = '', $params = [], $orderBy = '', $page = 1, $limit = null) {
-        $hasNextPage = false;
-        $page = $page ?? 1;  // Mặc định là trang 1 nếu không truyền
-        $limit = $limit ?? 10;  // Mặc định là 10 bản ghi nếu không truyền
-        $offset = ($page-1)*$limit;
+        try {
+            $table = '`' . str_replace('`', '``', $table) . '`';
+            $hasNextPage = false;
+            $page = max((int)$page, 1);
+            $limit = (int)$limit ?: 10;
+            $offset = ($page - 1) * $limit;
+            $limitExtra = $limit + 1;
 
-        // Lấy dư ra 1 bản ghi để kiểm tra có trang tiếp theo
-        $limitExtra = $limit + 1;
+            $sql = "SELECT * FROM {$table}";
+            if ($where) {
+                $sql .= " WHERE {$where}";
+            }
+            if ($orderBy) {
+                $sql .= " ORDER BY {$orderBy}";
+            }
+            $sql .= " LIMIT {$limitExtra} OFFSET {$offset}";
 
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($results) > $limit) {
+                $hasNextPage = true;
+                array_pop($results);
+            }
+            return [
+                'data' => $results,
+                'is_next' => $hasNextPage,
+                'page' => $page
+            ];
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->fetchPagination(): " . $e->getMessage(), 500);
+        }
+    }
+
+    /**
+     * Thực thi truy vấn SELECT lấy 1 dòng
+     * 
+     * @param string $table Tên bảng cần truy vấn
+     * @param string $where Điều kiện WHERE dưới dạng chuỗi
+     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE
+     * @param string $orderBy Câu lệnh ORDER BY (tùy chọn)
+     * @param int $page Vị trí trang hiện tại (tùy chọn)
+     * @return array|null Mảng chứa kết quả truy vấn hoặc null nếu không có kết quả
+     */
+    public function fetchRow($table, $where = '', $params = [], $orderBy = '', $page = 1) {
+        $table = '`' . str_replace('`', '``', $table) . '`';
         $sql = "SELECT * FROM {$table}";
         if ($where) {
             $sql .= " WHERE {$where}";
@@ -142,57 +216,66 @@ class MysqlDriver extends Database {
         if ($orderBy) {
             $sql .= " ORDER BY {$orderBy}";
         }
-        $sql .= " LIMIT {$limitExtra} OFFSET {$offset}";
 
-        try{
+        // Tính toán OFFSET dựa trên $page (mặc định là 1)
+        $page = max((int)$page, 1);
+        $offset = ($page - 1);
+
+        // Luôn lấy 1 dòng
+        $sql .= " LIMIT 1";
+        if ($offset > 0) {
+            $sql .= " OFFSET {$offset}";
+        }
+
+        try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($params);
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            throw new \System\Core\AppException("MysqlDriver->fetchPagination(): " . $e->getMessage(), 500);
+            throw new \System\Core\AppException("MysqlDriver->fetchRow(): " . $e->getMessage(), 500);
         }
-        
-
-        // Kiểm tra xem có trang tiếp theo hay không
-        if (count($results) > $limit) {
-            $hasNextPage = true;
-            // Loại bỏ bản ghi dư ra
-            array_pop($results);
-        }
-        return [
-            'data' => $results,
-            'is_next' => $hasNextPage,
-            'page' => $page
-        ];
-    }
-
-    /**
-     * Thực thi truy vấn SELECT lấy 1 dòng
-     */
-    public function fetchRow($table, $where = '', $params = []) {
-        $sql = "SELECT * FROM {$table} WHERE {$where} LIMIT 1";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($params);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
      * Thực thi truy vấn INSERT
+     * 
+     * @param string $table Tên bảng cần chèn dữ liệu
+     * @param array $data Mảng dữ liệu cần chèn (dưới dạng 'cột' => 'giá trị')
+     * @return bool Trả về true nếu chèn dữ liệu thành công, ngược lại là false
      */
     public function insert($table, $data) {
-        $keys = implode(',', array_keys($data));
+        $table = '`' . str_replace('`', '``', $table) . '`';
+        $columns = array_keys($data);
+        $columns_escaped = array_map(function($col) {
+            return '`' . str_replace('`', '``', $col) . '`';
+        }, $columns);
+        $keys = implode(',', $columns_escaped);
         $placeholders = implode(',', array_fill(0, count($data), '?'));
         $sql = "INSERT INTO {$table} ({$keys}) VALUES ({$placeholders})";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(array_values($data));
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute(array_values($data));
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->insert(): " . $e->getMessage(), 500);
+        }
     }
 
     /**
      * Thực thi truy vấn UPDATE
+     * 
+     * @param string $table Tên bảng cần cập nhật
+     * @param array $data Mảng dữ liệu cần cập nhật (dưới dạng 'cột' => 'giá trị')
+     * @param string $where Điều kiện WHERE để cập nhật dữ liệu
+     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE
+     * @return bool Trả về true nếu cập nhật thành công, ngược lại là false
      */
     public function update($table, $data, $where = '', $params = []) {
         try {
-            $set = implode(' = ?, ', array_keys($data)) . ' = ?';
+            $table = '`' . str_replace('`', '``', $table) . '`';
+            $columns = array_keys($data);
+            $set = implode(', ', array_map(function($col) {
+                return '`' . str_replace('`', '``', $col) . '` = ?';
+            }, $columns));
             $sql = "UPDATE {$table} SET {$set}";
             if ($where) {
                 $sql .= " WHERE {$where}";
@@ -206,13 +289,23 @@ class MysqlDriver extends Database {
 
     /**
      * Thực thi truy vấn DELETE
+     * 
+     * @param string $table Tên bảng cần xóa dữ liệu
+     * @param string $where Điều kiện WHERE để xóa dữ liệu
+     * @param array $params Mảng giá trị tương ứng với các tham số trong chuỗi WHERE
+     * @return bool Trả về true nếu xóa thành công, ngược lại là false
      */
     public function delete($table, $where = '', $params = []) {
-        $sql = "DELETE FROM {$table}";
-        if ($where) {
-            $sql .= " WHERE {$where}";
+        try {
+            $table = '`' . str_replace('`', '``', $table) . '`';
+            $sql = "DELETE FROM {$table}";
+            if ($where) {
+                $sql .= " WHERE {$where}";
+            }
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute($params);
+        } catch (PDOException $e) {
+            throw new \System\Core\AppException("MysqlDriver->delete(): " . $e->getMessage(), 500);
         }
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute($params);
     }
 }
