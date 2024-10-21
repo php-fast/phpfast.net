@@ -572,7 +572,7 @@ class AuthController extends BaseController
         $reset_link = auth_url('forgot_password/' . $user_id . '/' . $token .'/');
         // Gửi email link reset password
         $this->mailer = new Fastmail();
-        $this->mailer->send($user['email'], Flang::_r('title_email_link_reset'), 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
+        $this->mailer->send($user['email'], Flang::_e('title_email_link_reset'), 'reset_password', ['username' => $user['username'], 'reset_link' => $reset_link]);
 
         Session::flash('success', Flang::_e('link_reset_password') .$user['email']);
     }   

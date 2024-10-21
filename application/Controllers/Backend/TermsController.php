@@ -12,10 +12,9 @@ use App\Helpers\Backend_helper;
 use System\Libraries\Validate;
 
 class TermsController extends BaseController {
-    protected  $termsModel;
+    protected $termsModel;
     protected $assets;
-    protected  $LanguagesModel;
-
+    protected $LanguagesModel;
     public function __construct()
     {
         load_helpers(['backend']);
@@ -27,7 +26,6 @@ class TermsController extends BaseController {
         $this->assets->add('css', 'css/style.css', 'head');
         $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
         $this->assets->add('js', 'js/terms.js', 'footer');
-        $this->assets->add('js', 'js/authorize.js', 'footer');
         $sidebar = Render::component('backend/component/main_sidebar');
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
