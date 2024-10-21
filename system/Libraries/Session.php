@@ -162,6 +162,10 @@ class Session {
     public static function csrf_verify($token) {
         self::start();
         self::csrf_clean();
+        // Kiểm tra token có hợp lệ hay không (token không được rỗng và phải chứa '::')
+        if (empty($token) || strpos($token, '::') === false) {
+            return false;
+        }
         // Bóc tách csrf_id và csrf_token từ chuỗi truyền vào
         list($csrfId, $csrfToken) = explode('::', $token);
 

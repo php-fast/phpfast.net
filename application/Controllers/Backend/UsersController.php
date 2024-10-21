@@ -36,18 +36,18 @@ class UsersController extends BaseController {
     }
 
     public function index() {
-        if (Session::has('user_id')) {
-            $users = $this->usersModel->getUsers();
-            $this->data('users', $users);
-            $this->data('title', 'Welcome Roles Pages');
-            $this->assets->add('js', 'js/users.js', 'footer');
-            $this->data('assets_header', $this->assets->header('backend'));
-            $this->data('assets_footer', $this->assets->footer('backend'));
-            $this->render('backend', 'backend/users/list');
-        }
-        else {
-            redirect(auth_url('login'));
-        }
+        $page = S_GET('page') > 1 ? S_GET('page') : 1;
+        $limit  = S_GET('limit') >= 1 ? S_GET('limit') : 10;
+        $users = $this->usersModel->getUsersPage('', [], 'id DESC', $page, $limit);
+        
+        $this->data('page', $page);
+        $this->data('limit', $limit); 
+        $this->data('users', $users);
+        $this->data('title', 'Welcome Roles Pages');
+        $this->assets->add('js', 'js/users.js', 'footer');
+        $this->data('assets_header', $this->assets->header('backend'));
+        $this->data('assets_footer', $this->assets->footer('backend'));
+        $this->render('backend', 'backend/users/index');
     }
     //index, add, edit, delete, upda
     public function add() {
@@ -249,29 +249,20 @@ class UsersController extends BaseController {
             redirect(admin_url('users/index'));
         }
     
-        if (HAS_POST('username')) {
+        if (!empty($_POST)) {
             $csrf_token = S_POST('csrf_token') ?? '';
             if (!Session::csrf_verify($csrf_token)) {
                 $this->data('error', Flang::_e('csrf_failed'));
             }
     
-            $permissions = S_POST('permissions') ?? [];
-            if (!is_array($permissions)) {
-                $permissions = [];
-            }
+            // Initialize an empty array for rules
+            $rules = [];
+            $input = [];
     
-            $input = [
-                'username' => S_POST('username') ?? '',
-                'fullname' => S_POST('fullname') ?? '',
-                'email' => S_POST('email') ?? '',
-                'phone' => S_POST('phone') ?? '',
-                'role' => S_POST('role') ?? '',
-                'permissions' => json_encode($permissions),
-                'status' => S_POST('status') ?? '',
-            ];
-    
-            $rules = [
-                'username' => [
+            // Check each field and add the validation rules accordingly
+            if (HAS_POST('username')) {
+                $input['username'] = S_POST('username') ?? '';
+                $rules['username'] = [
                     'rules' => [
                         Validate::alnum('_'),
                         Validate::length(6, 30)
@@ -280,16 +271,22 @@ class UsersController extends BaseController {
                         Flang::_e('username_invalid'),
                         Flang::_e('username_length', 6, 30)
                     ]
-                ],
-                'fullname' => [
+                ];
+            }
+            if (HAS_POST('fullname')) {
+                $input['fullname'] = S_POST('fullname') ?? '';
+                $rules['fullname'] = [
                     'rules' => [
                         Validate::length(6, 50)
                     ],
                     'messages' => [
                         Flang::_e('fullname_length', 6, 50)
                     ]
-                ],
-                'email' => [
+                ];
+            }
+            if (HAS_POST('email')) {
+                $input['email'] = S_POST('email') ?? '';
+                $rules['email'] = [
                     'rules' => [
                         Validate::email(),
                         Validate::length(6, 150)
@@ -298,8 +295,11 @@ class UsersController extends BaseController {
                         Flang::_e('email_invalid'),
                         Flang::_e('email_length', 6, 150)
                     ]
-                ],
-                'phone' => [
+                ];
+            }
+            if (HAS_POST('phone')) {
+                $input['phone'] = S_POST('phone') ?? '';
+                $rules['phone'] = [
                     'rules' => [
                         Validate::phone(),
                         Validate::length(6, 30)
@@ -308,33 +308,47 @@ class UsersController extends BaseController {
                         Flang::_e('phone_invalid'),
                         Flang::_e('phone_length', 6, 30)
                     ]
-                ],
-                'role' => [
+                ];
+            }
+            if (HAS_POST('role')) {
+                $input['role'] = S_POST('role') ?? '';
+                $rules['role'] = [
                     'rules' => [
                         Validate::notEmpty(),
                     ],
                     'messages' => [
                         Flang::_e('role_option'),
                     ]
-                ],
-                'permissions' => [
+                ];
+            }
+            if (HAS_POST('permissions')) {
+                $permissions = S_POST('permissions') ?? [];
+                if (!is_array($permissions)) {
+                    $permissions = [];
+                }
+                $input['permissions'] = json_encode($permissions);
+                $rules['permissions'] = [
                     'rules' => [
                         Validate::notEmpty(),
                     ],
                     'messages' => [
                         Flang::_e('permission_array_json'),
                     ]
-                ],
-                'status' => [
+                ];
+            }
+            if (HAS_POST('status')) {
+                $input['status'] = S_POST('status') ?? '';
+                $rules['status'] = [
                     'rules' => [
                         Validate::notEmpty(),
                     ],
                     'messages' => [
                         Flang::_e('status_option'),
                     ]
-                ]
-            ];
-    
+                ];
+            }
+
+            // Validate input based on the dynamically generated rules
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Get errors and display
@@ -342,47 +356,44 @@ class UsersController extends BaseController {
                 $this->data('errors', $errors);
             } else {
                 $errors = [];
-                $existingUser = $this->usersModel->getUserByUsername($input['username']);
-                if ($existingUser && $existingUser['id'] != $user_id) {
-                    $errors['username'] = array(
-                        Flang::_e('username_double', $input['username'])
-                    );
+                // Check for duplicate username or email
+                if (isset($input['username'])) {
+                    $existingUser = $this->usersModel->getUserByUsername($input['username']);
+                    if ($existingUser && $existingUser['id'] != $user_id) {
+                        $errors['username'] = [Flang::_e('username_double', $input['username'])];
+                    }
                 }
-                $existingEmailUser = $this->usersModel->getUserByEmail($input['email']);
-                if ($existingEmailUser && $existingEmailUser['id'] != $user_id) {
-                    $errors['email'] = array(
-                        Flang::_e('email_double', $input['email'])
-                    );
+    
+                if (isset($input['email'])) {
+                    $existingEmailUser = $this->usersModel->getUserByEmail($input['email']);
+                    if ($existingEmailUser && $existingEmailUser['id'] != $user_id) {
+                        $errors['email'] = [Flang::_e('email_double', $input['email'])];
+                    }
                 }
+    
                 if (empty($errors)) {
-                    // Since we're not updating the password, we don't process it
+                    // Update user data
                     $input['updated_at'] = DateTime();
                     $this->_edit($user_id, $input);
     
-                    // After updating, retrieve the updated user data
-                    $user = $this->usersModel->getUserById($user_id);
-    
-                    // Set success message
+                    // Set success message and retrieve updated user data
                     $this->data('success', Flang::_e('update_member_success'));
+                    $user = $this->usersModel->getUserById($user_id); // Retrieve updated user
                 } else {
                     $this->data('errors', $errors);
                 }
             }
         }
-
-        $admin = config('admin', 'Roles');
-        $moderator = config('moderator', 'Roles');
-        $author = config('author', 'Roles');
-        $member = config('member', 'Roles');
     
+        // Preload roles and status for the form
         $roles = [
-            'admin' => $admin,
-            'moderator' => $moderator,
-            'author' => $author,
-            'member' => $member
+            'admin' => config('admin', 'Roles'),
+            'moderator' => config('moderator', 'Roles'),
+            'author' => config('author', 'Roles'),
+            'member' => config('member', 'Roles')
         ];
-    
         $status = ['active', 'inactive', 'banned'];
+    
         $this->data('roles', $roles);
         $this->data('status', $status);
         $this->data('user', $user); // Pass current user data to the view
@@ -395,75 +406,41 @@ class UsersController extends BaseController {
     }
     
     private function _edit($user_id, $input) {
-        $dataToUpdate = [
-            'username' => $input['username'],
-            'fullname' => $input['fullname'],
-            'email' => $input['email'],
-            'phone' => $input['phone'],
-            'role' => $input['role'],
-            'permissions' => $input['permissions'],
-            'status' => $input['status'],
-            'updated_at' => $input['updated_at'],
-        ];
+        $dataToUpdate = array_filter($input, function($value) {
+            return $value !== '';
+        }); // Remove empty values to only update filled fields
     
-        // Handle optional data
-        if ($input['status'] !== 'active') {
-            $activationNo = strtoupper(random_string(6)); // Generate a 6-character code
-            $activationCode = strtolower(random_string(20)); // Generate a 20-character code
-            $optionalData = [
-                'activation_no' => $activationNo,
-                'activation_code' => $activationCode,
-                'activation_expires' => time() + 86400,
-            ];
-            $dataToUpdate['optional'] = json_encode($optionalData);
-        } else {
-            $dataToUpdate['optional'] = null;
+        if (isset($dataToUpdate['email'])){
+            if (isset($dataToUpdate['status']) && $dataToUpdate['status'] !== 'active') {
+                $activationNo = strtoupper(random_string(6));
+                $activationCode = strtolower(random_string(20));
+                $optionalData = [
+                    'activation_no' => $activationNo,
+                    'activation_code' => $activationCode,
+                    'activation_expires' => time() + 86400,
+                ];
+                $dataToUpdate['optional'] = json_encode($optionalData);
+            } else {
+                $dataToUpdate['optional'] = null;
+            }
         }
     
         $result = $this->usersModel->updateUser($user_id, $dataToUpdate);
     
         if ($result) {
-            // If status is not 'active', send activation email
-            if ($input['status'] !== 'active') {
+            if (isset($dataToUpdate['status']) && $dataToUpdate['status'] !== 'active' && isset($dataToUpdate['email'])) {
                 $activationLink = auth_url('activation/' . $user_id . '/' . $activationCode . '/');
                 $this->mailer = new Fastmail();
-                $this->mailer->send($input['email'], Flang::_e('active_account'), 'activation', ['username' => $input['username'], 'activation_link' => $activationLink]);
+                $this->mailer->send($dataToUpdate['email'], Flang::_e('active_account'), 'activation', ['username' => $dataToUpdate['username'], 'activation_link' => $activationLink]);
+            }else{
+                if (isset($dataToUpdate['status']) && !isset($dataToUpdate['email']) && count($dataToUpdate) < 3){
+                    echo json_encode($dataToUpdate);exit();
+                }
             }
             Session::flash('success', Flang::_e('create_member_success'));
             redirect(admin_url('users/index'));
         } else {
-            // Set an error message
             $this->data('error', Flang::_e('update_error'));
-        }
-    }
-
-    public function update_status() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Lấy dữ liệu từ POST request
-            
-            $user_id = S_POST('user_id') ?? null;
-            $status = S_POST('status') ?? null;
-
-            $input = ['status' => $status];
-    
-            if ($user_id && $status) {
-                $user = $this->usersModel->updateUser($user_id, $input);
-                if ($user) {
-                    $users = $this->usersModel->getUsers();
-                    echo json_encode($users);
-                    return;
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'Database update failed']);
-                    return;
-                }
-            }
-    
-            // Nếu có lỗi, trả về kết quả thất bại
-            echo json_encode(['success' => false]);
-        } else {
-            // Phương thức không được hỗ trợ
-            http_response_code(405);
-            echo json_encode(['success' => false, 'message' => 'Method Not Allowed']);
         }
     }
     

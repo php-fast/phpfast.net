@@ -1,4 +1,5 @@
 <?php
+use System\Libraries\Render;
 use System\Libraries\Session;
 use App\Libraries\Fastlang as Flang;
 if (Session::has_flash('success')){
@@ -79,6 +80,33 @@ if (Session::has_flash('success')){
                             </tr>
                           </thead>
                           <tbody id="user-table-body" class="bg-white">
+                          
+                          <?php 
+                          if (!empty($users) && !empty($users['data'])) :
+                            foreach ($users['data'] as $user) : ?>
+                              <tr id="user-row-<?= $user['id']; ?>">
+                                  <td class="p-4 text-sm text-gray-900"><?= htmlspecialchars($user['username']); ?></td>
+                                  <td class="p-4 text-sm text-gray-900"><?= htmlspecialchars($user['fullname']); ?></td>
+                                  <td class="p-4 text-sm text-gray-900"><?= htmlspecialchars($user['phone']); ?></td>
+                                  <td class="p-4 text-sm text-gray-900"><?= htmlspecialchars($user['email']); ?></td>
+                                  <td class="p-4 text-sm text-gray-900"><?= htmlspecialchars($user['role']); ?></td>
+                                  <td class="p-4 text-sm">
+                                      <label class="inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" <?= $user['status'] === 'active' ? 'checked' : ''; ?> data-user-id="<?= $user['id']; ?>" class="status-checkbox sr-only peer">
+                                          <div class="mr-3 relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                          <span class="status complete rounded-full py-1 px-2 <?= $user['status'] === 'active' ? 'bg-success-light text-green-800' : 'bg-red-500 text-white'; ?> text-center text-xs font-medium leading-4">
+                                              <?= htmlspecialchars($user['status']); ?>
+                                          </span>
+                                      </label>
+                                  </td>
+                                  <td class="p-4 text-sm text-gray-900">
+                                      <a href="/admin/users/edit/<?= $user['id']; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                                  </td>
+                              </tr>
+                        <?php 
+                          endforeach;
+                        endif;  
+                        ?>
                           </tbody>
                         </table>
                       </div>
@@ -86,6 +114,22 @@ if (Session::has_flash('success')){
                   </div>
                 </div>
               </div>
+
+              <?php
+              $is_next = !empty($users['is_next']) && $users['is_next'] ? true:false;
+              $query_params = [];
+              if ($limit != 10){
+                $query_params['limit'] = $limit;
+              }
+              if (HAS_GET('sortby') && S_GET('sortby') != 'id'){
+                $query_params['sortby'] = S_GET('sortby');
+              }
+              if (HAS_GET('sortsc') && strtolower(S_GET('sortsc')) != 'desc'){
+                $query_params['sortsc'] = 'asc';
+              }
+              // Gọi hàm pagination với các tùy chỉnh
+              echo Render::pagination2(admin_url('users/index/'), $page, $is_next, $query_params);
+              ?>
             </div>
          </div>
         </div>

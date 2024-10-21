@@ -115,6 +115,12 @@
         }
     };
 
+    jFast.prototype.removeAttr = function(name) {
+        return this.each(function(element) {
+            element.removeAttribute(name);
+        });
+    };
+
     jFast.prototype.text = function(value) {
         if (value === undefined) {
             if (this.elements[0]) {

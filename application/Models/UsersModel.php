@@ -107,22 +107,23 @@ class UsersModel extends BaseModel {
      * @param array $params Mảng giá trị tương ứng với chuỗi điều kiện
      * @param string|null $orderBy Sắp xếp theo cột (tùy chọn)
      * @param int|null $limit Giới hạn số lượng kết quả (tùy chọn)
-     * @param int|null $offset Bắt đầu từ bản ghi thứ mấy (tùy chọn)
      * @return array Danh sách người dùng
      */
-    public function getUsers($where = '', $params = [], $orderBy = 'id DESC', $limit = null, $offset = null) {
-        return $this->list($this->table, $where, $params, $orderBy, $limit, $offset);
+    public function getUsers($where = '', $params = [], $orderBy = 'id DESC', $page = 1, $limit = null) {
+        return $this->list($this->table, $where, $params, $orderBy, $page, $limit);
     }
 
     /**
-     * Lấy danh sách người dùng với phân trang
+     * Lấy tất cả người dùng theo phan trang
      * 
-     * @param int $page Trang hiện tại
-     * @param int $limit Số lượng kết quả trên mỗi trang
-     * @return array Danh sách người dùng và thông tin phân trang
+     * @param string|null $where Điều kiện truy vấn (tùy chọn)
+     * @param array $params Mảng giá trị tương ứng với chuỗi điều kiện
+     * @param string|null $orderBy Sắp xếp theo cột (tùy chọn)
+     * @param int|null $limit Giới hạn số lượng kết quả (tùy chọn)
+     * @return array Danh sách người dùng
      */
-    public function getUsersPaging($limit = 10, $page = 1) {
-        return $this->listpaging($this->table, 'age > ?', [18], 'age DESC', $page, $limit);
+    public function getUsersPage($where = '', $params = [], $orderBy = 'id DESC', $page = 1, $limit = null) {
+        return $this->listpaging($this->table, $where, $params, $orderBy, $page, $limit);
     }
 
     /**
