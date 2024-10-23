@@ -384,7 +384,7 @@
             <?= $header; ?>
 
             <!-- Page content -->
-            <div class="page-main flex flex-wrap flex-1 py-5 px-4 md:px-8">
+            <div class="flex flex-wrap flex-1 py-5 px-4 md:px-8">
               <div class="flex flex-wrap flex-col w-full">
                 <!-- Page Title -->
                 <div class="page-title relative w-full mb-8">

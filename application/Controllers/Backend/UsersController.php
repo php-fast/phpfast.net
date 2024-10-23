@@ -1,6 +1,7 @@
 <?php
 //# Trang này giúp quản lý người dùng và phân quyền người dùng có quyền access những trang nào thôi nè. Cũng không có gì ghê gớm lắm.
 namespace App\Controllers\Backend;
+
 use System\Core\BaseController;
 use App\Models\UsersModel;
 use System\Libraries\Session;
@@ -27,6 +28,7 @@ class UsersController extends BaseController {
         $this->assets->add('css', 'css/style.css', 'head');
         $this->assets->add('js', 'js/jfast.1.1.3.js', 'footer');
         $this->assets->add('js', 'js/authorize.js', 'footer');
+        $this->assets->add('js', 'js/script.js', 'footer');
         $sidebar = Render::component('backend/component/main_sidebar');
         $header = Render::component('backend/component/header');
         $footer = Render::component('backend/component/footer');
@@ -36,20 +38,57 @@ class UsersController extends BaseController {
     }
 
     public function index() {
+
         $page = S_GET('page') > 1 ? S_GET('page') : 1;
-        $limit  = S_GET('limit') >= 1 ? S_GET('limit') : 10;
-        $users = $this->usersModel->getUsersPage('', [], 'id DESC', $page, $limit);
-        
+        $limit = S_GET('limit') >= 1 ? S_GET('limit') : 10;
+        $users = [];
+        $sortby = S_GET('sortby') ?? '';
+    
+        $orderBy = 'id DESC';
+        if (!empty($sortby)) {
+            switch ($sortby) {
+                case 'username':
+                    $orderBy = 'username ASC';
+                    break;
+                case 'email':
+                    $orderBy = 'email ASC';
+                    break;
+                case 'phone':
+                    $orderBy = 'phone ASC';
+                    break;
+                default:
+                    $orderBy = 'id DESC';
+                    break;
+            }
+        }
+
+        if (HAS_POST('search_user')) {
+            $search_user = S_POST('search_user');
+            $conditions = [
+                'username' => $search_user,
+                'email' => $search_user,
+                'phone' => $search_user
+            ];
+            $users = $this->usersModel->searchUser($conditions);
+            if (empty($users)) {
+                $this->data('error', Flang::_e('not_find_user'));
+            }
+        } else {
+            $users = $this->usersModel->getUsersPage('', [], $orderBy, $page, $limit);
+        }
+    
+        // Đặt các dữ liệu cần thiết cho view
         $this->data('page', $page);
-        $this->data('limit', $limit); 
+        $this->data('limit', $limit);
         $this->data('users', $users);
-        $this->data('title', 'Welcome Roles Pages');
+        $this->data('title', Flang::_e('welcome_user_member'));
         $this->assets->add('js', 'js/users.js', 'footer');
         $this->data('assets_header', $this->assets->header('backend'));
         $this->data('assets_footer', $this->assets->footer('backend'));
         $this->render('backend', 'backend/users/index');
     }
-    //index, add, edit, delete, upda
+
+    //index, add, edit, delete, update
     public function add() {
         if (HAS_POST('username')){
             $csrf_token = S_POST('csrf_token') ?? '';
@@ -348,7 +387,6 @@ class UsersController extends BaseController {
                 ];
             }
 
-            // Validate input based on the dynamically generated rules
             $validator = new Validate();
             if (!$validator->check($input, $rules)) {
                 // Get errors and display

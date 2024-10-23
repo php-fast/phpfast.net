@@ -228,22 +228,80 @@
         });
     };
 
+    jFast.prototype.click = function(handler) {
+        if (typeof handler === 'function') {
+            // Gán sự kiện click
+            return this.each(function(element) {
+                element.addEventListener('click', handler);
+            });
+        } else {
+            // Kích hoạt sự kiện click
+            return this.each(function(element) {
+                element.click();
+            });
+        }
+    };
+
     // Effects and Animation
-    jFast.prototype.hide = function() {
+    jFast.prototype.hide = function(duration) {
+        if (duration) {
+            return this.each(function(element) {
+                element.style.transition = `opacity ${duration}ms`;
+                element.style.opacity = 0;
+                setTimeout(function() {
+                    element.style.display = 'none';
+                }, duration);
+            });
+        } else {
+            return this.each(function(element) {
+                element.style.display = 'none';
+            });
+        }
+    };
+    
+    jFast.prototype.show = function(duration) {
         return this.each(function(element) {
-            var display = getComputedStyle(element).display;
-            if (display !== 'none') {
-                element.dataset.jFastDisplay = display;
-            }
-            element.style.display = 'none';
+            element.style.display = element.dataset.jFastDisplay || '';
+            element.style.opacity = 0;
+            element.style.transition = `opacity ${duration}ms`;
+            setTimeout(function() {
+                element.style.opacity = 1;
+            }, 10);
         });
     };
 
-    jFast.prototype.show = function() {
+    jFast.prototype.toggle = function(duration) {
         return this.each(function(element) {
-            element.style.display = element.dataset.jFastDisplay || '';
-            delete element.dataset.jFastDisplay;
+            if (getComputedStyle(element).display === 'none') {
+                $(element).show(duration);
+            } else {
+                $(element).hide(duration);
+            }
         });
+    };
+
+    jFast.prototype.focus = function() {
+        return this.each(function(element) {
+            element.focus();
+        });
+    };
+    
+    jFast.prototype.blur = function() {
+        return this.each(function(element) {
+            element.blur();
+        });
+    };
+
+    jFast.prototype.eq = function(index) {
+        return new jFast(this.elements[index] ? [this.elements[index]] : []);
+    };
+
+    jFast.prototype.first = function() {
+        return this.eq(0);
+    };
+    
+    jFast.prototype.last = function() {
+        return this.eq(this.elements.length - 1);
     };
 
     jFast.prototype.fadeIn = function(duration) {

@@ -1108,6 +1108,11 @@ video {
   border-end-end-radius: 0.5rem;
 }
 
+.rounded-r {
+  border-top-right-radius: 0.5rem; /* 4px */
+  border-bottom-right-radius: 0.5rem;
+}
+
 .border{
   border-width: 1px;
 }
@@ -2746,3 +2751,5 @@ input#code2FA, input[name="password_repeat"] {
 }.grid-cols-4{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
+
+/* ------------ */

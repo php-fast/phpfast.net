@@ -9,7 +9,7 @@ use App\Libraries\Fastlang as Flang;
         </div>
     <?php endif; ?>
     <?php if (Session::has_flash('error')): ?>
-        <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+        <div class="bg-red-200 text-red-800 p-4 mb-4 rounded">
         <?= Session::flash('error'); ?>
         </div>
     <?php endif; ?>

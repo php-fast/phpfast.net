@@ -18,7 +18,7 @@ $admin_permissions = $roles['admin'];
             <!-- Content right -->
             <div class="content-wrapper">
                 <div class="min-h-screen flex flex-col">
-                    <div class="page-main flex flex-wrap flex-1 py-5 px-4 md:px-8">
+                    <div class="flex flex-wrap flex-1 py-5 px-4 md:px-8">
                         <div class="flex flex-wrap flex-col w-full">
                             <!-- Page Title -->
                             <div class="page-title relative w-full mb-8">
@@ -32,7 +32,7 @@ $admin_permissions = $roles['admin'];
                                 <?= $success; ?>
                             </div>
                             <?php elseif (!empty($error)): ?>
-                                <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                                <div class="bg-red-200 text-red-800 p-4 mb-4 rounded">
                                     <?= $error; ?>
                                 </div>
                             <?php endif; ?>
@@ -45,7 +45,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Username -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="username" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('username') ?><span class="text-red-800">*</span></label>
-                                        <input v-model="formData.username" type="text" id="username" placeholder="<?= Flang::_e('placeholder_username') ?>" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <input v-model="formData.username" type="text" id="username" placeholder="<?= Flang::_e('placeholder_username') ?>" name="username" class="" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['username'])): ?>
                                             <div class="text-red-800 mt-2 text-sm">
@@ -59,7 +59,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Fullname -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="fullname" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('fullname') ?><span class="text-red-800">*</span></label>
-                                        <input v-model="formData.fullname" type="text" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <input v-model="formData.fullname" type="text" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" name="fullname" class="" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['fullname'])): ?>
                                             <div class="text-red-800 mt-2 text-sm">
@@ -73,7 +73,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Email -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="email" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('email') ?><span class="text-red-800">*</span></label>
-                                        <input v-model="formData.email" type="email" id="email" placeholder="<?= Flang::_e('placeholder_email') ?>" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style="padding-left: 0.5rem;" required>
+                                        <input v-model="formData.email" type="email" id="email" placeholder="<?= Flang::_e('placeholder_email') ?>" name="email" class="" style="padding-left: 0.5rem;" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['email'])): ?>
                                             <div class="text-red-800 mt-2 text-sm">
@@ -87,7 +87,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Phone -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="phone" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('phone') ?><span class="text-red-800">*</span></label>
-                                        <input v-model="formData.phone" type="text" id="phone" placeholder="<?= Flang::_e('placeholder_phone') ?>" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style="padding-left: 0.5rem;"  required>
+                                        <input v-model="formData.phone" type="text" id="phone" placeholder="<?= Flang::_e('placeholder_phone') ?>" name="phone" class="" style="padding-left: 0.5rem;"  required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['phone'])): ?>
                                             <div class="text-red-800 mt-2 text-sm">
@@ -129,7 +129,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Status -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="status" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('status') ?></label>
-                                        <select v-model="formData.status" id="status" name="status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style="padding-left: 0.5rem;" required>
+                                        <select v-model="formData.status" id="status" name="status" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none" style="padding-left: 0.5rem;" required>
                                             <?php foreach ($status as $status_option): ?>
                                                 <option value="<?= $status_option ?>"><?= $status_option ?></option>
                                             <?php endforeach; ?>
@@ -147,7 +147,7 @@ $admin_permissions = $roles['admin'];
                                     <!-- Role -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="role" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('role') ?></label>
-                                        <select v-model="selectedRole" id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <select v-model="selectedRole" id="role" name="role" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none" required>
                                             <option value=""><?= Flang::_e('select_role') ?></option>
                                             <?php foreach ($roles as $role => $permissions): ?>
                                                 <option value="<?= $role ?>"><?= $role ?></option>

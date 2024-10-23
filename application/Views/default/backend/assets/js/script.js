@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   const toggleDropDown = function () {
     $("#btnFilter").click(function () {
       $("#dropdownFilter").toggleClass("hidden");

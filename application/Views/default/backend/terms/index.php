@@ -65,7 +65,7 @@ function renderTermRows($nodes, $level = 0)
         <!-- Content right -->
         <div class="content-wrapper">
           <div class="min-h-screen flex flex-col">
-            <div class="page-main flex flex-wrap flex-1 py-5 px-4 md:px-8">
+            <div class="flex flex-wrap flex-1 py-5 px-4 md:px-8">
               <div class="flex flex-wrap flex-col w-full">
                 <h1 class="text-3xl font-bold mb-6"><?= $title ?></h1>
                 <?php if (!empty($success)): ?>

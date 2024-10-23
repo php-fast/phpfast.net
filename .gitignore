@@ -1,4 +1,5 @@
-/vendor/
-/composer.lock/
+/vendor
+/composer.lock
 /application/Config/Config.php
-/writeable/
+/writeable
+/public/assets

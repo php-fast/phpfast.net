@@ -21,7 +21,7 @@ $user_permissions = json_decode($user['permissions'], true);
             <!-- Content right -->
             <div class="content-wrapper">
                 <div class="min-h-screen flex flex-col">
-                    <div class="page-main flex flex-wrap flex-1 py-5 px-4 md:px-8">
+                    <div class="flex flex-wrap flex-1 py-5 px-4 md:px-8">
                         <div class="flex flex-wrap flex-col w-full">
                             <!-- Page Title -->
                             <div class="page-title relative w-full mb-8">
@@ -35,7 +35,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <?= $success; ?>
                                 </div>
                             <?php elseif (!empty($error)): ?>
-                                <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+                                <div class="bg-red-200 text-red-800 p-4 mb-4 rounded">
                                     <?= $error; ?>
                                 </div>
                             <?php endif; ?>
@@ -48,7 +48,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Username -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="username" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('username') ?><span class="text-red-500">*</span></label>
-                                        <input v-model="formData.username" type="text" id="username" placeholder="<?= Flang::_e('placeholder_username') ?>" name="username" value="<?= htmlspecialchars($user['username'], ENT_QUOTES) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <input v-model="formData.username" type="text" id="username" placeholder="<?= Flang::_e('placeholder_username') ?>" name="username" value="<?= htmlspecialchars($user['username'], ENT_QUOTES) ?>" class="" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['username'])): ?>
                                             <div class="text-red-500 mt-2 text-sm">
@@ -62,7 +62,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Fullname -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="fullname" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('fullname') ?><span class="text-red-500">*</span></label>
-                                        <input v-model="formData.fullname" type="text" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" name="fullname" value="<?= htmlspecialchars($user['fullname'], ENT_QUOTES) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <input v-model="formData.fullname" type="text" id="fullname" placeholder="<?= Flang::_e('placeholder_fullname') ?>" name="fullname" value="<?= htmlspecialchars($user['fullname'], ENT_QUOTES) ?>" class="" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['fullname'])): ?>
                                             <div class="text-red-500 mt-2 text-sm">
@@ -76,7 +76,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Email -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="email" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('email') ?><span class="text-red-500">*</span></label>
-                                        <input v-model="formData.email" type="email" id="email" placeholder="<?= Flang::_e('placeholder_email') ?>" name="email" value="<?= htmlspecialchars($user['email'], ENT_QUOTES) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style="padding-left: 0.5rem;" required>
+                                        <input v-model="formData.email" type="email" id="email" placeholder="<?= Flang::_e('placeholder_email') ?>" name="email" value="<?= htmlspecialchars($user['email'], ENT_QUOTES) ?>" class="" style="padding-left: 0.5rem;" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['email'])): ?>
                                             <div class="text-red-500 mt-2 text-sm">
@@ -90,7 +90,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Phone -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="phone" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('phone') ?><span class="text-red-500">*</span></label>
-                                        <input v-model="formData.phone" type="text" id="phone" placeholder="<?= Flang::_e('placeholder_phone') ?>" name="phone" value="<?= htmlspecialchars($user['phone'], ENT_QUOTES) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <input v-model="formData.phone" type="text" id="phone" placeholder="<?= Flang::_e('placeholder_phone') ?>" name="phone" value="<?= htmlspecialchars($user['phone'], ENT_QUOTES) ?>" class="" required>
                                         <!-- Display errors if any -->
                                         <?php if (!empty($errors['phone'])): ?>
                                             <div class="text-red-500 mt-2 text-sm">
@@ -104,7 +104,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Status -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="status" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('status') ?></label>
-                                        <select v-model="formData.status" id="status" name="status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <select v-model="formData.status" id="status" name="status" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                             <?php foreach ($status as $status_option): ?>
                                                 <option value="<?= $status_option ?>" <?= $user['status'] == $status_option ? 'selected' : '' ?>><?= $status_option ?></option>
                                             <?php endforeach; ?>
@@ -122,7 +122,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                     <!-- Role -->
                                     <div class="w-full md:w-1/2 px-2 mb-4">
                                         <label for="role" class="block text-gray-700 font-bold mb-2"><?= Flang::_e('role') ?></label>
-                                        <select v-model="selectedRole" id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <select v-model="selectedRole" id="role" name="role" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                             <option value=""><?= Flang::_e('select_role') ?></option>
                                             <?php foreach ($roles as $role => $permissions): ?>
                                                 <option value="<?= $role ?>" <?= $user['role'] == $role ? 'selected' : '' ?>><?= $role ?></option>
@@ -140,7 +140,7 @@ $user_permissions = json_decode($user['permissions'], true);
                                 </div>
 
                                 <!-- Permissions -->
-                                <div v-if="adminPermissions" class="mb-4 w-full p-6 bg-white border border-gray-200 rounded-lg shadow-lg">
+                                <div v-if="adminPermissions" class="mb-4 w-full p-6 bg-white border border-gray-200 rounded-lg">
                                     <h2 class="text-lg font-semibold mb-4 text-gray-700">Permissions</h2>
                                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                         <div v-for="(permissions, resource) in adminPermissions" :key="resource" class="mb-4 p-4 border border-gray-300 rounded-md">

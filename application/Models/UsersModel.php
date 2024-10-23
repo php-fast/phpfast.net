@@ -179,4 +179,28 @@ class UsersModel extends BaseModel {
         return $this->del($this->table, 'id = ?', [$id]);
     }
 
+    /**
+     * Tìm kiếm người dùng
+     * 
+     * @param $conditions trường chứa field và ký tự tìm kiếm 
+     */
+    public function searchUser($conditions = [])
+    {
+        $query = "SELECT * FROM " . $this->table;
+        $params = [];
+
+        if (!empty($conditions)) {
+            $query .= " WHERE ";
+            $whereClauses = [];
+
+            foreach ($conditions as $field => $value) {
+                $whereClauses[] = "$field LIKE ?";
+                $params[] = '%' . $value . '%';
+            }
+            $query .= implode(' OR ', $whereClauses);
+        }
+
+        return $this->query($query, $params);
+    }
+
 }

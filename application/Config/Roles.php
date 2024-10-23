@@ -3,7 +3,7 @@
 return [
     'admin' => [
         'Backend\Dashboard' => ["index", 'edit', 'delete'],
-        'Backend\Users' => ["index", 'edit', 'add', 'delete', 'update_status'],
+        'Backend\Users' => ["index", 'edit', 'add', 'delete'],
         'Backend\Posts' => ["index", 'edit', 'add', 'delete'],
         'Backend\Options' => ["index", 'edit'],
     ],

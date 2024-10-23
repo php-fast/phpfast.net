@@ -3,12 +3,12 @@ use System\Libraries\Session;
 ?><div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Chỉnh sửa ngôn ngữ</h1>
     <?php if (Session::has_flash('error')): ?>
-        <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-4">
+        <div class="bg-red-200 text-red-800 px-4 py-2 rounded mb-4">
             <?= Session::flash('error'); ?>
         </div>
     <?php endif; ?>
     <?php if (Session::has_flash('success')): ?>
-        <div class="bg-red-100 text-green-800 px-4 py-2 rounded mb-4">
+        <div class="bg-red-200 text-green-800 px-4 py-2 rounded mb-4">
             <?= Session::flash('error'); ?>
         </div>
     <?php endif; ?>
